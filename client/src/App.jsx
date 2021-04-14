@@ -1,12 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState } from "react"
 
-function App () {
+function App() {
+  const [testState, setTestState] = useState("React")
 
-  const [testState, setTestState] = useState('React')
-
-  return (
-    <div>{testState} rendering correctly!</div>
-  )
+  return <div>{testState} rendering correctly!</div>
 }
 
 export default App
