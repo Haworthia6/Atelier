@@ -19,7 +19,7 @@
     }
   ],
   "scripts": {
-    "test": ""
+    "react:start": "webpack --mode development -w"
   },
   "license": "",
   "devDependencies": {
