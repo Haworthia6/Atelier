@@ -1,0 +1,21 @@
+{
+  "name": "catwalk-fec",
+  "version": "1.0.0",
+  "description": "Project Catwalk modernizes client-facing retail web-portal",
+  "main": "index.js",
+  "repository": "https://github.com/FEC-hr-nyc36/catwalk.git",
+  "author": "<erinmgrisham@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^5.2.0"
+  }
+}
