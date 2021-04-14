@@ -1,0 +1,45 @@
+root
+|
+package.json
+|
+webpack.config.js (webpack config)
+|
+.env (environment variables)
+|
+other config files (linter, etc)
+|
+public
+   |
+   dist (static server folder)
+      |
+      index.html (static html server)
+      bundle.js (webpack output)
+      styles.sass/scss/css (css file)
+|
+client
+   |
+   spec (front-end testing/front-end API testing)
+   src (React)
+      |
+      index.jsx (render)
+      App.jsx (Parent component)
+         |
+         components (contains other components)
+|
+server
+   |
+   spec (server/server-side api tests)
+   server.js (initializes server/client to server receive)
+   controllers (send off response in controllers)
+      |
+      index.js -- (controllers to api to client)
+   |
+   routes (routes requests to correct controllers)
+      |
+      routes.js -- (server to controllers)
+   |
+   helpers
+      |
+      index.js (api to api_server to controllers)
+      various api functions files
+
