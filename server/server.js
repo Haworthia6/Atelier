@@ -1,26 +1,21 @@
-const express = require('express');
-const path = require('path');
-const app = express();
-const port = process.env.port || 1128;
-// Middleware
-const morgan = require('morgan');
-
-// Router
-var router = require('./routes/routes.js');
+const express = require("express")
+const path = require("path")
+const app = express()
+require("dotenv").config()
+const port = process.env.PORT || 1128
 
 // Use middleware
-app.use(morgan('dev'));
-app.use(express.json());
+app.use(require("cors")())
+app.use(require("morgan")("dev"))
+app.use(express.json())
+// app.use(express.urlencoded())
+// Serve static html files
+app.use(express.static(path.join(__dirname, "../public/dist")))
 
 // Set up Routes
-
-app.use('/', router);
-
-
-// Serve static html files
-app.use(express.static(path.join(__dirname, 'public', 'dist')));
+app.use("/", require("./routes/routes.js"))
 
 // Make server listen
 app.listen(port, () => {
-  console.log('LISTENING ON PORT: ', port);
+  console.log("Now listening on CORS-enabled server at PORT: ", port)
 })

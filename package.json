@@ -1,21 +1,63 @@
 {
-  "name": "catwalk-fec",
+  "name": "catwalk",
   "version": "1.0.0",
-  "description": "Project Catwalk modernizes client-facing retail web-portal",
+  "description": "A new client-facing e-commerce SPA",
   "main": "index.js",
   "repository": "https://github.com/FEC-hr-nyc36/catwalk.git",
-  "author": "<erinmgrisham@gmail.com>",
-  "license": "MIT",
+  "contributors": [
+    {
+      "name": "Eren Serpin",
+      "email": "erenserpin@gmail.com"
+    },
+    {
+      "name": "Erin Grisham",
+      "email": "erinmgrisham@gmail.com"
+    },
+    {
+      "name": "Kenny Tran",
+      "email": "kenny.tran138@gmail.com"
+    }
+  ],
+  "scripts": {
+    "dev:build": "webpack --mode development -w",
+    "dev:start": "nodemon ./server/server.js",
+    "format": "prettier --write \"**/*.+(js|jsx|json|css)\"",
+    "lint": "eslint ."
+  },
+  "license": "UNLICENSED",
   "devDependencies": {
-    "nodemon": "^2.0.7"
+    "@babel/cli": "^7.13.14",
+    "@babel/core": "^7.13.15",
+    "@babel/preset-env": "^7.13.15",
+    "@babel/preset-react": "^7.13.13",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^5.2.1",
+    "dotenv": "^8.2.0",
+    "enzyme-adapter-react-16": "^1.15.6",
+    "eslint": "^7.24.0",
+    "eslint-config-prettier": "^8.2.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "jest": "^26.6.3",
+    "jest-environment-enzyme": "^7.1.2",
+    "jest-enzyme": "^7.1.2",
+    "nodemon": "^2.0.7",
+    "prettier": "^2.2.1",
+    "redux-devtools": "^3.7.0",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.33.1",
+    "webpack-cli": "^4.6.0"
   },
   "dependencies": {
     "axios": "^0.21.1",
-    "dotenv": "^8.2.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "morgan": "^1.10.0",
-    "react": "^17.0.2",
+    "react": "16.14.0",
     "react-dom": "^17.0.2",
-    "react-router-dom": "^5.2.0"
+    "react-redux": "^7.2.3",
+    "react-router-dom": "^5.2.0",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
+    "sass": "^1.32.8"
   }
 }
