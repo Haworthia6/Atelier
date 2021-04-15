@@ -3,7 +3,7 @@ import { createStore } from 'redux'
 import rootReducer from './reducers/root'
 
 const initialState = {
-  image: {}
+  imageGallery: { src: 'test string' }
 }
 
 // Add middleware and dev tools?
