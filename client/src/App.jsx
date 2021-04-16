@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import CounterContainer from '../store/containers/CounterContainer'
+import Counter from './components/Counter'
 
 function App() {
   const [testState, setTestState] = useState("React")
@@ -7,7 +7,7 @@ function App() {
   return (
     <div>
       {testState} rendering correctly!
-      <CounterContainer />
+      <Counter />
     </div>
   )
 }
