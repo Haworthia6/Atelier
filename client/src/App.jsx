@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import ImageGalleryContainer from '../store/containers/imageGalleryContainer'
+import CounterContainer from '../store/containers/CounterContainer'
 
 function App() {
   const [testState, setTestState] = useState("React")
@@ -7,7 +7,7 @@ function App() {
   return (
     <div>
       {testState} rendering correctly!
-      <ImageGalleryContainer />
+      <CounterContainer />
     </div>
   )
 }

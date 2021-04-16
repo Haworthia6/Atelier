@@ -38,18 +38,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _store_containers_imageGalleryContainer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../store/containers/imageGalleryContainer */ \"./client/store/containers/imageGalleryContainer.js\");\nfunction _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }\n\nfunction _nonIterableRest() { throw new TypeError(\"Invalid attempt to destructure non-iterable instance.\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.\"); }\n\nfunction _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === \"string\") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === \"Object\" && o.constructor) n = o.constructor.name; if (n === \"Map\" || n === \"Set\") return Array.from(o); if (n === \"Arguments\" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }\n\nfunction _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }\n\nfunction _iterableToArrayLimit(arr, i) { if (typeof Symbol === \"undefined\" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i[\"return\"] != null) _i[\"return\"](); } finally { if (_d) throw _e; } } return _arr; }\n\nfunction _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }\n\n\n\n\nfunction App() {\n  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(\"React\"),\n      _useState2 = _slicedToArray(_useState, 2),\n      testState = _useState2[0],\n      setTestState = _useState2[1];\n\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, testState, \" rendering correctly!\", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_store_containers_imageGalleryContainer__WEBPACK_IMPORTED_MODULE_1__.default, null));\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);\n\n//# sourceURL=webpack://catwalk/./client/src/App.jsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _store_containers_CounterContainer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../store/containers/CounterContainer */ \"./client/store/containers/CounterContainer.js\");\nfunction _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }\n\nfunction _nonIterableRest() { throw new TypeError(\"Invalid attempt to destructure non-iterable instance.\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.\"); }\n\nfunction _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === \"string\") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === \"Object\" && o.constructor) n = o.constructor.name; if (n === \"Map\" || n === \"Set\") return Array.from(o); if (n === \"Arguments\" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }\n\nfunction _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }\n\nfunction _iterableToArrayLimit(arr, i) { if (typeof Symbol === \"undefined\" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i[\"return\"] != null) _i[\"return\"](); } finally { if (_d) throw _e; } } return _arr; }\n\nfunction _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }\n\n\n\n\nfunction App() {\n  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(\"React\"),\n      _useState2 = _slicedToArray(_useState, 2),\n      testState = _useState2[0],\n      setTestState = _useState2[1];\n\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, testState, \" rendering correctly!\", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_store_containers_CounterContainer__WEBPACK_IMPORTED_MODULE_1__.default, null));\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);\n\n//# sourceURL=webpack://catwalk/./client/src/App.jsx?");
 
 /***/ }),
 
-/***/ "./client/src/components/image-gallery/ImageGallery.jsx":
-/*!**************************************************************!*\
-  !*** ./client/src/components/image-gallery/ImageGallery.jsx ***!
-  \**************************************************************/
+/***/ "./client/src/components/Counter.jsx":
+/*!*******************************************!*\
+  !*** ./client/src/components/Counter.jsx ***!
+  \*******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\n\nfunction ImageGallery(_ref) {\n  var image = _ref.image,\n      handleImageChange = _ref.handleImageChange;\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, image.src);\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ImageGallery);\n\n//# sourceURL=webpack://catwalk/./client/src/components/image-gallery/ImageGallery.jsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\n\nfunction Counter(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, props.count, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"button\", {\n    onClick: function onClick() {\n      return props.increment(props.count);\n    }\n  }, \"+\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"button\", {\n    onClick: function onClick() {\n      return props.decrement(props.count);\n    }\n  }, \"-\"));\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Counter);\n\n//# sourceURL=webpack://catwalk/./client/src/components/Counter.jsx?");
 
 /***/ }),
 
@@ -60,51 +60,62 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App */ \"./client/src/App.jsx\");\n/* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../store/store */ \"./client/store/store.js\");\n/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-redux */ \"./node_modules/react-redux/es/index.js\");\n/* harmony import */ var _public_styles_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../public/styles.scss */ \"./public/styles.scss\");\n\n\n\n\n\n\nreact_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_redux__WEBPACK_IMPORTED_MODULE_4__.Provider, {\n  store: _store_store__WEBPACK_IMPORTED_MODULE_3__.default\n}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_App__WEBPACK_IMPORTED_MODULE_2__.default, null)), document.getElementById(\"root\"));\n\n//# sourceURL=webpack://catwalk/./client/src/index.jsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App */ \"./client/src/App.jsx\");\n/* harmony import */ var _public_styles_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../public/styles.scss */ \"./public/styles.scss\");\n/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-redux */ \"./node_modules/react-redux/es/index.js\");\n/* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../store/store */ \"./client/store/store.js\");\n\n\n\n\n\n\nreact_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_redux__WEBPACK_IMPORTED_MODULE_4__.Provider, {\n  store: _store_store__WEBPACK_IMPORTED_MODULE_5__.default\n}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_App__WEBPACK_IMPORTED_MODULE_2__.default, null)), document.getElementById(\"root\"));\n\n//# sourceURL=webpack://catwalk/./client/src/index.jsx?");
 
 /***/ }),
 
-/***/ "./client/store/actions/changeCurrentImage.js":
-/*!****************************************************!*\
-  !*** ./client/store/actions/changeCurrentImage.js ***!
-  \****************************************************/
+/***/ "./client/store/actions/addCount.js":
+/*!******************************************!*\
+  !*** ./client/store/actions/addCount.js ***!
+  \******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar changeCurrentImage = function changeCurrentImage(img) {\n  return {\n    type: 'CHANGE_IMAGE',\n    payload: img\n  };\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (changeCurrentImage);\n\n//# sourceURL=webpack://catwalk/./client/store/actions/changeCurrentImage.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar addCount = function addCount(currentCount) {\n  return {\n    type: 'ADD_COUNT',\n    payload: currentCount\n  };\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (addCount);\n\n//# sourceURL=webpack://catwalk/./client/store/actions/addCount.js?");
 
 /***/ }),
 
-/***/ "./client/store/containers/imageGalleryContainer.js":
-/*!**********************************************************!*\
-  !*** ./client/store/containers/imageGalleryContainer.js ***!
-  \**********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ \"./node_modules/react-redux/es/index.js\");\n/* harmony import */ var _src_components_image_gallery_ImageGallery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../src/components/image-gallery/ImageGallery */ \"./client/src/components/image-gallery/ImageGallery.jsx\");\n/* harmony import */ var _actions_changeCurrentImage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/changeCurrentImage */ \"./client/store/actions/changeCurrentImage.js\");\n\n\n\n\nvar mapState = function mapState(state) {\n  return {\n    image: state.imageGallery\n  };\n};\n\nvar mapDispatch = function mapDispatch(dispatch) {\n  return {\n    handleImageChange: function handleImageChange(img) {\n      dispatch((0,_actions_changeCurrentImage__WEBPACK_IMPORTED_MODULE_2__.default)(img));\n    }\n  };\n};\n\nvar ImageGalleryContainer = (0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mapState, mapDispatch)(_src_components_image_gallery_ImageGallery__WEBPACK_IMPORTED_MODULE_1__.default);\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ImageGalleryContainer);\n\n//# sourceURL=webpack://catwalk/./client/store/containers/imageGalleryContainer.js?");
-
-/***/ }),
-
-/***/ "./client/store/reducers/imageGallery.js":
+/***/ "./client/store/actions/subtractCount.js":
 /*!***********************************************!*\
-  !*** ./client/store/reducers/imageGallery.js ***!
+  !*** ./client/store/actions/subtractCount.js ***!
   \***********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n// Not sure if this is needed\n\n\nvar imageGalleryReducer = function imageGalleryReducer() {\n  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {\n    src: 'test string'\n  };\n  var action = arguments.length > 1 ? arguments[1] : undefined;\n\n  switch (action.type) {\n    case 'CHANGE_IMAGE':\n      {\n        return action.payload;\n      }\n\n    default:\n      {\n        return state;\n      }\n  }\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (imageGalleryReducer);\n\n//# sourceURL=webpack://catwalk/./client/store/reducers/imageGallery.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar subtractCount = function subtractCount(currentCount) {\n  return {\n    type: 'SUBTRACT_COUNT',\n    payload: currentCount\n  };\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (subtractCount);\n\n//# sourceURL=webpack://catwalk/./client/store/actions/subtractCount.js?");
 
 /***/ }),
 
-/***/ "./client/store/reducers/root.js":
-/*!***************************************!*\
-  !*** ./client/store/reducers/root.js ***!
-  \***************************************/
+/***/ "./client/store/containers/CounterContainer.js":
+/*!*****************************************************!*\
+  !*** ./client/store/containers/CounterContainer.js ***!
+  \*****************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux */ \"./node_modules/redux/es/redux.js\");\n/* harmony import */ var _imageGallery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./imageGallery */ \"./client/store/reducers/imageGallery.js\");\n\n\nvar rootReducer = (0,redux__WEBPACK_IMPORTED_MODULE_1__.combineReducers)({\n  imageGallery: _imageGallery__WEBPACK_IMPORTED_MODULE_0__.default\n});\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (rootReducer);\n\n//# sourceURL=webpack://catwalk/./client/store/reducers/root.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ \"./node_modules/react-redux/es/index.js\");\n/* harmony import */ var _src_components_Counter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../src/components/Counter */ \"./client/src/components/Counter.jsx\");\n/* harmony import */ var _actions_addCount__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/addCount */ \"./client/store/actions/addCount.js\");\n/* harmony import */ var _actions_subtractCount__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../actions/subtractCount */ \"./client/store/actions/subtractCount.js\");\n\n\n\n\n\nvar mapState = function mapState(state) {\n  return {\n    count: state.count\n  };\n}; // Under the hood applies bindActionCreators from 'redux'\n\n\nvar mapDispatch = {\n  increment: _actions_addCount__WEBPACK_IMPORTED_MODULE_2__.default,\n  decrement: _actions_subtractCount__WEBPACK_IMPORTED_MODULE_3__.default\n};\nvar CounterContainer = (0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mapState, mapDispatch)(_src_components_Counter__WEBPACK_IMPORTED_MODULE_1__.default);\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CounterContainer);\n\n//# sourceURL=webpack://catwalk/./client/store/containers/CounterContainer.js?");
+
+/***/ }),
+
+/***/ "./client/store/reducers/counterReducer.js":
+/*!*************************************************!*\
+  !*** ./client/store/reducers/counterReducer.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar counterReducer = function counterReducer() {\n  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;\n  var action = arguments.length > 1 ? arguments[1] : undefined;\n\n  switch (action.type) {\n    case 'ADD_COUNT':\n      {\n        return action.payload + 1;\n      }\n\n    case 'SUBTRACT_COUNT':\n      {\n        return action.payload - 1;\n      }\n\n    default:\n      {\n        return state;\n      }\n  }\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (counterReducer);\n\n//# sourceURL=webpack://catwalk/./client/store/reducers/counterReducer.js?");
+
+/***/ }),
+
+/***/ "./client/store/reducers/mainReducer.js":
+/*!**********************************************!*\
+  !*** ./client/store/reducers/mainReducer.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux */ \"./node_modules/redux/es/redux.js\");\n/* harmony import */ var _counterReducer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./counterReducer */ \"./client/store/reducers/counterReducer.js\");\n\n\nvar rootReducer = (0,redux__WEBPACK_IMPORTED_MODULE_1__.combineReducers)({\n  count: _counterReducer__WEBPACK_IMPORTED_MODULE_0__.default\n});\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (rootReducer);\n\n//# sourceURL=webpack://catwalk/./client/store/reducers/mainReducer.js?");
 
 /***/ }),
 
@@ -115,7 +126,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux */ \"./node_modules/redux/es/redux.js\");\n/* harmony import */ var _reducers_root__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./reducers/root */ \"./client/store/reducers/root.js\");\n // Add middleware here??\n\n\nvar initialState = {\n  image: {}\n}; // Add middleware and dev tools?\n\nvar store = (0,redux__WEBPACK_IMPORTED_MODULE_1__.createStore)(_reducers_root__WEBPACK_IMPORTED_MODULE_0__.default, initialState);\nstore.subscribe(function () {\n  console.log('Subscribed to the Redux store!');\n});\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (store);\n\n//# sourceURL=webpack://catwalk/./client/store/store.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! redux */ \"./node_modules/redux/es/redux.js\");\n/* harmony import */ var redux_thunk__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux-thunk */ \"./node_modules/redux-thunk/es/index.js\");\n/* harmony import */ var _reducers_mainReducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./reducers/mainReducer */ \"./client/store/reducers/mainReducer.js\");\n\n\n\nvar initialState = {\n  count: 0\n};\nvar store = (0,redux__WEBPACK_IMPORTED_MODULE_2__.createStore)(_reducers_mainReducer__WEBPACK_IMPORTED_MODULE_1__.default, initialState, (0,redux__WEBPACK_IMPORTED_MODULE_2__.compose)((0,redux__WEBPACK_IMPORTED_MODULE_2__.applyMiddleware)(redux_thunk__WEBPACK_IMPORTED_MODULE_0__.default), window.devToolsExtension ? window.devToolsExtension() : function (f) {\n  return f;\n}));\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (store);\n\n//# sourceURL=webpack://catwalk/./client/store/store.js?");
 
 /***/ }),
 
@@ -522,6 +533,17 @@ eval("/** @license React v16.14.0\n * react.development.js\n *\n * Copyright (c)
 
 "use strict";
 eval("\n\nif (false) {} else {\n  module.exports = __webpack_require__(/*! ./cjs/react.development.js */ \"./node_modules/react/cjs/react.development.js\");\n}\n\n\n//# sourceURL=webpack://catwalk/./node_modules/react/index.js?");
+
+/***/ }),
+
+/***/ "./node_modules/redux-thunk/es/index.js":
+/*!**********************************************!*\
+  !*** ./node_modules/redux-thunk/es/index.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nfunction createThunkMiddleware(extraArgument) {\n  return function (_ref) {\n    var dispatch = _ref.dispatch,\n        getState = _ref.getState;\n    return function (next) {\n      return function (action) {\n        if (typeof action === 'function') {\n          return action(dispatch, getState, extraArgument);\n        }\n\n        return next(action);\n      };\n    };\n  };\n}\n\nvar thunk = createThunkMiddleware();\nthunk.withExtraArgument = createThunkMiddleware;\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (thunk);\n\n//# sourceURL=webpack://catwalk/./node_modules/redux-thunk/es/index.js?");
 
 /***/ }),
 

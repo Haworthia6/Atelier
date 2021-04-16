@@ -1,15 +1,15 @@
-import { createStore } from 'redux'
-// Add middleware here??
-import rootReducer from './reducers/root'
+import { createStore, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk'
+import rootReducer from './reducers/mainReducer'
 
 const initialState = {
-  imageGallery: { src: 'test string' }
+  count: 0
 }
 
-// Add middleware and dev tools?
-const store = createStore(rootReducer, initialState);
-store.subscribe(() => {
-  console.log('Subscribed to the Redux store!')
-})
+const store = createStore(rootReducer,
+  initialState,
+  compose(applyMiddleware(thunk),
+  window.devToolsExtension ? window.devToolsExtension() : f => f
+  ))
 
-export default store
+export default store;
