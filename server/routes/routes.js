@@ -1,7 +1,10 @@
-var controllers = require("../controllers")
-var router = require("express").Router()
+const controllers = require("../controllers")
+const router = require("express").Router()
 
-// Connect controller methods to corresponding routes
-// router.method('/route', controllers.method)
+router.post('/product', controllers.getProductInfo)
+router.post('/styles', controllers.getProductStyles)
+router.post('/meta', controllers.getProductMeta)
+router.post('/related', controllers.getRelatedItems)
 
 module.exports = router
+
