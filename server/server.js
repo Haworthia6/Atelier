@@ -6,12 +6,10 @@ const app = express()
 app.use(require("cors")())
 app.use(require("morgan")("dev"))
 app.use(express.json())
-// app.use(express.urlencoded())
-// Serve static html files
 app.use(express.static(path.join(__dirname, "../public/dist")))
 
 // Set up Routes
-app.use("/", require("./routes/routes.js"))
+app.use("/", require("./routes/routes"))
 
 // export
 module.exports = app;
