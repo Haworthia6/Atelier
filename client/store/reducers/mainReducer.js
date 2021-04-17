@@ -5,8 +5,8 @@ import productsReducer from './productsReducer';
 
 const rootReducer = combineReducers({
   count: counterReducer,
-  currentProductId: productIdReducer,
-  products: productsReducer
+  products: productsReducer, // Products needs to come before id change for Kenny
+  currentProductId: productIdReducer
 });
 
 export default rootReducer;
