@@ -1,15 +1,17 @@
-import React, { useState } from "react"
-import Counter from './components/Counter'
+import React, { useState } from 'react';
+import Counter from './components/Counter';
+import RelatedAndOutfits from './components/RelatedAndOutfits';
 
 function App() {
-  const [testState, setTestState] = useState("React")
+  const [testState, setTestState] = useState('React');
 
   return (
-    <div>
-      {testState} rendering correctly!
-      <Counter />
-    </div>
-  )
+    <>
+      {/* {testState} rendering correctly!
+      <Counter /> */}
+      <RelatedAndOutfits />
+    </>
+  );
 }
 
-export default App
+export default App;
