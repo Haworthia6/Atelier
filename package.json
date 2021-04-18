@@ -19,8 +19,7 @@
     }
   ],
   "scripts": {
-    "build": "webpack",
-    "dev:build": "webpack --mode development -w",
+    "build": "webpack --mode development -w",
     "start": "nodemon ./server/start.js",
     "format": "prettier --write \"**/*.+(js|jsx|json|css)\"",
     "lint": "eslint .",
