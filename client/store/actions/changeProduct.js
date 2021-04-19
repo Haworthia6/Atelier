@@ -7,7 +7,7 @@ function changeProduct(id) {
       return dispatch({ type: 'CHANGE_PRODUCT', payload:  { id } });
     }
 
-    fetchProductRequest(dispatch, id)
+    fetchProductRequest(id)
       .then((data) => {
         dispatch({ type: 'CHANGE_PRODUCT', payload: { [id]: data } });
       })

@@ -2,10 +2,13 @@
 function productsReducer (state = {}, action) {
   switch(action.type) {
   case 'CHANGE_PRODUCT': {
-    return Object.assign({...state}, action.payload);
+    return {...state, ...action.payload}
   }
   // Add a case for 'ADD_RELATED_ITEM'
-    // performs the same case as above
+  case 'ADD_RELATED_PRODUCT': {
+    // Adds item but does nothing else
+    return {...state, ...action.payload}
+  }
   default: {
     return state;
   }

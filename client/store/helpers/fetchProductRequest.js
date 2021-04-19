@@ -2,7 +2,7 @@ import axios from 'axios';
 import calculateAverage from './calculateAverage';
 const URL = 'http://localhost:3000/';
 
-function fetchProductRequest (dispatch, id) {
+function fetchProductRequest (id) {
 
   return Promise.all([
     axios.post(URL + 'product/', { id }),
