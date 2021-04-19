@@ -13,8 +13,8 @@ function RelatedAndOutfits () {
   return (
     <div>
       <RelatedItems relatedProductsIds={relatedProductsIds}/>
-      <Outfits />
-      <Comparing />
+      {/* <Outfits /> */}
+      {/* <Comparing /> */}
     </div>
   );
 }

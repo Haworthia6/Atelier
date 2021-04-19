@@ -17,6 +17,7 @@ function RelatedItems ({ relatedProductsIds }) { // will receive an array of pro
 
   return(
     <div className="horizontal-container">
+      <div>left arrow</div>
       { loading ? null :
 
         relatedProducts.map((p) => {
@@ -26,7 +27,6 @@ function RelatedItems ({ relatedProductsIds }) { // will receive an array of pro
           />);
         })
       }
-      <div>left arrow</div>
       <div>right arrow</div>
     </div>
   );

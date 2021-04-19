@@ -1,7 +1,13 @@
 import React from 'react';
 
 function RelatedCard ({ product }) { // Will receive an object representing a single product
-  const defaultStyle = product.styleList[0]
+  const defaultStyle = (() => {
+    const styles = product.styleList;
+    for (let style of styles) {
+      if (style['default?']) return style;
+    }
+    return styles[0];
+  })()
 
   return (
     <div className="card-component">
@@ -13,7 +19,7 @@ function RelatedCard ({ product }) { // Will receive an object representing a si
       </div> */}
       </div>
       <div className="card-bottom">
-        <p className="related-category">{product.category}</p>
+        <span className="related-category">{product.category}</span>
         <h6 className="related-name">{product.name}</h6>
         {/* Will need to see if there is a sale price */}
         <p className="related-price">{defaultStyle.originalPrice}</p>
