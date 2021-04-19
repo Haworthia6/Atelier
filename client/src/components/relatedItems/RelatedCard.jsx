@@ -1,6 +1,9 @@
 import React from 'react';
 
-function RelatedCard () {
+function RelatedCard () { // Will receive an object representing a single product
+
+  // Will take the information on the object and build the card
+
   return (
     <div className="card-component">
       <div className="card-top">

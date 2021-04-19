@@ -4,6 +4,8 @@ function productsReducer (state = {}, action) {
   case 'CHANGE_PRODUCT': {
     return Object.assign({...state}, action.payload);
   }
+  // Add a case for 'ADD_RELATED_ITEM'
+    // performs the same case as above
   default: {
     return state;
   }
