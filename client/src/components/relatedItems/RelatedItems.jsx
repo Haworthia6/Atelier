@@ -1,11 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import RelatedCard from './RelatedCard';
 
-function RelatedItems () { // This will receive an array of products that represent the related products
-
-  // Map over the array and for each item, create the cards
-  // For each card, will pass down the specific product object to RelatedCard
-
+function RelatedItems ({ relatedProducts }) { // will receive an array of products
+  console.log(relatedProducts)
   return(
     <div className="horizontal-container">
       <div>left arrow</div>
