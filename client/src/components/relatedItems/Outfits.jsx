@@ -5,7 +5,7 @@ import AddOutfit from './AddOutfit';
 function Outfits () {
   return (
     <div className="horizontal-container">
-      <RelatedCard />
+      {/* <RelatedCard /> */}
       <AddOutfit />
     </div>
   );

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
-const useRelatedProductsIds = (id = 0, products) => {
+const useRelatedProductsIds = (id, products) => {
   const [ids, setIds] = useState([])
 
   useEffect(() => {
+
     if (id) {
       setIds(products[id].relatedItemsIds)
     }
