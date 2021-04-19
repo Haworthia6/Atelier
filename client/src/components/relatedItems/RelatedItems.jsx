@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import RelatedCard from './RelatedCard';
 import { isEmpty } from 'lodash';
 import useRelatedProducts from './custom/useRelatedProducts';
+import { useDispatch } from 'react-redux';
 
 function RelatedItems ({ relatedProductsIds }) { // will receive an array of products
   // console.log(relatedProducts)
+  const dispatch = useDispatch();
   const [loading, setLoading] = useState(true)
-  const relatedProducts = useRelatedProducts(relatedProductsIds);
+  const relatedProducts = useRelatedProducts(relatedProductsIds, dispatch);
 
 
   useEffect(() => {
@@ -17,17 +19,18 @@ function RelatedItems ({ relatedProductsIds }) { // will receive an array of pro
 
   return(
     <div className="horizontal-container">
-      <div>left arrow</div>
+      <div id="left-arrow" className="arrow">left arrow</div>
       { loading ? null :
 
         relatedProducts.map((p) => {
           return (<RelatedCard
             key={p.id}
             product={p}
+            dispatch={dispatch}
           />);
         })
       }
-      <div>right arrow</div>
+      <div id="right-arrow" className="arrow">right arrow</div>
     </div>
   );
 }

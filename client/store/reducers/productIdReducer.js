@@ -7,6 +7,9 @@ function productIdReducer (state = null, action) {
     }
     break;
   }
+  case 'CHANGE_ID': {
+    return action.payload;
+  }
   default: {
     return state;
   }
