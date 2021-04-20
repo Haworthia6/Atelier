@@ -10,7 +10,7 @@ import { mount } from 'enzyme';
 import RelatedItems from '../components/relatedItems/RelatedItems';
 import RelatedCard from '../components/relatedItems/RelatedCard';
 
-describe('RelatedItems', () => {
+xdescribe('RelatedItems', () => {
 
   it('should have a left and right arrow', () => {
     const wrapper = mount(<RelatedItems />)
