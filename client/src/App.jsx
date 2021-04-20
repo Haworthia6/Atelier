@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import Counter from './components/Counter'
+import Overview from './components/Overview'
 
 function App() {
   const [testState, setTestState] = useState("React")
@@ -8,6 +9,7 @@ function App() {
     <div>
       {testState} rendering correctly!
       <Counter />
+      <Overview />
     </div>
   )
 }
