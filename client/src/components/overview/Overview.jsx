@@ -11,14 +11,22 @@ function Overview (props) {
   const currentId = useSelector(({ currentProductId }) => currentProductId);
   const currentProduct = useSelector(({products}) => products[currentId]);
   const [currentStyle, setCurrentStyle] = useState(0);
+  const [currentPhoto, setCurrentPhoto] = useState(0);
   const [expandedUrl, setExpandedUrl] = useState('');
   const [view, setView] = useState('normal');
-  const onStyleChange = (styleId) => {
-    setCurrentStyle(styleId);
+  const onStyleChange = (e) => {
+    if (e.target.id === currentStyle) {
+      return;
+    }
+    setCurrentPhoto(0)
+    setCurrentStyle(e.target.id);
   }
   const imageClick = (e) => {
     setView('expanded');
     setExpandedUrl(e.target.src);
+  }
+  const changePhoto = (num) => {
+    setCurrentPhoto(num);
   }
   const dis = useDispatch();
 
@@ -44,7 +52,11 @@ function Overview (props) {
     <div>
       <p>current id: {currentId}</p>
 
-      <ImageGallery photos={currentProduct.styleList[currentStyle].photos} imageClick={imageClick}/>
+      <ImageGallery
+      photos={currentProduct.styleList[currentStyle].photos}
+      imageClick={imageClick}
+      changePhoto={changePhoto}
+      currentPhoto={currentPhoto}/>
 
       <div>Product Info Box here:
 
