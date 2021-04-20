@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { useSelector, useDispatch} from 'react-redux'
-import changeProduct from '../../store/actions/changeProduct'
+import changeProduct from '../../../store/actions/changeProduct'
 import ImageGallery from './ImageGallery'
 import ProductDescription from './ProductDescription'
 import ProductInfo from './ProductInfo'

@@ -4,28 +4,46 @@ import chai from 'chai';
 import chaiEnzyme from 'chai-enzyme';
 const expect = chai.expect;
 chai.use(chaiEnzyme());
+import thunk from 'redux-thunk';
+import configureMockStore from 'redux-mock-store';
+import { Provider } from 'react-redux';
 
-import RelatedAndOutfits from '../components/RelatedAndOutfits';
-import RelatedItems from '../components/RelatedItems';
-import Outfits from '../components/Outfits';
+import RelatedAndOutfits from '../components/relatedItems/RelatedAndOutfits';
+import RelatedItems from '../components/relatedItems/RelatedItems';
+import Outfits from '../components/relatedItems/Outfits';
 
-xdescribe('Related Items and Outfits container', () => {
+const mockStore = configureMockStore([thunk]);
 
-  let wrap;
-
-  beforeEach(() => {
-    wrap = shallow(<RelatedAndOutfits />);
-  });
-
+describe('Related Items and Outfits container', () => {
   it('should exist', () => {
+    const store = mockStore({
+      currentProductId: null,
+      products: {}
+    })
+
+    const wrap = mount(
+      <Provider store={store}>
+        <RelatedAndOutfits />
+      </Provider>
+    )
     expect(wrap.exists()).to.be.true;
   });
 
   it('should contain a div wrapper', () => {
-    expect(wrap.find('div')).to.have.lengthOf(1);
+    const store = mockStore({
+      currentProductId: null,
+      products: {}
+    })
+
+    const wrap = mount(
+      <Provider store={store}>
+        <RelatedAndOutfits />
+      </Provider>
+    )
+    expect(wrap.find(RelatedItems).exists()).to.be.true;
   });
 
-  it('should contain two carousels', () => {
+  xit('should contain two carousels', () => {
     const fullMount = mount(<RelatedAndOutfits />);
     expect(fullMount).to.contain(<RelatedItems />, <Outfits />);
   });
