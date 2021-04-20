@@ -1,0 +1,17 @@
+$background: aliceblue;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-size: 18px;
+}
+
+body {
+  background-color: $background;
+}
+
+.horizontal-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
