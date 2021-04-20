@@ -34,7 +34,7 @@ function RelatedCard ({ product, dispatch, setLoading }) { // Will receive an ob
         <span className="related-category">{product.category}</span>
         <h6 className="related-name">{product.name}</h6>
         {/* Will need to see if there is a sale price */}
-        <p className="related-price">{defaultStyle.originalPrice}</p>
+        <div className="related-price">{defaultStyle.originalPrice}</div>
         <div className="stars-component">STARS</div>
       </div>
     </div>
