@@ -1,14 +1,10 @@
 import React from 'react';
 import changeProduct from '../../../store/actions/changeProduct';
+import findDefaultStyle from '../../helpers/findDefaultStyle';
 
 function RelatedCard ({ product, dispatch, setLoading }) { // Will receive an object representing a single product
-  const defaultStyle = (() => {
-    const styles = product.styleList;
-    for (let style of styles) {
-      if (style['default?']) return style;
-    }
-    return styles[0];
-  })();
+
+  const defaultStyle = findDefaultStyle(product);
 
   const handleImageClick = () => {
     // This triggers an application change of id CHANGE_PRODUCT

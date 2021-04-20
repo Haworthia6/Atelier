@@ -12,12 +12,14 @@ function RelatedAndOutfits () {
 
   return (
     <div id="related-items-and-outfits-component">
+      <h2>RELATED PRODUCTS</h2>
       <RelatedItems
         relatedProductsIds={relatedProductsIds}
         products={products}
       />
-      <Outfits />
-      {/* <Comparing /> */}
+      {/* <h2>YOUR OUTFIT</h2>
+      <Outfits /> */}
+      <Comparing />
     </div>
   );
 }
