@@ -50,6 +50,6 @@ describe('Related Items and Outfits container', () => {
   it('should hand props to RelatedItems component', () => {
     expect(wrap.find(RelatedItems).first()).to.have.prop('relatedProductsIds');
     expect(wrap.find(RelatedItems).first()).to.have.prop('products');
-  })
+  });
 
 });
