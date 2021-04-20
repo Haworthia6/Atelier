@@ -4,10 +4,10 @@ function changeProduct(id) {
 
   return (dispatch, getState) => {
     if (getState().products[id]) {
-      return dispatch({ type: 'CHANGE_PRODUCT', payload:  { id } });
+      return dispatch({ type: 'CHANGE_ID', payload: id });
     }
 
-    fetchProductRequest(dispatch, id)
+    fetchProductRequest(id)
       .then((data) => {
         dispatch({ type: 'CHANGE_PRODUCT', payload: { [id]: data } });
       })

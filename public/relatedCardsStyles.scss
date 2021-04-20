@@ -1,0 +1,12 @@
+$thumbnail-height-limit: 12em;
+$thumbnail-width-limit: 8em;
+
+.card-component {
+  display: flex;
+  flex-direction: column;
+}
+
+.related-item-image {
+  max-width: $thumbnail-width-limit;
+  max-height: $thumbnail-height-limit;
+}
