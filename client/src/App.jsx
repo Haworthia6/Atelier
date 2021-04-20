@@ -1,4 +1,4 @@
-import Overview from './components/Overview'
+import Overview from './components/overview/Overview'
 import React, { useState } from 'react';
 import Counter from './components/Counter';
 import RelatedAndOutfits from './components/relatedItems/RelatedAndOutfits';

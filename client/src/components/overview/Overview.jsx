@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useSelector, useDispatch} from 'react-redux'
 import changeProduct from '../../store/actions/changeProduct'
 import ImageGallery from './ImageGallery'
@@ -10,7 +10,7 @@ import AddToCart from './AddToCart'
 function Overview (props) {
   const currentId = useSelector(({ currentProductId }) => currentProductId);
   const currentProduct = useSelector(({products}) => products[currentId]);
-  const [currentStyle, setCurrentStyle] = React.useState(0);
+  const [currentStyle, setCurrentStyle] = useState(0);
   const onStyleChange = (styleId) => {
     setCurrentStyle(styleId);
   }
