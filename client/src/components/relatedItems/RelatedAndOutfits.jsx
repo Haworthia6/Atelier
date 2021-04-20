@@ -11,12 +11,12 @@ function RelatedAndOutfits () {
   const relatedProductsIds = useRelatedProductsIds(currentProdId, products);
 
   return (
-    <div>
+    <div id="related-items-and-outfits-component">
       <RelatedItems
         relatedProductsIds={relatedProductsIds}
         products={products}
       />
-      {/* <Outfits /> */}
+      <Outfits />
       {/* <Comparing /> */}
     </div>
   );
