@@ -1,0 +1,15 @@
+$thumbnail-height-limit: 12em;
+$thumbnail-width-limit: 8em;
+
+.thumbnail {
+  max-width: 80px;
+  max-height: 40px;
+}
+.photo {
+  max-width: 200px;
+  max-height: 100px;
+}
+.expandedPhoto {
+  width: 100%;
+  height: 100%;
+}

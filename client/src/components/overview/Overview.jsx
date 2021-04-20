@@ -11,8 +11,14 @@ function Overview (props) {
   const currentId = useSelector(({ currentProductId }) => currentProductId);
   const currentProduct = useSelector(({products}) => products[currentId]);
   const [currentStyle, setCurrentStyle] = useState(0);
+  const [expandedUrl, setExpandedUrl] = useState('');
+  const [view, setView] = useState('normal');
   const onStyleChange = (styleId) => {
     setCurrentStyle(styleId);
+  }
+  const imageClick = (e) => {
+    setView('expanded');
+    setExpandedUrl(e.target.src);
   }
   const dis = useDispatch();
 
@@ -24,6 +30,8 @@ function Overview (props) {
 
   if (currentId === null) {
     return <span>loading product info</span>
+  } else if (view === 'expanded') {
+    return <img src={expandedUrl} alt="expanded photo" className="expandedPhoto" />
   } else {
     return (
       // Image Gallery component
@@ -36,7 +44,7 @@ function Overview (props) {
     <div>
       <p>current id: {currentId}</p>
 
-      <ImageGallery photos={currentProduct.styleList[currentStyle].photos}/>
+      <ImageGallery photos={currentProduct.styleList[currentStyle].photos} imageClick={imageClick}/>
 
       <div>Product Info Box here:
 

@@ -1,16 +1,60 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useSelector, useDispatch } from 'react-redux'
+import {FiArrowLeft, FiArrowRight } from 'react-icons/fi'
 
-function ImageGallery (props) {
-  const [currentPhoto, setCurrentPhoto] = React.useState(0);
+function ImageGallery ({photos, imageClick}) {
+  const [currentPhoto, setCurrentPhoto] = useState(0);
+  const [view, setView] = useState('normal');
   const dis = useDispatch();
-
-  return (
-    <div>images: {props.photos.map((photo, index) => {
-      return (<img src={photo.url} alt="photo" key={index}/>);
-    })}
-    </div>
-  )
+  const renderLeftArrow = () => {
+    if (currentPhoto !== 0) {
+      return <FiArrowLeft className="left-arrow" onClick={leftArrowClick}/>;
+    } else {
+      return null;
+    }
+  }
+  const renderRightArrow = () => {
+    if (currentPhoto !== photos.length - 1) {
+      return <FiArrowRight className="right-arrow" onClick={rightArrowClick}/>;
+    } else {
+      return null;
+    }
+  }
+  const renderThumbNails = () => {
+    return photos.map((photo, index) => {
+      return <img src={photo.thumbnail_url} alt="photo" className="thumbnail" id={index} key={index} onClick={thumbnailClick}/>
+    })
+  }
+  const thumbnailClick = (e) => {
+    setCurrentPhoto(parseInt(e.target.id));
+  }
+  const leftArrowClick = () => {
+    setCurrentPhoto(currentPhoto - 1);
+  };
+  const rightArrowClick = () => {
+    setCurrentPhoto(currentPhoto + 1);
+  }
+  if (photos.length === 0) {
+    return null
+  }
+  else {
+    return (
+      <section className="image-carousel">
+        {renderLeftArrow()}
+        {renderThumbNails()}
+        {renderRightArrow()}
+        <div>
+          {photos.map((photo, index) => {
+            return (
+              <div className={index===currentPhoto ? 'currentSlide' : 'slide'} key={index}>
+                {index === currentPhoto && (<img src={photo.url} alt="photo" className="photo" onClick={imageClick}/>)}
+              </div>
+          );
+        })}
+        </div>
+      </section>
+    )
+  }
 }
 
 export default ImageGallery;
