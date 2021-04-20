@@ -1,7 +1,7 @@
 import React from 'react';
 import changeProduct from '../../../store/actions/changeProduct';
 
-function RelatedCard ({ product, dispatch }) { // Will receive an object representing a single product
+function RelatedCard ({ product, dispatch, setLoading }) { // Will receive an object representing a single product
   const defaultStyle = (() => {
     const styles = product.styleList;
     for (let style of styles) {
@@ -12,6 +12,7 @@ function RelatedCard ({ product, dispatch }) { // Will receive an object represe
 
   const handleImageClick = () => {
     // This triggers an application change of id CHANGE_PRODUCT
+    setLoading(true);
     dispatch(changeProduct(product.id));
   }
 
@@ -37,7 +38,6 @@ function RelatedCard ({ product, dispatch }) { // Will receive an object represe
         <div className="stars-component">STARS</div>
       </div>
     </div>
-
   );
 }
 
