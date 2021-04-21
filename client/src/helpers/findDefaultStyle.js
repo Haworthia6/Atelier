@@ -5,4 +5,4 @@ export default (product) => {
     if (style['default?']) return style;
   }
   return styles[0];
-}
+};

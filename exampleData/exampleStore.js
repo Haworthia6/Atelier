@@ -10,13 +10,13 @@ module.exports = {
       category: 'pants',
       defaultPrice: '40.00',
       features: [
-          {
-            "feature": "Fabric",
-            "value": "100% Cotton"
+        {
+          'feature': 'Fabric',
+          'value': '100% Cotton'
         },
         {
-            "feature": "Cut",
-            "value": "Skinny"
+          'feature': 'Cut',
+          'value': 'Skinny'
         }
       ],
       styleList: prod3StyleData.results,
@@ -24,4 +24,4 @@ module.exports = {
       relatedItemsIds: [ 11005, 11009, 11007, 11002, 11001]
     }
   }
-}
+};
