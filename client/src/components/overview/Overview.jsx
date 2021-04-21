@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { useSelector, useDispatch} from 'react-redux'
 import changeProduct from '../../../store/actions/changeProduct'
 import ImageGallery from './ImageGallery'
@@ -32,7 +32,7 @@ function Overview (props) {
 
   // if currentId === null
 
-  React.useEffect(() => {
+  useEffect(() => {
     dis(changeProduct(11003));
   },[])
 
