@@ -3,28 +3,26 @@ import fetchProductRequest from '../../../../store/helpers/fetchProductRequest';
 import { isEmpty } from 'lodash';
 import addRelatedProduct from '../../../../store/actions/addRelated';
 
-const useRelatedProducts = (relatedProductsIds, dispatch) => {
-  const [relatedProducts, setRelatedProducts] = useState([]);
+const useRelatedProducts = (relatedProductsIds, products, dispatch) => {
+  const [relatedProducts, setRelatedProducts] = useState(false);
 
   useEffect(() => {
     if (!isEmpty(relatedProductsIds)) {
-      Promise.all(
-        relatedProductsIds.map((id) => {
-        return fetchProductRequest(id)
-      }))
-        .then((products) => {
-          // Create array of products
-          products.forEach((prod) => {
-            dispatch(addRelatedProduct(prod));
-          })
-          // Create array of products to pass and say THESE PRODUCTS EXIST NOW
-          setRelatedProducts(products)
+      setRelatedProducts(false);
+      const nonCached = relatedProductsIds.filter(id => !products[id])
+      Promise.all(nonCached.map(id => fetchProductRequest(id)))
+        .then((results) => {
+          for (let i = 0; i < results.length; i++) {
+            dispatch(addRelatedProduct(results[i]));
+          }
+        })
+        .then(() => {
+          setRelatedProducts(true);
         })
         .catch((err) => {
           console.error(err);
         })
     }
-
   }, [relatedProductsIds])
 
   return relatedProducts;

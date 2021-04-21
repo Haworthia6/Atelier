@@ -1,0 +1,80 @@
+
+.fade-in {
+  display: block;
+}
+
+.fade-out {
+  display: none;
+}
+
+#related-items-and-outfits-component {
+  display: flex;
+  flex-direction: column;
+}
+
+#comparing-position {
+  display: relative;
+}
+
+.comparing-container {
+  position: absolute;
+  background-color: white;
+  bottom: 3%;
+  left: 50%;
+  border: 0.5px solid black;
+}
+
+@mixin modal-spacing {
+  padding: 0.2em;
+  font-weight: 100;
+}
+
+@mixin modal-text-size {
+  font-weight: 100;
+  font-size: 0.5em;
+}
+
+$modal-feature-text: 0.7em;
+$thead-font-size: 0.6rem;
+
+.modal {
+  margin-left: 0.4em;
+  margin-right: 0.4em;
+
+  &-header {
+    @include modal-spacing;
+    & h6 {
+      font-weight: 100;
+      font-size: 0.4rem;
+    }
+  }
+  &-footer {
+    @include modal-spacing;
+  }
+  &-content {
+
+    & th:first-of-type {
+      text-align: left;
+      font-size: $thead-font-size;
+    }
+
+    & th:last-of-type {
+      text-align: right;
+      font-size: $thead-font-size;
+    }
+  }
+
+  &-left {
+    text-align: left;
+    @include modal-text-size();
+  }
+  &-right {
+    text-align: right;
+    @include modal-text-size();
+  }
+  &-center {
+    padding: 0 1em 0 1em;
+    text-align: center;
+    font-size: $modal-feature-text;
+  }
+}

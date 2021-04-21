@@ -3,33 +3,34 @@ import chaiEnzyme from 'chai-enzyme';
 const expect = chai.expect;
 chai.use(chaiEnzyme());
 import React from 'react';
+import exampleStore from '../../../exampleData/exampleStore';
+import thunk from 'redux-thunk';
+import configureMockStore from 'redux-mock-store';
+import { Provider } from 'react-redux';
 
 import { mount } from 'enzyme';
-// THIS FILE NEEDS EDITING AS I CANNOT TEST REDUX
 
 import RelatedItems from '../components/relatedItems/RelatedItems';
 import RelatedCard from '../components/relatedItems/RelatedCard';
 
-xdescribe('RelatedItems', () => {
+const mockStore = configureMockStore([thunk]);
+
+describe('RelatedItems', () => {
+  let wrapper, store;
+
+  beforeEach(() => {
+    store = mockStore(exampleStore);
+    wrapper = mount(
+      <Provider store={store}>
+        <RelatedItems relatedProductsIds={store.relatedItemsIds} products={store.products} />
+      </Provider>
+    );
+  });
 
   it('should have a left and right arrow', () => {
-    const wrapper = mount(<RelatedItems />)
     expect(wrapper.find('#left-arrow')).to.have.lengthOf(1);
     expect(wrapper.find('#right-arrow')).to.have.lengthOf(1);
     expect(wrapper.find('.arrow')).to.have.lengthOf(2);
-  })
+  });
 
-  it('should receive an array of ids', () => {
-    const wrapper = mount(<RelatedItems />)
-    wrapper.setProps({ relatedProductsIds: [11003] });
-    expect(wrapper.props().relatedProductsIds),to.be.an('array').that.includes(11003);
-  })
-
-  it('should mount RelatedCard when receiving a new id', () => {
-    const wrapper = mount(<RelatedItems />)
-    expect(wrapper.props()).to.be.empty;
-    expect(wrapper.exists(RelatedCard)).to.be.false;
-    wrapper.setProps({ relatedProductsIds : [11003] });
-    expect(wrapper.exists(RelatedCard)).to.be.true
-  })
-})
+});
