@@ -56,9 +56,4 @@ describe('RelatedCard', () => {
     expect(wrapper.find('.related-name').text()).to.match(/Morning Joggers/);
   });
 
-  // Cannot get this test to work
-  // it('should render price based on product', () => {
-  //   expect(wrapper.find('.related-price').html()).to.match(/40\.00/);
-  // });
-
 });
