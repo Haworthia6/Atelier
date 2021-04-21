@@ -6,23 +6,31 @@ import Comparing from './Comparing';
 import useRelatedProductsIds from './custom/useRelatedProductsIds';
 
 function RelatedAndOutfits () {
+
   const currentProdId = useSelector((state) => state.currentProductId);
   const products = useSelector((state) => state.products);
   const relatedProductsIds = useRelatedProductsIds(currentProdId, products);
-  const [toggleComparing, setToggleComparing] = useState('fade-out'); // Handle turning back to false on close
+  const [toggleComparing, setToggleComparing] = useState('fade-out');
   const [comparedProducts, setComparedProducts] = useState({});
 
+  // Not memoized for access to Products
   const handleComparingToggle = (relatedId) => {
-
     setComparedProducts({
       current: products[currentProdId],
       related: products[relatedId]
     });
   };
 
+  useEffect(() => {
+    // Closes modal on outside of modal click
+    if (toggleComparing.match(/fade-out/)) return;
+    function closeModal(e) { setToggleComparing('fade-out') }
+    document.body.addEventListener('click', closeModal, false);
+    return () => document.body.removeEventListener('click', closeModal, false);
+  }, [comparedProducts])
+
   return (
     <div id="related-items-and-outfits-component">
-      <button onClick={() => setToggleComparing('fade-out')}>toggle</button>
       <h2>RELATED PRODUCTS</h2>
       <RelatedItems
         relatedProductsIds={relatedProductsIds}
