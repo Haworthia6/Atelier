@@ -44,8 +44,6 @@ function ImageGallery ({photos, imageClick, changePhoto, currentPhoto}) {
         {renderRightArrow()}
         <div>
           {photos.map((photo, index) => {
-            console.log('INDEX: ', index);
-            console.log('CURRENT PHOTO: ', currentPhoto);
             return (
               <div className={index===currentPhoto ? 'currentSlide' : 'slide'} key={index}>
                 {index === currentPhoto && (<img src={photo.url} alt="photo" className="photo" onClick={imageClick}/>)}

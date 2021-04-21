@@ -16,7 +16,7 @@ function AddToCart ({currentStyle}) {
   }
   const addButtonClick = (e) => {
     e.preventDefault();
-    console.log('ADD ' + currentQty + ' size ' + currentSize + ' OF THE ITEM TO THE CART');
+    console.log('ADD ' + currentQty + ' SIZE ' + currentSize + ' ' + currentStyle.name  + ' OF THE ITEM TO THE CART');
   }
   const renderQtyBar = () => {
     if (currentSize === 'SELECT SIZE') {
