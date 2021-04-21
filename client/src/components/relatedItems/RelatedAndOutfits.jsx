@@ -10,13 +10,13 @@ function RelatedAndOutfits () {
   const products = useSelector((state) => state.products);
   const relatedProductsIds = useRelatedProductsIds(currentProdId, products);
   const [toggleComparing, setToggleComparing] = useState('fade-out'); // Handle turning back to false on close
-  const [modal, setModal] = useState({});
+  const [comparedProducts, setComparedProducts] = useState({});
 
   const handleComparingToggle = (relatedId) => {
 
-    setModal({
-      current: products[currentProdId]['features'],
-      related: products[relatedId]['features']
+    setComparedProducts({
+      current: products[currentProdId],
+      related: products[relatedId]
     });
   };
 
@@ -35,7 +35,7 @@ function RelatedAndOutfits () {
       <div id="comparing-position">
         <Comparing
           visibility={toggleComparing}
-          modal={modal}
+          comparedProducts={comparedProducts}
         />
       </div>
     </div>

@@ -1,6 +1,8 @@
 
-export default (currentFeats, relatedFeats) => {
+export default (currentProduct, relatedProduct) => {
   const combined = {};
+  const currentFeats = currentProduct.features;
+  const relatedFeats = relatedProduct.features;
 
   for (let feature of currentFeats) {
     combined[feature.feature] = [feature.value, '']
