@@ -1,4 +1,4 @@
-import fetchProductRequest from '../helpers/fetchProductRequest'
+import fetchProductRequest from '../helpers/fetchProductRequest';
 
 function changeProduct(id) {
 

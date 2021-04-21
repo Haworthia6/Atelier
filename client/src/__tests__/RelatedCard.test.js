@@ -49,7 +49,7 @@ describe('RelatedCard', () => {
   });
 
   it('should render category based on product', () => {
-    expect(wrapper.find('.related-category').text()).to.match(/pants/)
+    expect(wrapper.find('.related-category').text()).to.match(/pants/);
   });
 
   it('should render name based on product', () => {

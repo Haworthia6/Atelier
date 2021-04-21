@@ -24,10 +24,10 @@ function RelatedAndOutfits () {
   useEffect(() => {
     // Closes modal on outside of modal click
     if (toggleComparing.match(/fade-out/)) return;
-    function closeModal(e) { setToggleComparing('fade-out') }
+    function closeModal() { setToggleComparing('fade-out'); }
     document.body.addEventListener('click', closeModal, false);
     return () => document.body.removeEventListener('click', closeModal, false);
-  }, [comparedProducts])
+  }, [comparedProducts]);
 
   return (
     <div id="related-items-and-outfits-component">

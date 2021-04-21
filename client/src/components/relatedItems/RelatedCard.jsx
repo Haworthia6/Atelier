@@ -11,12 +11,12 @@ function RelatedCard (props) { // Will receive an object representing a single p
     setLoading(true);
     // Change Product ID
     dispatch(changeProduct(product.id));
-  }
+  };
 
   const handleActionClick = useCallback(() => {
     setToggleComparing('fade-in');
     handleComparingToggle(product.id);
-  }, [product])
+  }, [product]);
 
   return (
     <div className="card-component">

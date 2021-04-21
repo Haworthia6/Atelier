@@ -11,7 +11,6 @@ import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
 
 import RelatedItems from '../components/relatedItems/RelatedItems';
-import RelatedCard from '../components/relatedItems/RelatedCard';
 
 const mockStore = configureMockStore([thunk]);
 
