@@ -2,8 +2,7 @@ import React, {useState} from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import {FiArrowLeft, FiArrowRight } from 'react-icons/fi'
 
-function ImageGallery ({photos, imageClick}) {
-  const [currentPhoto, setCurrentPhoto] = useState(0);
+function ImageGallery ({photos, imageClick, changePhoto, currentPhoto}) {
   const [view, setView] = useState('normal');
   const dis = useDispatch();
   const renderLeftArrow = () => {
@@ -26,13 +25,13 @@ function ImageGallery ({photos, imageClick}) {
     })
   }
   const thumbnailClick = (e) => {
-    setCurrentPhoto(parseInt(e.target.id));
+    changePhoto(parseInt(e.target.id));
   }
   const leftArrowClick = () => {
-    setCurrentPhoto(currentPhoto - 1);
+    changePhoto(currentPhoto - 1);
   };
   const rightArrowClick = () => {
-    setCurrentPhoto(currentPhoto + 1);
+    changePhoto(currentPhoto + 1);
   }
   if (photos.length === 0) {
     return null
