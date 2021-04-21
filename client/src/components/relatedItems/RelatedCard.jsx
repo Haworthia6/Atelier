@@ -1,24 +1,30 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import changeProduct from '../../../store/actions/changeProduct';
+import findDefaultStyle from '../../helpers/findDefaultStyle';
 
-function RelatedCard ({ product, dispatch }) { // Will receive an object representing a single product
-  const defaultStyle = (() => {
-    const styles = product.styleList;
-    for (let style of styles) {
-      if (style['default?']) return style;
-    }
-    return styles[0];
-  })();
+function RelatedCard (props) { // Will receive an object representing a single product
+ const { product, dispatch, setLoading, handleComparingToggle, setToggleComparing } = props;
+  const defaultStyle = findDefaultStyle(product);
 
   const handleImageClick = () => {
-    // This triggers an application change of id CHANGE_PRODUCT
+    // Block renders to DOM
+    setLoading(true);
+    // Change Product ID
     dispatch(changeProduct(product.id));
   }
+
+  const handleActionClick = useCallback(() => {
+    setToggleComparing('fade-in');
+    handleComparingToggle(product.id);
+  }, [product])
 
   return (
     <div className="card-component">
       <div className="card-top">
-        <div className="related-item-action-button btn-round">button</div>
+        <div
+          className="related-item-action-button btn-round"
+          onClick={handleActionClick}
+        >button</div>
         <img
           className="related-item-image"
           src={defaultStyle.photos[0]['thumbnail_url']}
@@ -33,11 +39,10 @@ function RelatedCard ({ product, dispatch }) { // Will receive an object represe
         <span className="related-category">{product.category}</span>
         <h6 className="related-name">{product.name}</h6>
         {/* Will need to see if there is a sale price */}
-        <p className="related-price">{defaultStyle.originalPrice}</p>
+        <div className="related-price">{defaultStyle.originalPrice}</div>
         <div className="stars-component">STARS</div>
       </div>
     </div>
-
   );
 }
 
