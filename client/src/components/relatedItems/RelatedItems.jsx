@@ -4,7 +4,10 @@ import { isEmpty } from 'lodash';
 import useRelatedProducts from './custom/useRelatedProducts';
 import { useDispatch } from 'react-redux';
 
-function RelatedItems ({ relatedProductsIds, products }) { // will receive an array of products
+function RelatedItems (props) { // will receive an array of products
+
+  const { relatedProductsIds, products, handleComparingToggle, setToggleComparing } = props;
+
   const dispatch = useDispatch();
   // Set loading to true on re renders
   const [loading, setLoading] = useState(true)
@@ -29,6 +32,8 @@ function RelatedItems ({ relatedProductsIds, products }) { // will receive an ar
             product={products[id]}
             dispatch={dispatch}
             setLoading={setLoading}
+            setToggleComparing={setToggleComparing}
+            handleComparingToggle={handleComparingToggle}
           />);
         })
       }

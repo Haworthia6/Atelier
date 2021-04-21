@@ -1,21 +1,30 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import changeProduct from '../../../store/actions/changeProduct';
 import findDefaultStyle from '../../helpers/findDefaultStyle';
 
-function RelatedCard ({ product, dispatch, setLoading }) { // Will receive an object representing a single product
-
+function RelatedCard (props) { // Will receive an object representing a single product
+ const { product, dispatch, setLoading, handleComparingToggle, setToggleComparing } = props;
   const defaultStyle = findDefaultStyle(product);
 
   const handleImageClick = () => {
-    // This triggers an application change of id CHANGE_PRODUCT
+    // Block renders to DOM
     setLoading(true);
+    // Change Product ID
     dispatch(changeProduct(product.id));
   }
+
+  const handleActionClick = useCallback(() => {
+    setToggleComparing('fade-in');
+    handleComparingToggle(product.id);
+  }, [product])
 
   return (
     <div className="card-component">
       <div className="card-top">
-        <div className="related-item-action-button btn-round">button</div>
+        <div
+          className="related-item-action-button btn-round"
+          onClick={handleActionClick}
+        >button</div>
         <img
           className="related-item-image"
           src={defaultStyle.photos[0]['thumbnail_url']}
