@@ -2,7 +2,7 @@ import React, { useCallback, useState, useEffect } from 'react';
 import { isEmpty } from 'lodash';
 import createComparison from '../../helpers/createComparisons';
 
-function Comparing ({ visibility, comparedProducts }) {
+function Comparing ({ visibility, setVisibility, comparedProducts }) {
   const [info, setInfo] = useState({});
   const [loading, setLoading] = useState(true);
 
