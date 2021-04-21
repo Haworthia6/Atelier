@@ -58,6 +58,7 @@
     "express": "^4.17.1",
     "lodash": "^4.17.21",
     "morgan": "^1.10.0",
+    "prop-types": "^15.7.2",
     "react": "16.14.0",
     "react-dom": "16.14.0",
     "react-icons": "^4.2.0",
