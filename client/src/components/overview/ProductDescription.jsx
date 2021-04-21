@@ -6,16 +6,16 @@ function ProductDescription ({description, features}) {
   console.log('FEATURES: ', features);
   return (
     <div>
-      <div className="description">
+      <div className="product-description">
         {description}
       </div>
       <p>THIS SHOULD BE A VERTICAL LINE SEPARATING THE DESCRIPTION FROM THE FEATURES</p>
       <div>
         {features.map((feature, i) => {
           if (feature.value === null) {
-            return <p className="feature" key={i}>{feature.feature}</p>
+            return <p className="product-description-feature" key={i}>{feature.feature}</p>
           }
-          return <p className="feature" key={i}>{feature.value} {feature.feature}</p>
+          return <p className="product-description-feature" key={i}>{feature.value} {feature.feature}</p>
         })}
       </div>
       <br/>
