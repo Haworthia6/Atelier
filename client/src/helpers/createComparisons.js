@@ -5,7 +5,7 @@ export default (currentProduct, relatedProduct) => {
   const relatedFeats = relatedProduct.features;
 
   for (let feature of currentFeats) {
-    combined[feature.feature] = [feature.value, '']
+    combined[feature.feature] = [feature.value, ''];
   }
 
   for (let feature of relatedFeats) {
@@ -16,4 +16,4 @@ export default (currentProduct, relatedProduct) => {
     }
   }
   return combined;
-}
+};

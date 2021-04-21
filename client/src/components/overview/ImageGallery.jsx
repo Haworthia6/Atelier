@@ -21,7 +21,7 @@ function ImageGallery ({photos, imageClick, changePhoto, currentPhoto}) {
   }
   const renderThumbNails = () => {
     return photos.map((photo, index) => {
-      return <img src={photo.thumbnail_url} alt="photo" className="thumbnail" id={index} key={index} onClick={thumbnailClick}/>
+      return <img src={photo.thumbnail_url} alt="photo" className="carousel-thumbnail" id={index} key={index} onClick={thumbnailClick}/>
     })
   }
   const thumbnailClick = (e) => {
@@ -46,7 +46,7 @@ function ImageGallery ({photos, imageClick, changePhoto, currentPhoto}) {
           {photos.map((photo, index) => {
             return (
               <div className={index===currentPhoto ? 'currentSlide' : 'slide'} key={index}>
-                {index === currentPhoto && (<img src={photo.url} alt="photo" className="photo" onClick={imageClick}/>)}
+                {index === currentPhoto && (<img src={photo.url} alt="photo" className="carousel-photo" onClick={imageClick}/>)}
               </div>
           );
         })}
