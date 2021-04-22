@@ -1,5 +1,6 @@
 import React from 'react';
 import findDefaultStyle from '../../helpers/findDefaultStyle';
+import PropTypes from 'prop-types';
 
 function Card ({ product }) {
   const defaultStyle = findDefaultStyle(product);
@@ -33,6 +34,12 @@ function Card ({ product }) {
 }
 
 // Prop Checking -----------------------
-
+Card.propTypes = {
+  product: PropTypes.shape({
+    styleList: PropTypes.array.isRequired,
+    name: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired
+  }).isRequired
+};
 
 export default Card;

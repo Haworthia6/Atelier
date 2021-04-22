@@ -1,7 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import AddOutfit from './AddOutfit';
-import RelatedCard from './RelatedCard';
 import addOutfit from '../../../store/actions/addOutfit';
 import Card from './Card';
 import obj from '../../helpers/objectMap';
