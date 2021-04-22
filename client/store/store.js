@@ -7,7 +7,8 @@ const initialState = {
   count: 0,
   currentProductId: null,
   products: {},
-  outfits: {}
+  outfits: {},
+  show: false
 };
 
 const store = createStore(rootReducer,

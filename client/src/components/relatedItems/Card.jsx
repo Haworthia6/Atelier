@@ -1,10 +1,21 @@
 import React from 'react';
 import findDefaultStyle from '../../helpers/findDefaultStyle';
+import { useDispatch } from 'react-redux';
+import changeProduct from '../../../store/actions/changeProduct';
+import toggleShow from '../../../store/actions/toggleShow';
 import PropTypes from 'prop-types';
 
 function Card ({ product, handleActionClick }) {
   // TODO: Look to see if useMemo would optimize
   const defaultStyle = findDefaultStyle(product);
+  const dispatch = useDispatch();
+
+  const handleImageClick = () => {
+    // Block renders to DOM
+    dispatch(toggleShow(false));
+    // Change Product ID
+    dispatch(changeProduct(product.id));
+  };
 
   return (
     <div className="card-component">
@@ -17,7 +28,7 @@ function Card ({ product, handleActionClick }) {
           className="related-item-image"
           src={defaultStyle.photos[0]['thumbnail_url']}
           alt={product.name}
-          // onClick={handleImageClick}
+          onClick={handleImageClick}
         />
         {/* <div className="related-thumbnails-extra">
         <img className="related-thumbnail-img-extra" src="#" alt="thumbnail" />
