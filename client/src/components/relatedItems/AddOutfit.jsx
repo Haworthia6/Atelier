@@ -1,5 +1,6 @@
 import React from 'react';
 import { FiPlusSquare } from 'react-icons/fi';
+import PropTypes from 'prop-types';
 
 function AddOutfit ({ handleOutfitAdd }) {
   return (
@@ -14,4 +15,9 @@ function AddOutfit ({ handleOutfitAdd }) {
   );
 }
 
-export default AddOutfit;
+// Prop Checking -----------------
+AddOutfit.propTypes = {
+  handleOutfitAdd: PropTypes.func.isRequired
+};
+
+export default React.memo(AddOutfit);

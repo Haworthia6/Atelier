@@ -1,23 +1,22 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import AddOutfit from './AddOutfit';
 import addOutfit from '../../../store/actions/addOutfit';
 import Card from './Card';
 import obj from '../../helpers/objectMap';
-import { isNumber, isNull, isArray, isObject } from 'lodash';
+import { isNumber, isNull } from 'lodash';
+import PropTypes from 'prop-types';
 
 function Outfits ({ currentProdId, products }) {
 
   const outfits = useSelector(({ outfits }) => outfits);
   const dispatch = useDispatch();
 
-  const handleOutfitAdd = () => {
-    // Onclick want to use the currentProdId to do a lookup on products and build the object
-    // STEP 1: Add object to state if it doesn't already exist
+  const handleOutfitAdd = useCallback(() => {
     if (!outfits[currentProdId]) {
       dispatch(addOutfit(products[currentProdId]));
     }
-  };
+  }, [products, currentProdId]);
 
   return (
     <div className="horizontal-container">
@@ -38,17 +37,14 @@ function Outfits ({ currentProdId, products }) {
 
 // Prop Checking ------------------
 Outfits.propTypes = {
-  nullId: ({ currentProdId, products }, propName, compName) => {
+  currentProdId: ({ currentProdId }, propName, compName) => {
     // currentProdId
     if (isNull(currentProdId)) return;
     if (!isNumber(currentProdId)) {
       throw new Error(`${compName} expected CurrentProdId to be a number but it is a ${typeof currentProdId}`);
     }
-    // products
-    if (!isObject(products) || isArray(products)) {
-      throw new Error(`${compName} expected products to be an object but it is a ${typeof products}`);
-    }
-  }
+  },
+  products: PropTypes.object.isRequired
 };
 
-export default Outfits;
+export default React.memo(Outfits);
