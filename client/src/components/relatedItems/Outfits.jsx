@@ -18,6 +18,11 @@ function Outfits ({ currentProdId, products }) {
     }
   }, [products, currentProdId]);
 
+  const handleActionClick = () => {
+    // This will remove outfit from the state and localStorage
+    alert('Handling outfit action click');
+  };
+
   return (
     <div className="horizontal-container">
       <AddOutfit
@@ -28,6 +33,7 @@ function Outfits ({ currentProdId, products }) {
           <Card
             key={i}
             product={outfit}
+            handleActionClick={handleActionClick}
           />
         ))
       }

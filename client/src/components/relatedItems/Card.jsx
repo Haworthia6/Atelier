@@ -2,7 +2,8 @@ import React from 'react';
 import findDefaultStyle from '../../helpers/findDefaultStyle';
 import PropTypes from 'prop-types';
 
-function Card ({ product }) {
+function Card ({ product, handleActionClick }) {
+  // TODO: Look to see if useMemo would optimize
   const defaultStyle = findDefaultStyle(product);
 
   return (
@@ -10,7 +11,7 @@ function Card ({ product }) {
       <div className="card-top">
         <div
           className="related-item-action-button btn-round"
-          // onClick={handleActionClick}
+          onClick={() => handleActionClick(product.id)}
         >button</div>
         <img
           className="related-item-image"
@@ -36,10 +37,12 @@ function Card ({ product }) {
 // Prop Checking -----------------------
 Card.propTypes = {
   product: PropTypes.shape({
+    id: PropTypes.number.isRequired,
     styleList: PropTypes.array.isRequired,
     name: PropTypes.string.isRequired,
     category: PropTypes.string.isRequired
-  }).isRequired
+  }).isRequired,
+  handleActionClick: PropTypes.func.isRequired
 };
 
 export default Card;

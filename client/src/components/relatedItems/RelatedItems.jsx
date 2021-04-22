@@ -15,6 +15,12 @@ function RelatedItems (props) {
     if (haveRelatedProducts) setShow(true);
   }, [haveRelatedProducts]);
 
+  const handleActionClick = (id) => {
+    setShowModal(true);
+    setToggleComparing('fade-in');
+    handleComparingToggle(id);
+  };
+
   return(
     <div className="horizontal-container">
       <div id="left-arrow" className="arrow">left arrow</div>
@@ -24,9 +30,7 @@ function RelatedItems (props) {
             key={`${id}` + i}
             product={products[id]}
             setShow={setShow}
-            setShowModal={setShowModal}
-            setToggleComparing={setToggleComparing}
-            handleComparingToggle={handleComparingToggle}
+            handleActionClick={handleActionClick}
           />);
         })
       }

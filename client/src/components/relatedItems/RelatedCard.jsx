@@ -1,11 +1,11 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import changeProduct from '../../../store/actions/changeProduct';
 import findDefaultStyle from '../../helpers/findDefaultStyle';
 import PropTypes from 'prop-types';
 
 function RelatedCard (props) {
-  const { product, setShow, handleComparingToggle, setToggleComparing, setShowModal } = props;
+  const { product, setShow, handleActionClick } = props;
   const defaultStyle = findDefaultStyle(product);
   const dispatch = useDispatch();
 
@@ -16,18 +16,12 @@ function RelatedCard (props) {
     dispatch(changeProduct(product.id));
   };
 
-  const handleActionClick = useCallback(() => {
-    setShowModal(true);
-    setToggleComparing('fade-in');
-    handleComparingToggle(product.id);
-  }, [product]);
-
   return (
     <div className="card-component">
       <div className="card-top">
         <div
           className="related-item-action-button btn-round"
-          onClick={handleActionClick}
+          onClick={() => handleActionClick(product.id)}
         >button</div>
         <img
           className="related-item-image"
@@ -54,9 +48,7 @@ function RelatedCard (props) {
 RelatedCard.propTypes = {
   product: PropTypes.object.isRequired,
   setShow: PropTypes.func.isRequired,
-  handleComparingToggle: PropTypes.func.isRequired,
-  setToggleComparing: PropTypes.func.isRequired,
-  setShowModal: PropTypes.func.isRequired
+  handleActionClick: PropTypes.func.isRequired
 };
 
 export default RelatedCard;
