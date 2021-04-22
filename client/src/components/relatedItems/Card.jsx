@@ -1,0 +1,38 @@
+import React from 'react';
+import findDefaultStyle from '../../helpers/findDefaultStyle';
+
+function Card ({ product }) {
+  const defaultStyle = findDefaultStyle(product);
+
+  return (
+    <div className="card-component">
+      <div className="card-top">
+        <div
+          className="related-item-action-button btn-round"
+          // onClick={handleActionClick}
+        >button</div>
+        <img
+          className="related-item-image"
+          src={defaultStyle.photos[0]['thumbnail_url']}
+          alt={product.name}
+          // onClick={handleImageClick}
+        />
+        {/* <div className="related-thumbnails-extra">
+        <img className="related-thumbnail-img-extra" src="#" alt="thumbnail" />
+      </div> */}
+      </div>
+      <div className="card-bottom">
+        <span className="related-category">{product.category}</span>
+        <h6 className="related-name">{product.name}</h6>
+        {/* Will need to see if there is a sale price */}
+        <div className="related-price">{defaultStyle.originalPrice}</div>
+        <div className="stars-component">STARS</div>
+      </div>
+    </div>
+  );
+}
+
+// Prop Checking -----------------------
+
+
+export default Card;

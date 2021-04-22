@@ -43,7 +43,10 @@ function RelatedAndOutfits () {
         handleComparingToggle={handleComparingToggle}
       />
       <h2>YOUR OUTFIT</h2>
-      <Outfits />
+      <Outfits
+        currentProdId={currentProdId}
+        products={products}
+      />
       { showModal &&
         <div id="comparing-position">
           <Comparing
