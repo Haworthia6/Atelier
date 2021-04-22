@@ -1,5 +1,5 @@
 import React from 'react';
-import RelatedCard from './RelatedCard';
+// import RelatedCard from './RelatedCard';
 import AddOutfit from './AddOutfit';
 
 function Outfits () {
