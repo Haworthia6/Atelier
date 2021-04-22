@@ -9,7 +9,7 @@ function changeProduct(id) {
 
     fetchProductRequest(id)
       .then((data) => {
-        dispatch({ type: 'CHANGE_PRODUCT', payload: { [id]: data } });
+        dispatch({ type: 'CHANGE_PRODUCT', payload: { [id]: data }, id: id });
       })
       .catch((err) => {
         console.error(err);

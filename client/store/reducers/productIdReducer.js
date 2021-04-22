@@ -2,10 +2,7 @@
 function productIdReducer (state = null, action) {
   switch(action.type) {
   case 'CHANGE_PRODUCT': {
-    for (let key in action.payload) {
-      return key;
-    }
-    break;
+    return action.id;
   }
   case 'CHANGE_ID': {
     return action.payload;
