@@ -9,7 +9,9 @@ function App() {
     <>
       {testState} rendering correctly!
       <Overview />
-      <RelatedAndOutfits />
+      <section className="col-center">
+        <RelatedAndOutfits />
+      </section>
     </>
   );
 }

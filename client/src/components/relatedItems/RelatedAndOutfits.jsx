@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { useSelector, shallowEqual } from 'react-redux';
 import RelatedItems from './RelatedItems';
-// import Outfits from './Outfits';
+import Outfits from './Outfits';
 import Comparing from './Comparing';
 import useRelatedProductsIds from './custom/useRelatedProductsIds';
 
@@ -33,7 +33,7 @@ function RelatedAndOutfits () {
   }, [comparedProducts]);
 
   return (
-    <div id="related-items-and-outfits-component">
+    <section id="related-items-and-outfits-component">
       <h2>RELATED PRODUCTS</h2>
       <RelatedItems
         relatedProductsIds={relatedProductsIds}
@@ -42,8 +42,8 @@ function RelatedAndOutfits () {
         setShowModal={setShowModal}
         handleComparingToggle={handleComparingToggle}
       />
-      {/* /* <h2>YOUR OUTFIT</h2>
-      <Outfits /> */ }
+      <h2>YOUR OUTFIT</h2>
+      <Outfits />
       { showModal &&
         <div id="comparing-position">
           <Comparing
@@ -52,7 +52,7 @@ function RelatedAndOutfits () {
           />
         </div>
       }
-    </div>
+    </section>
   );
 }
 
