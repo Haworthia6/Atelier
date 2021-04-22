@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import RelatedCard from './RelatedCard';
-import { isEmpty } from 'lodash';
 import useRelatedProducts from './custom/useRelatedProducts';
 import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 
 function RelatedItems (props) { // will receive an array of products
 
@@ -10,7 +10,7 @@ function RelatedItems (props) { // will receive an array of products
 
   const dispatch = useDispatch();
   // Set loading to true on re renders
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
   const haveRelatedProducts = useRelatedProducts(relatedProductsIds, products, dispatch);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ function RelatedItems (props) { // will receive an array of products
     // else {
     //   setLoading(true);
     // }
-  }, [haveRelatedProducts])
+  }, [haveRelatedProducts]);
 
   return(
     <div className="horizontal-container">
@@ -41,5 +41,13 @@ function RelatedItems (props) { // will receive an array of products
     </div>
   );
 }
+
+// Prop Checking
+RelatedItems.propTypes = {
+  relatedProductsIds: PropTypes.arrayOf(PropTypes.number).isRequired,
+  products: PropTypes.object.isRequired,
+  handleComparingToggle: PropTypes.func.isRequired,
+  setToggleComparing: PropTypes.func.isRequired
+};
 
 export default RelatedItems;

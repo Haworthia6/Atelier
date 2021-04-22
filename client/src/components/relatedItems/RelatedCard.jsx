@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react';
 import changeProduct from '../../../store/actions/changeProduct';
 import findDefaultStyle from '../../helpers/findDefaultStyle';
+import PropTypes from 'prop-types';
 
 function RelatedCard (props) { // Will receive an object representing a single product
  const { product, dispatch, setLoading, handleComparingToggle, setToggleComparing } = props;
@@ -45,5 +46,14 @@ function RelatedCard (props) { // Will receive an object representing a single p
     </div>
   );
 }
+
+// Prop Checking
+RelatedCard.propTypes = {
+  product: PropTypes.object.isRequired,
+  dispatch: PropTypes.func.isRequired,
+  setLoading: PropTypes.func.isRequired,
+  handleComparingToggle: PropTypes.func.isRequired,
+  setToggleComparing: PropTypes.func.isRequired
+};
 
 export default RelatedCard;
