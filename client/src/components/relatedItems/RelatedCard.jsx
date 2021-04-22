@@ -1,20 +1,23 @@
 import React, { useCallback } from 'react';
+import { useDispatch } from 'react-redux';
 import changeProduct from '../../../store/actions/changeProduct';
 import findDefaultStyle from '../../helpers/findDefaultStyle';
 import PropTypes from 'prop-types';
 
-function RelatedCard (props) { // Will receive an object representing a single product
- const { product, dispatch, setLoading, handleComparingToggle, setToggleComparing } = props;
+function RelatedCard (props) {
+  const { product, setShow, handleComparingToggle, setToggleComparing, setShowModal } = props;
   const defaultStyle = findDefaultStyle(product);
+  const dispatch = useDispatch();
 
   const handleImageClick = () => {
     // Block renders to DOM
-    setLoading(true);
+    setShow(false);
     // Change Product ID
     dispatch(changeProduct(product.id));
   };
 
   const handleActionClick = useCallback(() => {
+    setShowModal(true);
     setToggleComparing('fade-in');
     handleComparingToggle(product.id);
   }, [product]);
@@ -47,13 +50,13 @@ function RelatedCard (props) { // Will receive an object representing a single p
   );
 }
 
-// Prop Checking
+// Prop Checking -----------------------
 RelatedCard.propTypes = {
   product: PropTypes.object.isRequired,
-  dispatch: PropTypes.func.isRequired,
-  setLoading: PropTypes.func.isRequired,
+  setShow: PropTypes.func.isRequired,
   handleComparingToggle: PropTypes.func.isRequired,
-  setToggleComparing: PropTypes.func.isRequired
+  setToggleComparing: PropTypes.func.isRequired,
+  setShowModal: PropTypes.func.isRequired
 };
 
 export default RelatedCard;

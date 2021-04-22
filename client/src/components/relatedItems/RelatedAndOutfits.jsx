@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { useSelector, shallowEqual } from 'react-redux';
 import RelatedItems from './RelatedItems';
 // import Outfits from './Outfits';
@@ -11,20 +11,23 @@ function RelatedAndOutfits () {
   const products = useSelector((state) => state.products, shallowEqual);
   const relatedProductsIds = useRelatedProductsIds(currentProdId, products);
   const [toggleComparing, setToggleComparing] = useState('fade-out');
+  const [showModal, setShowModal] = useState(false);
   const [comparedProducts, setComparedProducts] = useState({});
 
-  // Not memoized for access to Products
-  const handleComparingToggle = (relatedId) => {
+  const handleComparingToggle = useCallback((relatedId) => {
     setComparedProducts({
       current: products[currentProdId],
       related: products[relatedId]
     });
-  };
+  }, [products]);
 
   useEffect(() => {
     // Closes modal on outside of modal click
     if (toggleComparing.match(/fade-out/)) return;
-    function closeModal() { setToggleComparing('fade-out'); }
+    function closeModal() {
+      setToggleComparing('fade-out');
+      setShowModal(false);
+    }
     document.body.addEventListener('click', closeModal, false);
     return () => document.body.removeEventListener('click', closeModal, false);
   }, [comparedProducts]);
@@ -36,16 +39,19 @@ function RelatedAndOutfits () {
         relatedProductsIds={relatedProductsIds}
         products={products}
         setToggleComparing={setToggleComparing}
+        setShowModal={setShowModal}
         handleComparingToggle={handleComparingToggle}
       />
-      {/* <h2>YOUR OUTFIT</h2>
-      <Outfits /> */}
-      <div id="comparing-position">
-        <Comparing
-          visibility={toggleComparing}
-          comparedProducts={comparedProducts}
-        />
-      </div>
+      {/* /* <h2>YOUR OUTFIT</h2>
+      <Outfits /> */ }
+      { showModal &&
+        <div id="comparing-position">
+          <Comparing
+            visibility={toggleComparing}
+            comparedProducts={comparedProducts}
+          />
+        </div>
+      }
     </div>
   );
 }
