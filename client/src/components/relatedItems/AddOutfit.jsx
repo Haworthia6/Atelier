@@ -1,12 +1,23 @@
 import React from 'react';
+import { FiPlusSquare } from 'react-icons/fi';
+import PropTypes from 'prop-types';
 
-function AddOutfit () {
+function AddOutfit ({ handleOutfitAdd }) {
   return (
-    <div className="add-outfit-container">
-      <div className="add-outfit-graphic"></div>
+    <div
+      className="add-outfit-container"
+      onClick={() => handleOutfitAdd()}
+    >
+      <i className="add-outfit-graphic"><FiPlusSquare />
+      </i>
       <span className="add-outfit-detail">add outfit</span>
     </div>
   );
 }
 
-export default AddOutfit;
+// Prop Checking -----------------
+AddOutfit.propTypes = {
+  handleOutfitAdd: PropTypes.func.isRequired
+};
+
+export default React.memo(AddOutfit);

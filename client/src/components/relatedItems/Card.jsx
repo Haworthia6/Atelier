@@ -1,30 +1,28 @@
-import React, { useCallback } from 'react';
-import changeProduct from '../../../store/actions/changeProduct';
+import React from 'react';
 import findDefaultStyle from '../../helpers/findDefaultStyle';
+import { useDispatch } from 'react-redux';
+import changeProduct from '../../../store/actions/changeProduct';
+import toggleShow from '../../../store/actions/toggleShow';
 import PropTypes from 'prop-types';
 
-function RelatedCard (props) { // Will receive an object representing a single product
- const { product, dispatch, setLoading, handleComparingToggle, setToggleComparing } = props;
+function Card ({ product, handleActionClick }) {
+  // TODO: Look to see if useMemo would optimize
   const defaultStyle = findDefaultStyle(product);
+  const dispatch = useDispatch();
 
   const handleImageClick = () => {
     // Block renders to DOM
-    setLoading(true);
+    dispatch(toggleShow(false));
     // Change Product ID
     dispatch(changeProduct(product.id));
   };
-
-  const handleActionClick = useCallback(() => {
-    setToggleComparing('fade-in');
-    handleComparingToggle(product.id);
-  }, [product]);
 
   return (
     <div className="card-component">
       <div className="card-top">
         <div
           className="related-item-action-button btn-round"
-          onClick={handleActionClick}
+          onClick={() => handleActionClick(product.id)}
         >button</div>
         <img
           className="related-item-image"
@@ -47,13 +45,15 @@ function RelatedCard (props) { // Will receive an object representing a single p
   );
 }
 
-// Prop Checking
-RelatedCard.propTypes = {
-  product: PropTypes.object.isRequired,
-  dispatch: PropTypes.func.isRequired,
-  setLoading: PropTypes.func.isRequired,
-  handleComparingToggle: PropTypes.func.isRequired,
-  setToggleComparing: PropTypes.func.isRequired
+// Prop Checking -----------------------
+Card.propTypes = {
+  product: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    styleList: PropTypes.array.isRequired,
+    name: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired
+  }).isRequired,
+  handleActionClick: PropTypes.func.isRequired
 };
 
-export default RelatedCard;
+export default Card;
