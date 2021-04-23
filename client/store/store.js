@@ -6,7 +6,9 @@ import rootReducer from './reducers/mainReducer';
 const initialState = {
   count: 0,
   currentProductId: null,
-  products: {}
+  products: {},
+  outfits: {},
+  show: false
 };
 
 const store = createStore(rootReducer,
