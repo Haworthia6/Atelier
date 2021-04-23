@@ -620,7 +620,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n// This is a placeholder for the makeAVERAGE function\nfunction getAverage() {\n  return 3;\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getAverage);\n\n//# sourceURL=webpack://catwalk/./client/store/helpers/calculateAverage.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ \"./node_modules/lodash/lodash.js\");\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _getAmtRatings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./getAmtRatings */ \"./client/store/helpers/getAmtRatings.js\");\n/* harmony import */ var _roundRating__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./roundRating */ \"./client/store/helpers/roundRating.js\");\n\n\n\n\nfunction getAverage(ratings) {\n  var total = (0,_getAmtRatings__WEBPACK_IMPORTED_MODULE_1__.default)(ratings);\n  return (0,_roundRating__WEBPACK_IMPORTED_MODULE_2__.default)((0,lodash__WEBPACK_IMPORTED_MODULE_0__.map)(ratings, function (amt, rating) {\n    return Number(rating) * Number(amt);\n  }).reduce(function (sum, num) {\n    return sum + num;\n  }, 0) / total);\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getAverage);\n\n//# sourceURL=webpack://catwalk/./client/store/helpers/calculateAverage.js?");
 
 /***/ }),
 
@@ -632,6 +632,28 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _calculateAverage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./calculateAverage */ \"./client/store/helpers/calculateAverage.js\");\nfunction ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }\n\nfunction _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }\n\nfunction _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }\n\n\n\nvar URL = 'http://localhost:3000/';\n\nfunction fetchProductRequest(id) {\n  return Promise.all([axios__WEBPACK_IMPORTED_MODULE_0___default().post(URL + 'product/', {\n    id: id\n  }), axios__WEBPACK_IMPORTED_MODULE_0___default().post(URL + 'styles/', {\n    id: id\n  }), axios__WEBPACK_IMPORTED_MODULE_0___default().post(URL + 'meta/', {\n    id: id\n  }), axios__WEBPACK_IMPORTED_MODULE_0___default().post(URL + 'related/', {\n    id: id\n  })]).then(function (data) {\n    return data.reduce(function (accum, _ref, i) {\n      var data = _ref.data;\n\n      if (i === 0) {\n        return {\n          category: data.category,\n          id: data.id,\n          description: data.description,\n          slogan: data.slogan,\n          features: data.features,\n          name: data.name\n        };\n      } else if (i === 1) {\n        return _objectSpread(_objectSpread({}, accum), {}, {\n          styleList: data.results\n        });\n      } else if (i === 2) {\n        return _objectSpread(_objectSpread({}, accum), {}, {\n          avgRating: (0,_calculateAverage__WEBPACK_IMPORTED_MODULE_1__.default)(data.ratings)\n        });\n      } else if (i === 3) {\n        return _objectSpread(_objectSpread({}, accum), {}, {\n          relatedItemsIds: data\n        });\n      } else {\n        return accum;\n      }\n    }, {});\n  });\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (fetchProductRequest);\n\n//# sourceURL=webpack://catwalk/./client/store/helpers/fetchProductRequest.js?");
+
+/***/ }),
+
+/***/ "./client/store/helpers/getAmtRatings.js":
+/*!***********************************************!*\
+  !*** ./client/store/helpers/getAmtRatings.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ \"./node_modules/lodash/lodash.js\");\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);\n\n\nfunction getAmtRatings(obj) {\n  var amt = 0;\n\n  for (var key in obj) {\n    if ((0,lodash__WEBPACK_IMPORTED_MODULE_0__.has)(obj, key)) {\n      amt += Number(obj[key]);\n    }\n  }\n\n  return amt;\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getAmtRatings);\n\n//# sourceURL=webpack://catwalk/./client/store/helpers/getAmtRatings.js?");
+
+/***/ }),
+
+/***/ "./client/store/helpers/roundRating.js":
+/*!*********************************************!*\
+  !*** ./client/store/helpers/roundRating.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n// Rounds number to nearest quarter\nfunction roundRating(num) {\n  return Number((Math.round(num * 4) / 4).toFixed(2));\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (roundRating);\n\n//# sourceURL=webpack://catwalk/./client/store/helpers/roundRating.js?");
 
 /***/ }),
 
@@ -1319,7 +1341,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/
+/******/ 	
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -1333,17 +1355,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 			loaded: false,
 /******/ 			exports: {}
 /******/ 		};
-/******/
+/******/ 	
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
+/******/ 	
 /******/ 		// Flag the module as loaded
 /******/ 		module.loaded = true;
-/******/
+/******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/
+/******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
@@ -1356,7 +1378,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 			return getter;
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -1368,7 +1390,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/global */
 /******/ 	(() => {
 /******/ 		__webpack_require__.g = (function() {
@@ -1380,7 +1402,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 			}
 /******/ 		})();
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/harmony module decorator */
 /******/ 	(() => {
 /******/ 		__webpack_require__.hmd = (module) => {
@@ -1395,12 +1417,12 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 			return module;
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -1411,7 +1433,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/node module decorator */
 /******/ 	(() => {
 /******/ 		__webpack_require__.nmd = (module) => {
@@ -1420,13 +1442,13 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 			return module;
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /************************************************************************/
-/******/
+/******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
 /******/ 	var __webpack_exports__ = __webpack_require__("./client/src/index.jsx");
-/******/
+/******/ 	
 /******/ })()
 ;
