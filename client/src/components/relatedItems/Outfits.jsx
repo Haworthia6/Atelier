@@ -7,11 +7,6 @@ import PropTypes from 'prop-types';
 import CardWrapper from './CardWrapper';
 import useLocalStorage from './custom/useLocalStorage';
 
-const handleActionClick = () => {
-  // This will remove outfit from the state and localStorage
-  alert('Handling outfit action click');
-};
-
 function Outfits ({ currentProdId, products }) {
 
   const [outfits, setOutfits] = useLocalStorage('outfits');
@@ -19,7 +14,13 @@ function Outfits ({ currentProdId, products }) {
 
   const handleOutfitAdd = () => {
     if (!outfits[currentProdId]) {
-      setOutfits('outfits', products[currentProdId]);
+      setOutfits('outfits', 'setItem', products[currentProdId]);
+    }
+  };
+
+  const handleRemoveOutfit = (id) => {
+    if (outfits[id]) {
+      setOutfits('outfits', 'removeItem', id);
     }
   };
 
@@ -33,7 +34,7 @@ function Outfits ({ currentProdId, products }) {
           <CardWrapper
             key={i}
             product={outfit}
-            handleActionClick={handleActionClick}
+            handleActionClick={handleRemoveOutfit}
             dispatch={dispatch}
           />
         ))
