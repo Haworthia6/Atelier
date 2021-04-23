@@ -7,7 +7,6 @@ const initialState = {
   count: 0,
   currentProductId: null,
   products: {},
-  outfits: {},
   show: false
 };
 

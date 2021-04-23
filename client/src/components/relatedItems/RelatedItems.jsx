@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-// import RelatedCard from './RelatedCard';
-// import Card from './Card';
 import useRelatedProducts from './custom/useRelatedProducts';
 import toggleShow from '../../../store/actions/toggleShow';
 import PropTypes from 'prop-types';

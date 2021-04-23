@@ -32,6 +32,7 @@ function RelatedAndOutfits () {
     return () => document.body.removeEventListener('click', closeModal, false);
   }, [comparedProducts]);
 
+
   return (
     <section id="related-items-and-outfits-component">
       <h2>RELATED PRODUCTS</h2>
