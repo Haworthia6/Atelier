@@ -6,7 +6,6 @@ import rootReducer from './reducers/mainReducer';
 const initialState = {
   currentProductId: null,
   products: {},
-  outfits: {},
   show: false
 };
 

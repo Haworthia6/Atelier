@@ -1,21 +1,7 @@
 import React from 'react';
-import findDefaultStyle from '../../helpers/findDefaultStyle';
-import { useDispatch } from 'react-redux';
-import changeProduct from '../../../store/actions/changeProduct';
-import toggleShow from '../../../store/actions/toggleShow';
 import PropTypes from 'prop-types';
 
-function Card ({ product, handleActionClick }) {
-  // TODO: Look to see if useMemo would optimize
-  const defaultStyle = findDefaultStyle(product);
-  const dispatch = useDispatch();
-
-  const handleImageClick = () => {
-    // Block renders to DOM
-    dispatch(toggleShow(false));
-    // Change Product ID
-    dispatch(changeProduct(product.id));
-  };
+function Card ({ product, defaultStyle, handleImageClick, handleActionClick }) {
 
   return (
     <div className="card-component">
@@ -28,7 +14,7 @@ function Card ({ product, handleActionClick }) {
           className="related-item-image"
           src={defaultStyle.photos[0]['thumbnail_url']}
           alt={product.name}
-          onClick={handleImageClick}
+          onClick={() => handleImageClick(product.id) }
         />
         {/* <div className="related-thumbnails-extra">
         <img className="related-thumbnail-img-extra" src="#" alt="thumbnail" />
@@ -38,7 +24,7 @@ function Card ({ product, handleActionClick }) {
         <span className="related-category">{product.category}</span>
         <h6 className="related-name">{product.name}</h6>
         {/* Will need to see if there is a sale price */}
-        <div className="related-price">{defaultStyle.originalPrice}</div>
+        <div className="related-price">{defaultStyle['original_price']}</div>
         <div className="stars-component">STARS</div>
       </div>
     </div>
@@ -53,7 +39,16 @@ Card.propTypes = {
     name: PropTypes.string.isRequired,
     category: PropTypes.string.isRequired
   }).isRequired,
-  handleActionClick: PropTypes.func.isRequired
+  handleActionClick: PropTypes.func.isRequired,
+  defaultStyle: PropTypes.shape({
+    'original_price': PropTypes.string.isRequired,
+    'sale_price': PropTypes.oneOfType([
+      PropTypes.string
+    ]),
+    photos: PropTypes.arrayOf(PropTypes.object).isRequired,
+    'default?': PropTypes.bool.isRequired
+  }).isRequired,
+  handleImageClick: PropTypes.func.isRequired,
 };
 
 export default Card;
