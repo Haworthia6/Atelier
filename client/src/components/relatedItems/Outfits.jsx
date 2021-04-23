@@ -2,10 +2,16 @@ import React, { useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import AddOutfit from './AddOutfit';
 import addOutfit from '../../../store/actions/addOutfit';
-import Card from './Card';
+// import Card from './Card';
 import obj from '../../helpers/objectMap';
 import { isNumber, isNull } from 'lodash';
 import PropTypes from 'prop-types';
+import CardWrapper from './CardWrapper';
+
+const handleActionClick = () => {
+  // This will remove outfit from the state and localStorage
+  alert('Handling outfit action click');
+};
 
 function Outfits ({ currentProdId, products }) {
 
@@ -18,11 +24,6 @@ function Outfits ({ currentProdId, products }) {
     }
   }, [products, currentProdId]);
 
-  const handleActionClick = () => {
-    // This will remove outfit from the state and localStorage
-    alert('Handling outfit action click');
-  };
-
   return (
     <div className="horizontal-container">
       <AddOutfit
@@ -30,10 +31,11 @@ function Outfits ({ currentProdId, products }) {
       />
       {
         obj.hasOwnMap(outfits).map((outfit, i) => (
-          <Card
+          <CardWrapper
             key={i}
             product={outfit}
             handleActionClick={handleActionClick}
+            dispatch={dispatch}
           />
         ))
       }
@@ -44,7 +46,6 @@ function Outfits ({ currentProdId, products }) {
 // Prop Checking ------------------
 Outfits.propTypes = {
   currentProdId: ({ currentProdId }, propName, compName) => {
-    // currentProdId
     if (isNull(currentProdId)) return;
     if (!isNumber(currentProdId)) {
       throw new Error(`${compName} expected CurrentProdId to be a number but it is a ${typeof currentProdId}`);

@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // import RelatedCard from './RelatedCard';
-import Card from './Card';
+// import Card from './Card';
 import useRelatedProducts from './custom/useRelatedProducts';
 import toggleShow from '../../../store/actions/toggleShow';
 import PropTypes from 'prop-types';
+import CardWrapper from './CardWrapper';
 
 function RelatedItems (props) {
 
@@ -29,10 +30,11 @@ function RelatedItems (props) {
       <div id="left-arrow" className="arrow">left arrow</div>
       { show &&
         relatedProductsIds.map((id, i) => {
-          return (<Card
+          return (<CardWrapper
             key={`${id}` + i}
             product={products[id]}
             handleActionClick={handleActionClick}
+            dispatch={dispatch}
           />);
         })
       }
