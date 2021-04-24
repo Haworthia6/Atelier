@@ -1,23 +1,22 @@
-import React, {useState} from 'react';
-import { useSelector, useDispatch } from 'react-redux'
+import React from 'react';
+import splitArray from '../../helpers/splitArray';
+import StyleThumbnail from './StyleThumbnail';
 
 function StyleSelector ({styleList, currentStyle, onStyleChange}) {
-  const dis = useDispatch();
-
   return (
     <div>
-      <p>Style> {styleList[currentStyle].name}</p>
-      {styleList.map((style, index) => {
-        if (index === currentStyle) {
-          console.log(styleList[currentStyle]);
-          return <img src={style.photos[0].thumbnail_url} alt="current style" className ="styleThumbnail" key={index} id={index} onClick={onStyleChange}/>
-        } else {
-          return <img src={style.photos[0].thumbnail_url} alt="style" className ="styleThumbnail" id={index} key={index} onClick={onStyleChange}/>
-        }
+      <p>Style{'>'} {styleList[currentStyle].name}</p>
+      {splitArray(styleList).map((row, rowIndex) => {
+        return (
+          <div key={rowIndex}>
+            {row.map((style, styleIndex) => {
+              return <StyleThumbnail style={style} styleList={styleList} onStyleChange={onStyleChange} currentStyle={currentStyle} key={styleIndex} id={(rowIndex * 4) + styleIndex}/>;
+            })}
+          </div>);
       })}
     </div>
 
-  )
+  );
 }
 
 export default StyleSelector;
