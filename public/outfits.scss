@@ -1,15 +1,21 @@
 
-.add-outfit-container {
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  justify-content: center;
-  align-items: center;
-  border: 1px dotted black;
 
-  & .add-outfit-detail {
+.add-outfit{
+  &-container {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    border: 1px dotted black;
+    max-height: 99%;
+    width: 8rem;
+  }
+
+  &-detail {
     font-weight: 100;
     font-size: 0.7em;
+    white-space: nowrap;
   }
 }
 
