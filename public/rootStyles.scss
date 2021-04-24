@@ -12,14 +12,13 @@ body {
 
 .horizontal-container {
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(auto, 8rem));
   grid-auto-flow: column;
-  grid-auto-columns: 1fr;
-  grid-gap: 1em;
-  overflow-x: hidden;
-  width: 70vw;
+  grid-gap: 10px;
+  overflow: hidden;
+  width: 100%;
   margin-bottom: 50px;
-  min-height: 11rem;
-  max-height: auto;
+  height: 40%;
 }
 
 .col-center {

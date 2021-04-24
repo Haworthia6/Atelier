@@ -5,18 +5,25 @@ $thumbnail-width-limit: 8em;
   display: flex;
   flex-direction: column;
   border: 1px solid black;
+  width: 8rem;
+  max-width: fit-content;
 }
 
-.related-item-image {
-  max-width: $thumbnail-width-limit;
-  max-height: $thumbnail-height-limit;
+.card-image {
+  max-width: 100%;
+  height: auto;
 }
 
 .card-top {
   position: relative;
+  height: 70%;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
 }
 
-.related-item-action-button {
+.card-button {
   position: absolute;
   right: 0;
+  top: 0;
 }

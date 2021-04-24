@@ -7,13 +7,13 @@ function Card ({ product, defaultStyle, handleImageClick, handleActionClick, ren
     <div className="card-component">
       <div className="card-top">
         <div
-          className="related-item-action-button btn-round"
+          className="card-button btn-round"
           onClick={() => handleActionClick(product.id)}
         >
           { render() }
         </div>
         <img
-          className="related-item-image"
+          className="card-image"
           src={defaultStyle.photos[0]['thumbnail_url']}
           alt={product.name}
           onClick={() => handleImageClick(product.id) }
@@ -23,10 +23,10 @@ function Card ({ product, defaultStyle, handleImageClick, handleActionClick, ren
       </div> */}
       </div>
       <div className="card-bottom">
-        <span className="related-category">{product.category}</span>
-        <h6 className="related-name">{product.name}</h6>
+        <span className="card-category">{product.category}</span>
+        <h6 className="card-name">{product.name}</h6>
         {/* Will need to see if there is a sale price */}
-        <div className="related-price">{defaultStyle['original_price']}</div>
+        <div className="card-price">{defaultStyle['original_price']}</div>
         <div className="stars-component">STARS</div>
       </div>
     </div>

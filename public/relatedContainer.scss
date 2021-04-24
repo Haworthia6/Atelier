@@ -10,6 +10,8 @@
 
 #related-items-and-outfits-component {
 
+  width: 70vw;
+
   & h2 {
     padding-bottom: 8px;
     @include r.fw-light(0.7rem);
