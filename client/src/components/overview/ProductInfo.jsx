@@ -1,20 +1,19 @@
-import React, {useState} from 'react';
-import { useSelector, useDispatch } from 'react-redux'
+import React from 'react';
+import {GrFacebook} from "react-icons/gr";
 
 function ProductInfo (props) {
-  const dis = useDispatch();
   const renderPrice = () => {
     if (props.salePrice === null) {
-      return <p>{props.price}</p>
+      return <p>{props.price}</p>;
     } else {
       return(
-      <div>
-        <p>{props.price} CROSS THIS OUT </p>
-        <p>{props.salePrice}</p>
-      </div>)
+        <div>
+          <p className="crossed-out">{props.price}</p>
+          <p>{props.salePrice}</p>
+        </div>);
 
     }
-  }
+  };
 
   return (
     <div>This is the product info
@@ -22,6 +21,10 @@ function ProductInfo (props) {
       <p>{props.category}</p>
       <p>{props.name}</p>
       {renderPrice()}
+      <div>
+        share buttons
+        <button className="share"></button>
+      </div>
     </div>
   )
 }
