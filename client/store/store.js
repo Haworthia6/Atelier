@@ -4,10 +4,8 @@ import rootReducer from './reducers/mainReducer';
 // import prod3StyleData from '../../exampleData/prodStyles/product3Style';
 
 const initialState = {
-  count: 0,
   currentProductId: null,
   products: {},
-  outfits: {},
   show: false
 };
 
