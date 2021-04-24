@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {IoMdCheckmarkCircleOutline} from 'react-icons/io';
 
 function StyleSelector ({styleList, currentStyle, onStyleChange}) {
   // divide styleList into an array of arrays of 4
@@ -36,8 +37,11 @@ function StyleSelector ({styleList, currentStyle, onStyleChange}) {
         return (
           <div key={rowIndex}>
             {row.map((style, styleIndex) => {
-              if (style.style_id === currentStyle) {
-                return <img src={style.photos[0].thumbnail_url} alt="current style" className ="styleThumbnail" key={styleIndex} id={(rowIndex * 4) + styleIndex} onClick={onStyleChange}/>;
+              if (style.style_id === styleList[currentStyle].style_id) {
+                return (<span className="selectedStyleContainer" key={styleIndex}>
+                  <IoMdCheckmarkCircleOutline className="overlay"/>
+                  <img src={style.photos[0].thumbnail_url} alt="current style" className="styleThumbnail" id={(rowIndex * 4) + styleIndex} onClick={onStyleChange}/>
+                </span>);
               } else {
                 return <img src={style.photos[0].thumbnail_url} alt="style" className ="styleThumbnail" id={(rowIndex * 4) + styleIndex} key={styleIndex} onClick={onStyleChange}/>;
               }
