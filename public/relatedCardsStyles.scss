@@ -11,3 +11,12 @@ $thumbnail-width-limit: 8em;
   max-width: $thumbnail-width-limit;
   max-height: $thumbnail-height-limit;
 }
+
+.card-top {
+  position: relative;
+}
+
+.related-item-action-button {
+  position: absolute;
+  right: 0;
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Card ({ product, defaultStyle, handleImageClick, handleActionClick }) {
+function Card ({ product, defaultStyle, handleImageClick, handleActionClick, render }) {
 
   return (
     <div className="card-component">
@@ -9,7 +9,9 @@ function Card ({ product, defaultStyle, handleImageClick, handleActionClick }) {
         <div
           className="related-item-action-button btn-round"
           onClick={() => handleActionClick(product.id)}
-        >button</div>
+        >
+          { render() }
+        </div>
         <img
           className="related-item-image"
           src={defaultStyle.photos[0]['thumbnail_url']}
@@ -49,6 +51,7 @@ Card.propTypes = {
     'default?': PropTypes.bool.isRequired
   }).isRequired,
   handleImageClick: PropTypes.func.isRequired,
+  render: PropTypes.func.isRequired
 };
 
 export default Card;

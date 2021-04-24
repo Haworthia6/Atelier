@@ -4,6 +4,7 @@ import useRelatedProducts from './custom/useRelatedProducts';
 import toggleShow from '../../../store/actions/toggleShow';
 import PropTypes from 'prop-types';
 import CardWrapper from './CardWrapper';
+import { FiStar } from 'react-icons/fi';
 
 function RelatedItems (props) {
 
@@ -33,6 +34,7 @@ function RelatedItems (props) {
             product={products[id]}
             handleActionClick={handleActionClick}
             dispatch={dispatch}
+            render={() => <FiStar />}
           />);
         })
       }

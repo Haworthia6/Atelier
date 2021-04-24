@@ -6,7 +6,7 @@ import changeProduct from '../../../store/actions/changeProduct';
 import findDefaultStyle from '../../helpers/findDefaultStyle';
 import PropTypes from 'prop-types';
 
-function CardWrapper ({ product, handleActionClick }) {
+function CardWrapper ({ product, handleActionClick, render }) {
 
   // Look into useMemo to optimize this
   const defaultStyle = findDefaultStyle(product);
@@ -23,6 +23,7 @@ function CardWrapper ({ product, handleActionClick }) {
       handleImageClick={handleImageClick}
       handleActionClick={handleActionClick}
       defaultStyle={defaultStyle}
+      render={render}
     />
   );
 }
@@ -35,7 +36,8 @@ CardWrapper.propTypes = {
     name: PropTypes.string.isRequired,
     category: PropTypes.string.isRequired
   }).isRequired,
-  handleActionClick: PropTypes.func.isRequired
+  handleActionClick: PropTypes.func.isRequired,
+  render: PropTypes.func.isRequired
 };
 
 export default CardWrapper;
