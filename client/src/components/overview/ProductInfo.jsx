@@ -3,24 +3,16 @@ import {GrFacebook} from 'react-icons/gr';
 import { AiFillTwitterSquare } from 'react-icons/ai';
 import { FaPinterestSquare } from 'react-icons/fa';
 import {FacebookShareButton, TwitterShareButton, PinterestShareButton} from 'react-share';
-import CrossedOutPrice from '../CrossedOutPrice';
+import Price from '../Price';
 
 function ProductInfo (props) {
-  const renderPrice = () => {
-    if (props.salePrice === null) {
-      return <p>{props.price}</p>;
-    } else {
-      return(<CrossedOutPrice price={props.price} salePrice={props.salePrice}/>);
-
-    }
-  };
 
   return (
     <div>This is the product info
       <p>{props.rating}</p>
       <p>{props.category}</p>
       <p>{props.name}</p>
-      {renderPrice()}
+      <Price price={props.price} salePrice={props.salePrice}/>
       <div>
         {/*NEED TO CHANGE URLS TO THE CORRECT ONE*/}
         <span className="share">

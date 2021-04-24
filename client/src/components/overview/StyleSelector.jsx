@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import splitArray from '../../helpers/splitArray';
 import StyleThumbnail from './StyleThumbnail';
 
