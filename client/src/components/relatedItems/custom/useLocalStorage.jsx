@@ -11,25 +11,16 @@ function useLocalStorage (key) {
     return {};
   });
 
-  const setLocalStorage = (key, action, data) => {
-    let newState;
-    switch (action) {
-    case 'setItem': {
-      newState = {...storage, [data.id]: data };
+  const setLocalStorage = {
+    setItem: (key, data) => {
+      const newState = { ...storage, [data.id]: data };
       setStorage(newState);
       window.localStorage.setItem(key, JSON.stringify(newState));
-      return;
-    }
-    case 'removeItem': {
-      newState = { ...storage };
-      delete newState[data];
-      setStorage(newState);
+    },
+    removeItem: (key, data) => {
+      const newState = { ...storage };
+      delete newState[data] && setStorage(newState);
       window.localStorage.setItem(key, JSON.stringify(newState));
-      return;
-    }
-    default: {
-      return;
-    }
     }
   };
 
