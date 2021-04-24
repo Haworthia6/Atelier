@@ -3,24 +3,32 @@ import {FiArrowLeft, FiArrowRight } from 'react-icons/fi';
 import {HiPhotograph, HiOutlinePhotograph} from 'react-icons/hi';
 
 function ExpandedView ({photos, changePhoto, currentPhoto, changeView}) {
-  const [zoom, setZoom] = useState('out');
+  const [zoom, setZoom] = useState(false);
   const zoomIn = () => {
     console.log(zoom);
-    setZoom('in');
+    setZoom(true);
   };
   const zoomOut = () => {
-    setZoom('out');
+    setZoom(false);
   };
   const renderLeftArrow = () => {
     if (currentPhoto !== 0) {
-      return <FiArrowLeft className="left-arrow-expanded" onClick={leftArrowClick}/>;
+      return (
+        <div className="arrow-icon left-arrow-expanded" onClick={leftArrowClick}>
+          <FiArrowLeft/>
+        </div>
+      );
     } else {
       return null;
     }
   };
   const renderRightArrow = () => {
     if (currentPhoto !== photos.length - 1) {
-      return <FiArrowRight className="right-arrow-expanded" onClick={rightArrowClick}/>;
+      return (
+        <div className="arrow-icon right-arrow-expanded" onClick={rightArrowClick}>
+          <FiArrowRight/>
+        </div>
+      );
     } else {
       return null;
     }
@@ -28,9 +36,17 @@ function ExpandedView ({photos, changePhoto, currentPhoto, changeView}) {
   const renderIcons = () => {
     return photos.map((photo, index) => {
       if (index === currentPhoto) {
-        return <HiOutlinePhotograph alt="icon" className="expanded-icon" id={index} key={index}/>;
+        return (
+          <div alt="icon" className="expanded-icon" id={index} key={index}>
+            <HiOutlinePhotograph/>
+          </div>
+        );
       }
-      return <HiPhotograph alt="icon" className="expanded-icon" id={index} key={index} onClick={iconClick}/>;
+      return (
+        <div alt="icon" className="expanded-icon" id={index} key={index} onClick={iconClick}>
+          <HiPhotograph/>
+        </div>
+      );
     });
   };
   const iconClick = (e) => {
@@ -44,7 +60,7 @@ function ExpandedView ({photos, changePhoto, currentPhoto, changeView}) {
   };
   if (photos.length === 0) {
     return null;
-  } else if (zoom === 'in') {
+  } else if (zoom) {
     //make the image 2.5x larger and move with the mouse
     //change mouse cursor to a '-'
     return (<img src={photos[currentPhoto].url} alt="photo" className="expanded-carousel-photo" onClick={zoomOut}/>);

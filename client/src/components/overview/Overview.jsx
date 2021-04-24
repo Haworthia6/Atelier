@@ -24,9 +24,6 @@ function Overview () {
   const imageClick = () => {
     setView('expanded');
   };
-  const changePhoto = (num) => {
-    setCurrentPhoto(num);
-  };
   const defaultView = () => {
     setView('default');
   };
@@ -44,7 +41,7 @@ function Overview () {
     return (
       <ExpandedView
         photos={currentProduct.styleList[currentStyle].photos}
-        changePhoto={changePhoto}
+        changePhoto={setCurrentPhoto}
         currentPhoto={currentPhoto}
         changeView={defaultView}/>);
   } else {
@@ -55,7 +52,7 @@ function Overview () {
         <ImageGallery
           photos={currentProduct.styleList[currentStyle].photos}
           imageClick={imageClick}
-          changePhoto={changePhoto}
+          changePhoto={setCurrentPhoto}
           currentPhoto={currentPhoto}/>
 
         <div>Product Info Box here:

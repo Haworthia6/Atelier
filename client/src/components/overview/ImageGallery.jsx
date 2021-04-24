@@ -4,14 +4,21 @@ import {FiArrowLeft, FiArrowRight } from 'react-icons/fi';
 function ImageGallery ({photos, imageClick, changePhoto, currentPhoto}) {
   const renderLeftArrow = () => {
     if (currentPhoto !== 0) {
-      return <FiArrowLeft className="left-arrow" onClick={leftArrowClick}/>;
+      return (
+        <div className="arrow-icon left-arrow" onClick={leftArrowClick}>
+          <FiArrowLeft/>
+        </div>
+      );
     } else {
       return null;
     }
   };
   const renderRightArrow = () => {
     if (currentPhoto !== photos.length - 1) {
-      return <FiArrowRight className="right-arrow" onClick={rightArrowClick}/>;
+      return (
+        <div className="arrow-icon right-arrow" onClick={rightArrowClick}>
+          <FiArrowRight/>
+        </div>);
     } else {
       return null;
     }
