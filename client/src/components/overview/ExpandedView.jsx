@@ -50,6 +50,7 @@ function ExpandedView ({photos, changePhoto, currentPhoto, changeView}) {
     });
   };
   const iconClick = (e) => {
+    console.log('new photo', e.target.id);
     changePhoto(parseInt(e.target.id));
   };
   const leftArrowClick = () => {
