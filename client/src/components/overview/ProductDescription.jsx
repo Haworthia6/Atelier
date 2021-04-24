@@ -1,8 +1,6 @@
-import React, {useState} from 'react';
-import { useSelector, useDispatch } from 'react-redux'
+import React from 'react';
 
 function ProductDescription ({description, features}) {
-  const dis = useDispatch();
   console.log('FEATURES: ', features);
   return (
     <div>
@@ -13,15 +11,15 @@ function ProductDescription ({description, features}) {
       <div>
         {features.map((feature, i) => {
           if (feature.value === null) {
-            return <p className="product-description-feature" key={i}>{feature.feature}</p>
+            return <p className="product-description-feature" key={i}>{feature.feature}</p>;
           }
-          return <p className="product-description-feature" key={i}>{feature.value} {feature.feature}</p>
+          return <p className="product-description-feature" key={i}>{feature.value} {feature.feature}</p>;
         })}
       </div>
       <br/>
       <br/>
     </div>
-  )
+  );
 }
 
 export default ProductDescription;

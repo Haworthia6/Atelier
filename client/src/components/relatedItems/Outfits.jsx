@@ -14,13 +14,13 @@ function Outfits ({ currentProdId, products }) {
 
   const handleOutfitAdd = () => {
     if (!outfits[currentProdId]) {
-      setOutfits('outfits', 'setItem', products[currentProdId]);
+      setOutfits.setItem('outfits', products[currentProdId]);
     }
   };
 
   const handleRemoveOutfit = (id) => {
     if (outfits[id]) {
-      setOutfits('outfits', 'removeItem', id);
+      setOutfits.removeItem('outfits', id);
     }
   };
 
