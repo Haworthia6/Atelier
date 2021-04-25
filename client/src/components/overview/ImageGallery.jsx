@@ -52,6 +52,15 @@ function ImageGallery ({photos, imageClick, changePhoto, currentPhoto}) {
         currentThumbnailUrl={photos[currentPhoto].thumbnail_url}
         thumbnailClick={thumbnailClick}/>;
     } else {
+      if (currentThumbnails - 7 > currentPhoto || currentThumbnails < currentPhoto) {
+        // if currentPhoto is not in range of currentThumbnails
+        // set currentThumbnails to currentPhoto, then while currentThumbnails is less than 7, add one to currentThumbnails
+        var newThumbnails = currentPhoto;
+        while(newThumbnails < 7) {
+          newThumbnails ++;
+        }
+        setThumbnails(newThumbnails);
+      }
       return <ImageThumbNails
         photos={photos.slice(currentThumbnails - 7, currentThumbnails)}
         currentThumbnailUrl={photos[currentPhoto].thumbnail_url}
