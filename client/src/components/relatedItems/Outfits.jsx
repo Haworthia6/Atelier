@@ -6,6 +6,8 @@ import { isNumber, isNull } from 'lodash';
 import PropTypes from 'prop-types';
 import CardWrapper from './CardWrapper';
 import useLocalStorage from './custom/useLocalStorage';
+import { FiX } from 'react-icons/fi';
+
 
 function Outfits ({ currentProdId, products }) {
 
@@ -26,9 +28,7 @@ function Outfits ({ currentProdId, products }) {
 
   return (
     <div className="horizontal-container">
-      <AddOutfit
-        handleOutfitAdd={handleOutfitAdd}
-      />
+      <AddOutfit handleOutfitAdd={ handleOutfitAdd } />
       {
         obj.hasOwnMap(outfits).map((outfit, i) => (
           <CardWrapper
@@ -36,6 +36,7 @@ function Outfits ({ currentProdId, products }) {
             product={outfit}
             handleActionClick={handleRemoveOutfit}
             dispatch={dispatch}
+            render={() => <FiX />}
           />
         ))
       }

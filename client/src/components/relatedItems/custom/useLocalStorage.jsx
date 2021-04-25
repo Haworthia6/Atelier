@@ -10,7 +10,7 @@ function useLocalStorage (key) {
     }
     return {};
   });
-
+  // Supercharged setState
   const setLocalStorage = {
     setItem: (key, data) => {
       const newState = { ...storage, [data.id]: data };

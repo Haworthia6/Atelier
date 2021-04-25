@@ -3,9 +3,8 @@ import Rows from './Rows';
 import PropTypes from 'prop-types';
 
 function Comparing ({ visibility, comparedProducts }) {
-
   return (
-    <div className={'comparing-container ' + visibility}>
+    <div className={'comparing-container ' + visibility }>
       <main className="modal">
         <div className="modal-header">
           <h6>Comparing</h6>
@@ -19,9 +18,7 @@ function Comparing ({ visibility, comparedProducts }) {
             </tr>
           </thead>
           <tbody>
-            <Rows
-              comparedProducts={comparedProducts}
-            />
+            <Rows comparedProducts={ comparedProducts } />
           </tbody>
         </table>
         <div className="modal-footer"></div>
