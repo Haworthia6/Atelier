@@ -21,7 +21,13 @@ function RelatedItems (props) {
   // Scrolling
   const scroll = useRef(null);
   const scrollSize = getScrollSize('.card-component');
-  const [leftLimit, rightLimit] = getScrollLimits(scroll.current, scrollSize, relatedProductsIds.length);
+  const [leftLimit, rightLimit] =
+  getScrollLimits(
+    scroll.current,
+    scrollSize,
+    relatedProductsIds.length,
+    (10 * relatedProductsIds.length - 1)); // Gaps
+
   const [scrollIdx, setScrollIdx] = useScrollIdx(scroll);
 
   useEffect(() => {

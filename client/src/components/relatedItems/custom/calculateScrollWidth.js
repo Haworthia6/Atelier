@@ -1,5 +1,5 @@
 
-function calculateScrollWidth (scrollSize, numberOfElements, ...otherMeasurements) {
+function calculateScrollWidth (scrollSize, numberOfElements, otherMeasurements) {
   return ( scrollSize * numberOfElements ) + otherMeasurements.reduce((sum, num) => sum + num);
 }
 
