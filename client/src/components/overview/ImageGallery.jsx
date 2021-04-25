@@ -36,7 +36,7 @@ function ImageGallery ({photos, imageClick, changePhoto, currentPhoto}) {
     }
   };
   const renderDownArrow = () => {
-    if (currentThumbnails !== photos.length - 1) {
+    if (currentThumbnails !== photos.length - 1 && photos.length > 7) {
       return (
         <div className="arrow-icon right-arrow" onClick={downArrowClick}>
           <FiArrowDown/>
