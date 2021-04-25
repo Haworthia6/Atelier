@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 function RightArrow ({ onClick }) {
   return (
     <div
-      id="right-arrow"
+      id="right-arrow" // Rmv?
       className="arrow-right-container"
       onClick={onClick}
     >
