@@ -8,9 +8,9 @@ const useRelatedProductsIds = (id, products) => {
     if (id) {
       setIds(products[id].relatedItemsIds)
     }
-  }, [id])
+  }, [id]);
 
   return ids;
-}
+};
 
 export default useRelatedProductsIds;

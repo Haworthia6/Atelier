@@ -1,5 +1,32 @@
 @use 'reusable' as r;
 
+.arrow-left-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: sticky;
+  left: 0;
+  z-index: 9999;
+  height: 100%;
+  width: 4rem;
+  background-image: linear-gradient(to right,white, whitesmoke, transparent);
+}
+
+.arrow-right-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: sticky;
+  right: -5px;
+  z-index: 9998;
+  height: 100%;
+  width: 4rem;
+  background-image: linear-gradient(to left,white, whitesmoke, transparent);
+}
+.arrow-right {
+  align-self: flex-end;
+}
+
 .fade-in {
   display: block;
 }
@@ -17,10 +44,6 @@
     @include r.fw-light(0.7rem);
   }
 }
-
-// #comparing-position {
-//   position: relative;
-// }
 
 .comparing-container {
   position: absolute;
