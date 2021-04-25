@@ -1,7 +1,9 @@
-import React from 'react';
-import {FiArrowLeft, FiArrowRight } from 'react-icons/fi';
+import React, {useState} from 'react';
+import {FiArrowLeft, FiArrowRight, FiArrowUp, FiArrowDown} from 'react-icons/fi';
+import ImageThumbNails from './ImageThumbNails';
 
 function ImageGallery ({photos, imageClick, changePhoto, currentPhoto}) {
+  const [currentThumbnails, setThumbnails] = useState(7);
   const renderLeftArrow = () => {
     if (currentPhoto !== 0) {
       return (
@@ -23,13 +25,52 @@ function ImageGallery ({photos, imageClick, changePhoto, currentPhoto}) {
       return null;
     }
   };
+  const renderUpArrow = () => {
+    if (currentThumbnails > 7) {
+      return (
+        <div className="arrow-icon up-arrow" onClick={upArrowClick}>
+          <FiArrowUp/>
+        </div>);
+    } else {
+      return null;
+    }
+  };
+  const renderDownArrow = () => {
+    if (currentThumbnails !== photos.length - 1) {
+      return (
+        <div className="arrow-icon right-arrow" onClick={downArrowClick}>
+          <FiArrowDown/>
+        </div>);
+    } else {
+      return null;
+    }
+  };
   const renderThumbNails = () => {
-    return photos.map((photo, index) => {
-      return <img src={photo.thumbnail_url} alt="photo" className="carousel-thumbnail" id={index} key={index} onClick={thumbnailClick}/>;
-    });
+    if (photos.length <= 7) {
+      return <ImageThumbNails
+        photos={photos}
+        currentThumbnailUrl={photos[currentPhoto].thumbnail_url}
+        thumbnailClick={thumbnailClick}/>;
+    } else {
+      return <ImageThumbNails
+        photos={photos.slice(currentThumbnails - 7, currentThumbnails)}
+        currentThumbnailUrl={photos[currentPhoto].thumbnail_url}
+        thumbnailClick={thumbnailClick}/>;
+    }
   };
   const thumbnailClick = (e) => {
     changePhoto(parseInt(e.target.id));
+  };
+  const upArrowClick = () => {
+    if (currentThumbnails > 7) {
+      setThumbnails(currentThumbnails - 1);
+    }
+  };
+  const downArrowClick = () => {
+    if (currentThumbnails < photos.length - 1) {
+      setThumbnails(currentThumbnails + 1);
+    }
+    return;
   };
   const leftArrowClick = () => {
     changePhoto(currentPhoto - 1);
@@ -43,8 +84,10 @@ function ImageGallery ({photos, imageClick, changePhoto, currentPhoto}) {
   else {
     return (
       <section className="image-carousel">
-        {renderLeftArrow()}
+        {renderUpArrow()}
         {renderThumbNails()}
+        {renderDownArrow()}
+        {renderLeftArrow()}
         {renderRightArrow()}
         <div>
           {photos.map((photo, index) => {
