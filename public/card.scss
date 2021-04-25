@@ -1,0 +1,64 @@
+$thumbnail-height-limit: 9em;
+$thumbnail-width-limit: 8em;
+@use 'reusable' as r;
+
+.card {
+  &-component {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    width: 8rem;
+    max-width: fit-content;
+    max-height: 99%;
+    overflow: hidden;
+  }
+
+  &-image {
+    max-width: 100%;
+    height: auto;
+  }
+
+  &-top {
+    position: relative;
+    height: 70%;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    overflow-y: hidden;
+  }
+
+  &-button {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    height: 20px;
+    width: 20px;
+    background-color: transparent;
+    border-radius: 50px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    border: 2px solid whitesmoke;
+  }
+
+  &-bottom {
+    padding-left: 5px;
+    padding-top: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 30%;
+  }
+
+  &-category {
+    @include r.fw-light(0.5em);
+  }
+
+  &-name {
+    @include r.fw-strong(0.6em);
+  }
+
+  &-price {
+    @include r.fw-light(0.5em);
+  }
+}

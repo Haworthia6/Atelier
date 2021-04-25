@@ -4,6 +4,7 @@ import ImageThumbNails from './ImageThumbNails';
 
 function ImageGallery ({photos, imageClick, changePhoto, currentPhoto}) {
   const [currentThumbnails, setThumbnails] = useState(7);
+  const [indexAdder, setIndexAdder] = useState(0);
   const renderLeftArrow = () => {
     if (currentPhoto !== 0) {
       return (
@@ -68,16 +69,25 @@ function ImageGallery ({photos, imageClick, changePhoto, currentPhoto}) {
     }
   };
   const thumbnailClick = (e) => {
-    changePhoto(parseInt(e.target.id));
+    changePhoto(parseInt(e.target.id) + indexAdder);
+    console.log('INDEX ADDER: ', indexAdder);
   };
   const upArrowClick = () => {
     if (currentThumbnails > 7) {
+      if (currentPhoto === currentThumbnails) {
+        changePhoto(currentPhoto - 1);
+      }
       setThumbnails(currentThumbnails - 1);
+      setIndexAdder(indexAdder - 1);
     }
   };
   const downArrowClick = () => {
     if (currentThumbnails < photos.length - 1) {
+      if (currentPhoto < currentThumbnails - 6) {
+        changePhoto(currentPhoto + 1);
+      }
       setThumbnails(currentThumbnails + 1);
+      setIndexAdder(indexAdder + 1);
     }
     return;
   };

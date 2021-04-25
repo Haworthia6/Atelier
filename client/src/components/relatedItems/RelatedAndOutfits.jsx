@@ -10,6 +10,7 @@ function RelatedAndOutfits () {
   const currentProdId = useSelector((state) => state.currentProductId);
   const products = useSelector((state) => state.products, shallowEqual);
   const relatedProductsIds = useRelatedProductsIds(currentProdId, products);
+  // Comparing Modal
   const [toggleComparing, setToggleComparing] = useState('fade-out');
   const [showModal, setShowModal] = useState(false);
   const [comparedProducts, setComparedProducts] = useState({});
@@ -22,7 +23,7 @@ function RelatedAndOutfits () {
   }, [products]);
 
   useEffect(() => {
-    // Closes modal on outside of modal click
+    // Closes Modal
     if (toggleComparing.match(/fade-out/)) return;
     function closeModal() {
       setToggleComparing('fade-out');
@@ -61,4 +62,3 @@ function RelatedAndOutfits () {
 }
 
 export default RelatedAndOutfits;
-

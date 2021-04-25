@@ -2,3 +2,8 @@
   font-weight: 100;
   font-size: $size;
 }
+
+@mixin fw-strong($size) {
+  font-weight: 700;
+  font-size: $size;
+}

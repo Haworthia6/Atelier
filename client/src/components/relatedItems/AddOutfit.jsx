@@ -4,12 +4,8 @@ import PropTypes from 'prop-types';
 
 function AddOutfit ({ handleOutfitAdd }) {
   return (
-    <div
-      className="add-outfit-container"
-      onClick={() => handleOutfitAdd()}
-    >
-      <i className="add-outfit-graphic"><FiPlusSquare />
-      </i>
+    <div className="add-outfit-container" onClick={ () => handleOutfitAdd() } >
+      <i className="add-outfit-graphic"><FiPlusSquare /></i>
       <span className="add-outfit-detail">add outfit</span>
     </div>
   );
