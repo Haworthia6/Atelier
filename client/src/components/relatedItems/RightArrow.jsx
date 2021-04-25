@@ -3,7 +3,6 @@ import { FiChevronRight } from 'react-icons/fi';
 import PropTypes from 'prop-types';
 
 function RightArrow ({ onClick }) {
-
   return (
     <div
       id="right-arrow"

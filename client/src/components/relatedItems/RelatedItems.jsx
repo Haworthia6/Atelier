@@ -27,18 +27,17 @@ function RelatedItems (props) {
     scrollSize,
     relatedProductsIds.length,
     (10 * relatedProductsIds.length - 1)); // Gaps
-
   const [scrollIdx, setScrollIdx] = useScrollIdx(scroll);
-
-  useEffect(() => {
-    if (haveRelatedProducts) dispatch(toggleShow(true));
-  }, [haveRelatedProducts]);
 
   const handleActionClick = (id) => {
     setShowModal(true);
     setToggleComparing('fade-in');
     handleComparingToggle(id);
   };
+
+  useEffect(() => {
+    if (haveRelatedProducts) dispatch(toggleShow(true));
+  }, [haveRelatedProducts]);
 
   return(
     <>
@@ -54,9 +53,8 @@ function RelatedItems (props) {
               product={products[id]}
               handleActionClick={handleActionClick}
               dispatch={dispatch}
-              render={() => <FiStar />}
-            />
-          );
+              render={ () => <FiStar /> }
+            />);
         })
         }
         { scrollIdx < rightLimit &&

@@ -28,9 +28,7 @@ function Outfits ({ currentProdId, products }) {
 
   return (
     <div className="horizontal-container">
-      <AddOutfit
-        handleOutfitAdd={handleOutfitAdd}
-      />
+      <AddOutfit handleOutfitAdd={ handleOutfitAdd } />
       {
         obj.hasOwnMap(outfits).map((outfit, i) => (
           <CardWrapper

@@ -8,9 +8,7 @@ function useScrollIdx (ele = 0) {
     if (isNull(ele)) return [null, null];
     if (isNull(ele.current) || isUndefined(ele.current)) return [null, null];
     if (isNull(ele.current.scrollLeft) || isUndefined(ele.current.scrollLeft)) return [null, null];
-
     setState(ele.current.scrollLeft);
-
   }, [ele]);
 
   const setScrollIdx = {

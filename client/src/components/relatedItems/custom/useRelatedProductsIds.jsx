@@ -1,15 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 const useRelatedProductsIds = (id, products) => {
-  const [ids, setIds] = useState([])
-
+  const [ids, setIds] = useState([]);
   useEffect(() => {
-
-    if (id) {
-      setIds(products[id].relatedItemsIds)
-    }
+    if (id) setIds(products[id].relatedItemsIds);
   }, [id]);
-
   return ids;
 };
 

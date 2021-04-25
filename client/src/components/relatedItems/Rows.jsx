@@ -9,7 +9,6 @@ function Rows ({ comparedProducts }) {
     const { current, related } = comparedProducts;
     return createRows(createComparisons(current, related));
   }, [comparedProducts]);
-
   return (
     <>
       { comparisonRows }

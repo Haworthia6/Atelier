@@ -2,21 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function Card ({ product, defaultStyle, handleImageClick, handleActionClick, render }) {
-
   return (
     <div className="card-component">
       <div className="card-top">
-        <div
-          className="card-button btn-round"
-          onClick={() => handleActionClick(product.id)}
-        >
+        <div className="card-button btn-round" onClick={ () => handleActionClick(product.id) }>
           { render() }
         </div>
         <img
           className="card-image"
-          src={defaultStyle.photos[0]['thumbnail_url']}
+          src={ defaultStyle.photos[0]['thumbnail_url'] }
           alt={product.name}
-          onClick={() => handleImageClick(product.id) }
+          onClick={ () => handleImageClick(product.id) }
         />
         {/* <div className="related-thumbnails-extra">
         <img className="related-thumbnail-img-extra" src="#" alt="thumbnail" />
