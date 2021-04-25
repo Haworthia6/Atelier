@@ -6,7 +6,7 @@ function AddOutfit ({ handleOutfitAdd }) {
   return (
     <div className="add-outfit-container" onClick={ () => handleOutfitAdd() } >
       <i className="add-outfit-graphic"><FiPlusSquare /></i>
-      <span className="add-outfit-detail">add outfit</span>
+      <span className="add-outfit-detail">Add to Outfit</span>
     </div>
   );
 }

@@ -21,15 +21,21 @@ describe('RelatedItems', () => {
     store = mockStore(exampleStore);
     wrapper = mount(
       <Provider store={store}>
-        <RelatedItems relatedProductsIds={store.relatedItemsIds} products={store.products} />
+        <RelatedItems
+          relatedProductsIds={store.getState().products[11003].relatedItemsIds}
+          products={store.getState().products}
+          handleComparingToggle={() => {}}
+          setToggleComparing={() => {}}
+          setShowModal={() => {}}
+        />
       </Provider>
     );
   });
 
-  it('should have a left and right arrow', () => {
-    expect(wrapper.find('#left-arrow')).to.have.lengthOf(1);
-    expect(wrapper.find('#right-arrow')).to.have.lengthOf(1);
-    expect(wrapper.find('.arrow')).to.have.lengthOf(2);
+  it('should contain one container', () => {
+    expect(wrapper.find('.horizontal-container')).to.have.lengthOf(1);
   });
+
+  // Test conditional rendering for LeftArrow, RightArrow, and CardWrapper
 
 });

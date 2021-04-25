@@ -6,12 +6,14 @@ const expect = chai.expect;
 chai.use(chaiEnzyme());
 
 import App from '../App';
+import Overview from '../components/overview/Overview';
+import RelatedAndOutfits from '../components/relatedItems/RelatedAndOutfits';
 
-xdescribe('App', () => {
+describe('App', () => {
   let wrap;
 
   beforeEach(() => {
-    wrap = shallow(<App status={'complete'} />);
+    wrap = shallow(<App />);
   });
 
   it('should exist', () => {
@@ -22,22 +24,16 @@ xdescribe('App', () => {
     expect(wrap.isEmptyRender()).to.be.false;
   });
 
-  xit('should render a div', () => {
-    expect(wrap.find('div')).to.have.lengthOf(1);
+  it('should render an Overview component', () => {
+    expect(wrap.find(Overview)).to.have.lengthOf(1);
   });
 
-  xit('should successfully make an API request', () => {
-    wrap.find('button').invoke('onClick')().then(({data}) => {
-      expect(data).to.have.own.property('abilities');
-    });
+  it('should render RelatedAndOutfits component', () => {
+    expect(wrap.find(RelatedAndOutfits)).to.have.lengthOf(1);
   });
 
-  it('should dynamically render text', () => {
-    expect(wrap.find('div').text()).to.include('React');
-  });
-
-  xit('should fail with this test', () => {
-    expect(wrap.isEmptyRender()).to.be.true;
+  it('should wrap RelatedAndOutfits in a positioning div', () => {
+    expect(wrap.find('.col-center')).to.have.lengthOf(1);
   });
 
 });

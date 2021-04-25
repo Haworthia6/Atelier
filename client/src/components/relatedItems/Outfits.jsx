@@ -8,9 +8,7 @@ import CardWrapper from './CardWrapper';
 import useLocalStorage from './custom/useLocalStorage';
 import { FiX } from 'react-icons/fi';
 
-
 function Outfits ({ currentProdId, products }) {
-
   const [outfits, setOutfits] = useLocalStorage('outfits');
   const dispatch = useDispatch();
 
