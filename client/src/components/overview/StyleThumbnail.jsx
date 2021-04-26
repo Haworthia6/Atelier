@@ -1,14 +1,27 @@
 import React from 'react';
 import {IoMdCheckmarkCircleOutline} from 'react-icons/io';
 
-const StyleThumbnail = (({style, styleList, onStyleChange, currentStyle, key, id}) => {
+const StyleThumbnail = (({style, styleList, onStyleChange, currentStyle, id}) => {
   if (style.style_id === styleList[currentStyle].style_id) {
-    return (<span className="selectedStyleContainer" key={key}>
+    return (<div className="selectedStyleContainer" >
       <IoMdCheckmarkCircleOutline className="overlay"/>
-      <img src={style.photos[0].thumbnail_url} alt="current style" className="styleThumbnail" id={id} onClick={onStyleChange}/>
-    </span>);
+      <img
+        src={style.photos[0].thumbnail_url}
+        alt="current style"
+        className="styleThumbnail"
+        id={id}
+        onClick={onStyleChange}/>
+    </div>);
   } else {
-    return <img src={style.photos[0].thumbnail_url} alt="style" className ="styleThumbnail" id={id} key={key} onClick={onStyleChange}/>;
+    return (
+      <div className="selectedStyleContainer">
+        <img
+          src={style.photos[0].thumbnail_url}
+          alt="style"
+          className ="styleThumbnail"
+          id={id}
+          onClick={onStyleChange}/>
+      </div>);
   }
 });
 export default StyleThumbnail;

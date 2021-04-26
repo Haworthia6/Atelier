@@ -5,8 +5,7 @@
   object-fit: cover
 }
 .overlay {
-  position: relative;
-  left: 60px;
+  position: absolute;
   color: pink;
   border-left: 0;
   padding-left: 0;
@@ -14,4 +13,14 @@
   height: 60px;
   width: 60px;
 
+}
+.styleListContainer {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+}
+.selectedStyleContainer {
+  position: relative;
+  display: inline-block;
+  width: fit-content;
 }
