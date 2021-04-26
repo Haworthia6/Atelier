@@ -11,7 +11,13 @@ function StyleSelector ({styleList, currentStyle, onStyleChange}) {
           return (
             <div key={rowIndex}>
               {row.map((style, styleIndex) => {
-                return <StyleThumbnail style={style} styleList={styleList} onStyleChange={onStyleChange} currentStyle={currentStyle} key={styleIndex} id={(rowIndex * 4) + styleIndex}/>;
+                return <StyleThumbnail
+                  style={style}
+                  styleList={styleList}
+                  onStyleChange={onStyleChange}
+                  currentStyle={currentStyle}
+                  key={styleIndex}
+                  id={(rowIndex * 4) + styleIndex}/>;
               })}
             </div>);
         })}
