@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Price from '../Price';
+import Carousel from './Carousel';
 
 function Card ({ product, defaultStyle, handleImageClick, handleActionClick, render }) {
+  const [image, setImage] = useState('');
+
+  useEffect(() => {
+    setImage(defaultStyle.photos[0]['thumbnail_url']);
+  }, []);
+
   return (
     <div className="card-component">
       <div className="card-top">
@@ -11,13 +18,14 @@ function Card ({ product, defaultStyle, handleImageClick, handleActionClick, ren
         </div>
         <img
           className="card-image"
-          src={ defaultStyle.photos[0]['thumbnail_url'] }
+          src={ image }
           alt={product.name}
           onClick={ () => handleImageClick(product.id) }
         />
-        {/* <div className="related-thumbnails-extra">
-        <img className="related-thumbnail-img-extra" src="#" alt="thumbnail" />
-      </div> */}
+        <Carousel
+          product={ product }
+          handleThumbnailClick={setImage}
+        />
       </div>
       <div className="card-bottom">
         <span className="card-category">{product.category}</span>
