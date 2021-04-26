@@ -45,23 +45,33 @@ function ExpandedView ({photos, changePhoto, currentPhoto, changeView}) {
     }
   };
   const renderIcons = () => {
-    return photos.map((photo, index) => {
-      if (index === currentPhoto) {
+    return (<div className="expandedIconContainer">
+      {photos.map((photo, index) => {
+        if (index === currentPhoto) {
+          return (
+            <div alt="icon" className="expandedIcon" id={index} key={index}>
+              <HiOutlinePhotograph/>
+            </div>
+          );
+        }
         return (
-          <div alt="icon" className="expandedIcon" id={index} key={index}>
-            <HiOutlinePhotograph/>
+          <div alt="icon" className="expandedIcon" id={index} key={index} onClick={iconClick}>
+            <HiPhotograph/>
           </div>
         );
-      }
-      return (
-        <div alt="icon" className="expandedIcon" id={index} key={index} onClick={iconClick}>
-          <HiPhotograph/>
-        </div>
-      );
-    });
+      })}</div>);
   };
   const iconClick = (e) => {
-    changePhoto(parseInt(e.target.id));
+    console.log(e.target.id);
+    console.log(e.target.parentElement.parentElement.id);
+    console.log(e.target.parentElement.id);
+    if (e.target.parentElement.id) {
+      changePhoto(parseInt(e.target.parentElement.id));
+    } else if (e.target.parentElement.parentElement.id){
+      changePhoto(parseInt(e.target.parentElement.parentElement.id));
+    } else {
+      changePhoto(parseInt(e.target.id));
+    }
   };
   const leftArrowClick = () => {
     changePhoto(currentPhoto - 1);

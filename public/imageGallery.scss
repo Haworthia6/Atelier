@@ -45,9 +45,15 @@ $thumbnail-width-limit: 8em;
 .zoomed-in {
   transform: scale(2.5);
 }
+.expandedIconContainer {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+}
 .expandedIcon {
  color: pink;
  position: relative;
+ display: inline-block;
 }
 .right-arrow-expanded {
   position: relative;
