@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Price from '../Price';
 
 function Card ({ product, defaultStyle, handleImageClick, handleActionClick, render }) {
   return (
@@ -21,8 +22,12 @@ function Card ({ product, defaultStyle, handleImageClick, handleActionClick, ren
       <div className="card-bottom">
         <span className="card-category">{product.category}</span>
         <h6 className="card-name">{product.name}</h6>
-        {/* Will need to see if there is a sale price */}
-        <div className="card-price">${defaultStyle['original_price']}</div>
+        <div className="card-price">
+          <Price
+            price={defaultStyle['original_price']}
+            salePrice={defaultStyle['sale_price']}
+          />
+        </div>
         <div className="stars-component">STARS</div>
       </div>
     </div>

@@ -51,14 +51,18 @@ $thumbnail-width-limit: 8em;
   }
 
   &-category {
-    @include r.fw-light(0.5em);
+    @include r.fw-light(0.5rem);
   }
 
   &-name {
-    @include r.fw-strong(0.6em);
+    @include r.fw-strong(0.6rem);
   }
 
   &-price {
-    @include r.fw-light(0.5em);
+    @include r.fw-light(0.5rem);
+
+    & .price-container p {
+      @include r.fw-light(0.5rem);
+    }
   }
 }
