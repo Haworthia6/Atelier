@@ -24,3 +24,36 @@ $thumbnail-width-limit: 8em;
   opacity: 1;
   transition-duration: 1s;
 }
+.expandedModal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.9);
+}
+.expandedCarousel {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+.zoomed-in {
+  transform: scale(2.5);
+}
+.expandedIcon {
+ color: pink;
+ position: relative;
+}
+.right-arrow-expanded {
+  position: relative;
+  color: pink;
+}
+.left-arrow-expanded {
+  position: relative;
+  color: pink;
+}
