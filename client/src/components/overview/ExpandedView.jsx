@@ -5,7 +5,6 @@ import {HiPhotograph, HiOutlinePhotograph} from 'react-icons/hi';
 function ExpandedView ({photos, changePhoto, currentPhoto, changeView}) {
   const [zoom, setZoom] = useState(false);
   const zoomIn = () => {
-    console.log(zoom);
     setZoom(true);
   };
   const zoomOut = () => {
@@ -50,7 +49,6 @@ function ExpandedView ({photos, changePhoto, currentPhoto, changeView}) {
     });
   };
   const iconClick = (e) => {
-    console.log('new photo', e.target.id);
     changePhoto(parseInt(e.target.id));
   };
   const leftArrowClick = () => {

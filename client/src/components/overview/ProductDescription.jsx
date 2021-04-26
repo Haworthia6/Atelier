@@ -1,7 +1,6 @@
 import React from 'react';
 
 function ProductDescription ({description, features}) {
-  console.log('FEATURES: ', features);
   return (
     <div>
       <div className="product-description">

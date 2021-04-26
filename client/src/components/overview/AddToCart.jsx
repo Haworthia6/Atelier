@@ -1,11 +1,13 @@
 import React, {useState, useEffect, useRef} from 'react';
 import { useDispatch } from 'react-redux';
+import useLocalStorage from '../relatedItems/custom/useLocalStorage';
 
 function AddToCart ({currentStyle}) {
   const [currentSize, setSize] = useState('SELECT SIZE');
   const [currentQty, setQty] = useState('1');
   const [displayText, setDisplayText] = useState(false);
   const sizeBar = useRef();
+  const [cart, setCart] = useLocalStorage('cart');
   useEffect(() => {
     setSize('SELECT SIZE');
   }, [currentStyle]);
@@ -21,10 +23,14 @@ function AddToCart ({currentStyle}) {
     if (currentSize === 'SELECT SIZE') {
       displayMessage();
       sizeBar.current.size = sizeBar.current.length;
-      console.log(sizeBar);
+    } else {
+      setCart.setItem('cart', {
+        id: currentStyle.style_id + ' ' + currentSize,
+        style: currentStyle.name,
+        size: currentSize,
+        qty: currentQty
+      });
     }
-    // if
-    console.log('ADD ' + currentQty + ' SIZE ' + currentSize + ' ' + currentStyle.name  + ' OF THE ITEM TO THE CART');
   };
   const renderQtyBar = () => {
     if (currentSize === 'SELECT SIZE') {
@@ -116,6 +122,7 @@ function AddToCart ({currentStyle}) {
         {renderQtyBar()}
         {renderAddButton()}
       </form>
+      Cart Orders: {JSON.stringify(Object.keys(cart).length)}
     </div>
   );
 }

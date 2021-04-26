@@ -70,7 +70,6 @@ function ImageGallery ({photos, imageClick, changePhoto, currentPhoto}) {
   };
   const thumbnailClick = (e) => {
     changePhoto(parseInt(e.target.id) + indexAdder);
-    console.log('INDEX ADDER: ', indexAdder);
   };
   const upArrowClick = () => {
     if (currentThumbnails > 7) {
