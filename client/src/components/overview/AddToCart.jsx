@@ -48,7 +48,7 @@ function AddToCart ({currentStyle}) {
             setQty(1);
           }
           if (range === 0) {
-            setQty(0);
+            setQty(null);
           }
         }
       }
@@ -71,20 +71,6 @@ function AddToCart ({currentStyle}) {
           </select>
         );
       }
-    }
-  };
-  const renderAddButton = () => {
-    if (currentQty === 0) {
-      return null;
-    } else {
-      return <input type="submit" value="ADD TO CART "/>;
-    }
-  };
-  const renderMessage = () => {
-    if (displayText === true) {
-      return <span className="sizeMessage">PLEASE SELECT SIZE</span>
-    } else {
-      return null;
     }
   };
   const displayMessage = () => {
@@ -116,11 +102,11 @@ function AddToCart ({currentStyle}) {
   };
   return (
     <div>
-      {renderMessage()}
+      {displayText && <span className="sizeMessage">PLEASE SELECT SIZE</span>}
       <form onSubmit={addButtonClick}>
         {renderSizeBar()}
         {renderQtyBar()}
-        {renderAddButton()}
+        { currentQty && <input type="submit" value="ADD TO CART" /> }
       </form>
       Cart Orders: {JSON.stringify(Object.keys(cart).length)}
     </div>
