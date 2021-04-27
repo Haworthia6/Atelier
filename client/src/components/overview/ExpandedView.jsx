@@ -14,17 +14,14 @@ if zoomed in make icons and arrows unavailable
 function ExpandedView ({photos, changePhoto, currentPhoto, changeView}) {
   const [zoom, setZoom] = useState(false);
   const toggleZoom = () => {
-    var carousel = document.getElementsByClassName('expandedCarousel')[0];
     if (zoom === true) {
       setZoom(false);
-      carousel.classList.remove('zoomed-in');
     } else {
       setZoom(true);
-      carousel.classList.add('zoomed-in');
     }
   };
   const renderLeftArrow = () => {
-    if (currentPhoto !== 0) {
+    if (currentPhoto !== 0 && !zoom) {
       return (
         <div className="arrow-icon left-arrow-expanded" onClick={leftArrowClick}>
           <FiArrowLeft/>
@@ -35,7 +32,7 @@ function ExpandedView ({photos, changePhoto, currentPhoto, changeView}) {
     }
   };
   const renderRightArrow = () => {
-    if (currentPhoto !== photos.length - 1) {
+    if (currentPhoto !== photos.length - 1 && !zoom) {
       return (
         <div className="arrow-icon right-arrow-expanded" onClick={rightArrowClick}>
           <FiArrowRight/>
@@ -46,21 +43,23 @@ function ExpandedView ({photos, changePhoto, currentPhoto, changeView}) {
     }
   };
   const renderIcons = () => {
-    return (<div className="expandedIconContainer">
-      {photos.map((photo, index) => {
-        if (index === currentPhoto) {
+    if (!zoom) {
+      return (<div className="expandedIconContainer">
+        {photos.map((photo, index) => {
+          if (index === currentPhoto) {
+            return (
+              <div alt="icon" className="expandedIcon" id={index} key={index}>
+                <HiOutlinePhotograph/>
+              </div>
+            );
+          }
           return (
-            <div alt="icon" className="expandedIcon" id={index} key={index}>
-              <HiOutlinePhotograph/>
+            <div alt="icon" className="expandedIcon" id={index} key={index} onClick={iconClick}>
+              <HiPhotograph/>
             </div>
           );
-        }
-        return (
-          <div alt="icon" className="expandedIcon" id={index} key={index} onClick={iconClick}>
-            <HiPhotograph/>
-          </div>
-        );
-      })}</div>);
+        })}</div>);
+    }
   };
   const iconClick = (e) => {
     console.log(e.target.id);
@@ -94,7 +93,7 @@ function ExpandedView ({photos, changePhoto, currentPhoto, changeView}) {
             if (index === currentPhoto) {
               return (
                 <div className={index===currentPhoto ? 'currentSlideExpanded' : 'slideExpanded'} key={index}>
-                  {(<InnerImageZoom src={photo.url} zoomScale={2.5}/>)}
+                  {(<InnerImageZoom src={photo.url} zoomScale={2.5} afterZoomIn={toggleZoom} afterZoomOut={toggleZoom}/>)}
                 </div>
               );
             } else {
