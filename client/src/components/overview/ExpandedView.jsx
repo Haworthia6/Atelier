@@ -1,25 +1,26 @@
 import React, {useState} from 'react';
 import {FiArrowLeft, FiArrowRight } from 'react-icons/fi';
 import {HiPhotograph, HiOutlinePhotograph} from 'react-icons/hi';
-
+import InnerImageZoom from 'react-inner-image-zoom';
 /*
 WILL REFACTOR EXPANDED VIEW SO THAT IT IS A MODAL INSTEAD OF A COMPONENT THAT RENDERS CONDITIONALLY INSTEAD OF THE REST OF OVERVIEW
 
 when modal is displayed, if zoomed out and clicked, transform the size by 2.5, and track mouse movement.
 the mouse movement should scroll the page when moved
 if zoomed in and clicked, transform size by 0.4
+if zoomed in make icons and arrows unavailable
 */
 
 function ExpandedView ({photos, changePhoto, currentPhoto, changeView}) {
   const [zoom, setZoom] = useState(false);
   const toggleZoom = () => {
-    var carouselPhoto = document.getElementsByClassName('expandedCarouselPhoto')[0];
+    var carousel = document.getElementsByClassName('expandedCarousel')[0];
     if (zoom === true) {
       setZoom(false);
-      carouselPhoto.classList.remove('zoomed-in');
+      carousel.classList.remove('zoomed-in');
     } else {
       setZoom(true);
-      carouselPhoto.classList.add('zoomed-in');
+      carousel.classList.add('zoomed-in');
     }
   };
   const renderLeftArrow = () => {
@@ -90,11 +91,19 @@ function ExpandedView ({photos, changePhoto, currentPhoto, changeView}) {
         {renderRightArrow()}
         <div className="expandedCarousel">
           {photos.map((photo, index) => {
-            return (
-              <div className={index===currentPhoto ? 'currentSlideExpanded' : 'slideExpanded'} key={index}>
-                {index === currentPhoto && (<img src={photo.url} alt="photo" className="expandedCarouselPhoto" onClick={toggleZoom}/>)}
-              </div>
-            );
+            if (index === currentPhoto) {
+              return (
+                <div className={index===currentPhoto ? 'currentSlideExpanded' : 'slideExpanded'} key={index}>
+                  {(<InnerImageZoom src={photo.url} zoomScale={2.5}/>)}
+                </div>
+              );
+            } else {
+              return (
+                <div className='slideExpanded' key={index}>
+                  {index === currentPhoto && (<img src={photo.url} alt="photo" className="expandedCarouselPhoto"/>)}
+                </div>
+              );
+            }
           })}
         </div>
         <button onClick={changeView}>return to default view</button>

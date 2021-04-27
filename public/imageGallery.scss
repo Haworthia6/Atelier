@@ -9,8 +9,9 @@ $thumbnail-width-limit: 8em;
   opacity: .5;
 }
 .carousel-photo {
-  max-width: 200px;
-  max-height: 100px;
+  max-width: 400px;
+  max-height: 200px;
+  cursor: -webkit-zoom-in;
 }
 .expandedPhoto {
   width: 100%;
@@ -39,8 +40,11 @@ $thumbnail-width-limit: 8em;
 .expandedCarousel {
   margin: auto;
   display: block;
-  width: 80%;
+  width: 100%;
   max-width: 700px;
+}
+.expandedCarouselPhoto {
+  position: relative;
 }
 .zoomed-in {
   transform: scale(2.5);

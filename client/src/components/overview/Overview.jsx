@@ -21,14 +21,20 @@ function Overview () {
     setCurrentStyle(e.target.id);
   };
   const toggleExpanded = () => {
-    // change display of expandedView modal to block
     var modal = document.getElementsByClassName('expandedModal')[0];
     var currentSlide = document.getElementsByClassName('currentSlide')[0];
+    if (!modal.style.display || modal.style.display === 'none') {
+      console.log('something');
+      modal.style.display = 'block';
+      console.log(modal.style.display);
+    } else {
+      console.log(modal.style.display);
+      modal.style.display = 'none';
+    }
     currentSlide.onclick = () => {
-      if (modal.style.display !== 'block') {
+      if (!modal.style.display) {
+        console.log('why is this happening');
         modal.style.display = 'block';
-      } else {
-        modal.style.display = 'none';
       }
     };
   };

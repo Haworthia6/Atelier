@@ -35,7 +35,7 @@ function AddToCart ({currentStyle}) {
   const renderQtyBar = () => {
     if (currentSize === 'SELECT SIZE') {
       return (
-        <select disabled>
+        <select aria-label="qty selector" disabled>
           <option value="-">-</option>
         </select>);
     } else {
@@ -58,13 +58,13 @@ function AddToCart ({currentStyle}) {
       }
       if (currentQty === 0) {
         return (
-          <select disabled>
+          <select aria-label="qty selector" disabled>
             <option value="OUT OF STOCK">OUT OF STOCK</option>
           </select>);
       }
       else {
         return (
-          <select value={currentQty} onChange={onQtyChange}>
+          <select aria-label="qty selector" value={currentQty} onChange={onQtyChange}>
             {options.map((num, i) => {
               return (<option value={num} key={i}>{num}</option>);
             })}
@@ -82,7 +82,7 @@ function AddToCart ({currentStyle}) {
   };
   const renderSizeBar = () => {
     var currentSizeBar = (
-      <select ref={sizeBar} name="size" id="size" value={currentSize} onChange={onSizeChange}>
+      <select ref={sizeBar} aria-label="size selector" name="size" id="size" value={currentSize} onChange={onSizeChange}>
         <option value="SELECT SIZE">SELECT SIZE</option>
         {Object.keys(currentStyle.skus).map((sku, i) => {
           if (currentStyle.skus[sku].quantity !== 0) {
