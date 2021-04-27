@@ -6,7 +6,7 @@
   justify-content: center;
   position: sticky;
   left: 0;
-  z-index: 9999;
+  z-index: 99;
   height: 100%;
   width: 4rem;
   background-image: linear-gradient(to right,white, whitesmoke, transparent);
@@ -18,7 +18,7 @@
   justify-content: center;
   position: sticky;
   right: -5px;
-  z-index: 9998;
+  z-index: 99;
   height: 100%;
   width: 4rem;
   background-image: linear-gradient(to left,white, whitesmoke, transparent);
@@ -50,6 +50,7 @@
   background-color: white;
   top: 0;
   border: 0.5px solid black;
+  z-index: 9999;
 }
 
 @mixin modal-spacing {
