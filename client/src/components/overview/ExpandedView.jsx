@@ -2,14 +2,7 @@ import React, {useState} from 'react';
 import {FiArrowLeft, FiArrowRight } from 'react-icons/fi';
 import {HiPhotograph, HiOutlinePhotograph} from 'react-icons/hi';
 import InnerImageZoom from 'react-inner-image-zoom';
-/*
-WILL REFACTOR EXPANDED VIEW SO THAT IT IS A MODAL INSTEAD OF A COMPONENT THAT RENDERS CONDITIONALLY INSTEAD OF THE REST OF OVERVIEW
 
-when modal is displayed, if zoomed out and clicked, transform the size by 2.5, and track mouse movement.
-the mouse movement should scroll the page when moved
-if zoomed in and clicked, transform size by 0.4
-if zoomed in make icons and arrows unavailable
-*/
 
 function ExpandedView ({photos, changePhoto, currentPhoto, changeView}) {
   const [zoom, setZoom] = useState(false);
