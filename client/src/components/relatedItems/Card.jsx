@@ -8,7 +8,7 @@ function Card ({ product, defaultStyle, handleImageClick, handleActionClick, ren
 
   useEffect(() => {
     setImage(defaultStyle.photos[0]['thumbnail_url']);
-  }, []);
+  }, [product]);
 
   return (
     <div className="card-component">

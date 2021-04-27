@@ -19,13 +19,15 @@ function Carousel ({ product, handleThumbnailClick }) {
       }
       {
         images.map((imgUrl, i) => {
-          return (<img
-            className="carousel-card-thumbnail"
-            key={i}
-            src={imgUrl}
-            alt="thumbnail style"
-            onClick={() => handleThumbnailClick(imgUrl)}
-          />);
+          if (!isNull(imgUrl)) {
+            return (<img
+              className="carousel-card-thumbnail"
+              key={i}
+              src={imgUrl}
+              alt="thumbnail style"
+              onClick={() => handleThumbnailClick(imgUrl)}
+            />);
+          }
         })
       }
       { !isNull(next) &&

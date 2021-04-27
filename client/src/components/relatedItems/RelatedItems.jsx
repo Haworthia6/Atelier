@@ -26,7 +26,7 @@ function RelatedItems (props) {
     scroll.current,
     scrollSize,
     relatedProductsIds.length,
-    (10 * relatedProductsIds.length - 1)); // Gaps
+    (10 * (relatedProductsIds.length - 1))); // Gaps
   const [scrollIdx, setScrollIdx] = useScrollIdx(scroll);
 
   const handleActionClick = (id) => {
