@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from './Card';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import toggleShow from '../../../store/actions/toggleShow';
 import changeProduct from '../../../store/actions/changeProduct';
 import findDefaultStyle from '../../helpers/findDefaultStyle';
@@ -9,11 +9,14 @@ import PropTypes from 'prop-types';
 function CardWrapper ({ product, handleActionClick, render }) {
 
   const defaultStyle = findDefaultStyle(product);
+  const currentProdId = useSelector(({currentProductId}) => currentProductId);
   const dispatch = useDispatch();
 
   const handleImageClick = (id) => {
-    dispatch(toggleShow(false));
-    dispatch(changeProduct(id));
+    if (id !== currentProdId){
+      dispatch(toggleShow(false));
+      dispatch(changeProduct(id));
+    }
   };
 
   return (
