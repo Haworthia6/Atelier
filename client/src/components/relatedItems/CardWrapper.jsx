@@ -8,7 +8,6 @@ import PropTypes from 'prop-types';
 
 function CardWrapper ({ product, handleActionClick, render }) {
 
-  // Look into useMemo to optimize this
   const defaultStyle = findDefaultStyle(product);
   const dispatch = useDispatch();
 

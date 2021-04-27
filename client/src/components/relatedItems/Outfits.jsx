@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import AddOutfit from './AddOutfit';
 import obj from '../../helpers/objectMap';
@@ -10,16 +10,21 @@ import { FiX } from 'react-icons/fi';
 
 function Outfits ({ currentProdId, products }) {
   const [outfits, setOutfits] = useLocalStorage('outfits');
+  const [outfitOrder, setOutfitOrder] = useState(() => {
+    return obj.hasOwnMap(outfits).map((prod) => prod.id);
+  });
   const dispatch = useDispatch();
 
   const handleOutfitAdd = () => {
     if (!outfits[currentProdId]) {
       setOutfits.setItem('outfits', products[currentProdId]);
+      setOutfitOrder([...outfitOrder, currentProdId]);
     }
   };
 
   const handleRemoveOutfit = (id) => {
     if (outfits[id]) {
+      setOutfitOrder(outfitOrder.filter((outfitId) => outfitId !== id));
       setOutfits.removeItem('outfits', id);
     }
   };
@@ -28,10 +33,10 @@ function Outfits ({ currentProdId, products }) {
     <div className="horizontal-container">
       <AddOutfit handleOutfitAdd={ handleOutfitAdd } />
       {
-        obj.hasOwnMap(outfits).map((outfit, i) => (
+        outfitOrder.map((outfitId, i) => (
           <CardWrapper
             key={i}
-            product={outfit}
+            product={outfits[outfitId]}
             handleActionClick={handleRemoveOutfit}
             dispatch={dispatch}
             render={() => <FiX />}
