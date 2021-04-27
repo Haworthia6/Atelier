@@ -17,6 +17,9 @@ $thumbnail-width-limit: 8em;
     max-width: 100%;
     height: 100%;
     object-fit: cover;
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   &-top {
@@ -34,12 +37,23 @@ $thumbnail-width-limit: 8em;
     top: 8px;
     height: 20px;
     width: 20px;
-    background-color: transparent;
+    background-image: radial-gradient(rgb(207, 207, 207, 0.2), white);
     border-radius: 50px;
     display: flex;
     align-content: center;
     justify-content: center;
-    border: 2px solid whitesmoke;
+    // transition: transform 0.2s;
+    &:hover {
+      cursor: pointer;
+      // transform: scale(1.1);
+    }
+    & svg {
+      align-self: center;
+      transition: transform 0.2s;
+      &:hover {
+        transform:scale(1.3)
+      }
+    }
   }
 
   &-bottom {
@@ -69,14 +83,40 @@ $thumbnail-width-limit: 8em;
 }
 
 .carousel-container {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
   position: absolute;
-  bottom:0;
+  bottom: 0.1px;
   width: 100%;
-  height: 20%;
+  height: 30%;
+  background-image: linear-gradient(to top, black, rgb(61, 61, 61), rgb(100,100,100) ,transparent);
+  transition: 0.3s ease;
+  overflow: hidden;
 }
 
 .carousel-card-thumbnail {
-  width: 20%;
+  width: 100%;
+  transition: 0.2s ease;
+  &:hover {
+    transform: scale(1.2);
+    border: 0.1rem
+  }
+}
+
+.carousel {
+  &-right-arrow {
+    color: white;
+    transition: 0.2s;
+    &:hover {
+      transform: scale(1.3);
+    }
+  }
+  &-left-arrow {
+    color: white;
+    transition: 0.2s;
+    &:hover {
+      transform: scale(1.3);
+    }
+  }
 }

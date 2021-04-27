@@ -2,16 +2,18 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Price from '../Price';
 import Carousel from './Carousel';
+import useOpacity from './custom/useOpacity';
 
 function Card ({ product, defaultStyle, handleImageClick, handleActionClick, render }) {
   const [image, setImage] = useState('');
+  const [style, setStyle] = useOpacity({opacity: 0});
 
   useEffect(() => {
     setImage(defaultStyle.photos[0]['thumbnail_url']);
   }, [product]);
 
   return (
-    <div className="card-component">
+    <div className="card-component" onMouseLeave={setStyle.fadeOut} onMouseEnter={setStyle.fadeIn}>
       <div className="card-top">
         <div className="card-button btn-round" onClick={ () => handleActionClick(product.id) }>
           { render() }
@@ -25,6 +27,7 @@ function Card ({ product, defaultStyle, handleImageClick, handleActionClick, ren
         <Carousel
           product={ product }
           handleThumbnailClick={setImage}
+          style={style}
         />
       </div>
       <div className="card-bottom">
