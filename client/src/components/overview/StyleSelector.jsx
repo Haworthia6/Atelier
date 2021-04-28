@@ -1,7 +1,7 @@
 import React from 'react';
 import splitArray from '../../helpers/splitArray';
 import StyleThumbnail from './StyleThumbnail';
-
+import PropTypes from 'prop-types';
 function StyleSelector ({styleList, currentStyle, onStyleChange}) {
   return (
     <div>
@@ -26,5 +26,9 @@ function StyleSelector ({styleList, currentStyle, onStyleChange}) {
 
   );
 }
-
+StyleSelector.propTypes = {
+  styleList: PropTypes.array.isRequired,
+  currentStyle: PropTypes.number.isRequired,
+  onStyleChange: PropTypes.func.isRequired
+};
 export default StyleSelector;

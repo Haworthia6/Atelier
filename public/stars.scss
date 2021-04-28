@@ -1,0 +1,25 @@
+
+.stars {
+  &-container {
+    height: 100px;
+    width: fit-content;
+    font-size: 0.7rem;
+    color: #d7385e;
+    position: relative;
+  }
+  &-top {
+    position: absolute;
+    color: #132743;
+    display: block;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    padding: 0;
+  }
+  &-bottom {
+    padding: 0;
+    display: block;
+    z-index: 0;
+    overflow: hidden;
+  }
+}

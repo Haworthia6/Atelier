@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import PropTypes from 'prop-types';
 import {FiArrowLeft, FiArrowRight } from 'react-icons/fi';
 import {HiPhotograph, HiOutlinePhotograph} from 'react-icons/hi';
 import InnerImageZoom from 'react-inner-image-zoom';
@@ -57,7 +58,7 @@ function ExpandedView ({photos, changePhoto, currentPhoto, changeView}) {
             if (index === currentPhoto) {
               return (
                 <div className={index===currentPhoto ? 'currentSlideExpanded' : 'slideExpanded'} key={index}>
-                  {(<InnerImageZoom src={photo.url} zoomScale={2.5} afterZoomIn={toggleZoom} afterZoomOut={toggleZoom}/>)}
+                  {(<InnerImageZoom src={photo.url} zoomScale={2.5} afterZoomIn={toggleZoom} afterZoomOut={toggleZoom} className="expandedCarouselPhoto"/>)}
                 </div>
               );
             } else {
@@ -74,5 +75,11 @@ function ExpandedView ({photos, changePhoto, currentPhoto, changeView}) {
     );
   }
 }
+ExpandedView.propTypes = {
+  photos: PropTypes.array.isRequired,
+  changePhoto: PropTypes.func.isRequired,
+  currentPhoto: PropTypes.number.isRequired,
+  changeView: PropTypes.func.isRequired
+};
 
 export default ExpandedView;

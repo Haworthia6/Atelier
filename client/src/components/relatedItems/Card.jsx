@@ -3,13 +3,15 @@ import PropTypes from 'prop-types';
 import Price from '../Price';
 import Carousel from './Carousel';
 import useOpacity from './custom/useOpacity';
+import getFallbackImage from '../../fallbackImage';
+import Stars from '../Stars';
 
 function Card ({ product, defaultStyle, handleImageClick, handleActionClick, render }) {
   const [image, setImage] = useState('');
   const [style, setStyle] = useOpacity({opacity: 0});
 
   useEffect(() => {
-    setImage(defaultStyle.photos[0]['thumbnail_url']);
+    setImage(defaultStyle.photos[0]['thumbnail_url'] ?? getFallbackImage());
   }, [product]);
 
   const handleThumbnailClick = ({ target }) => {
@@ -46,7 +48,7 @@ function Card ({ product, defaultStyle, handleImageClick, handleActionClick, ren
             salePrice={defaultStyle['sale_price']}
           />
         </div>
-        <div className="stars-component">STARS</div>
+        <Stars product={product} />
       </div>
     </div>
   );
