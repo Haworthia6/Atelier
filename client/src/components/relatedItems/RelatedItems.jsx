@@ -26,13 +26,18 @@ function RelatedItems (props) {
     scroll.current,
     scrollSize,
     relatedProductsIds.length,
-    (10 * (relatedProductsIds.length - 1))); // Gaps
+    (10 * (relatedProductsIds.length),
+    40)); // Gaps
   const [scrollIdx, setScrollIdx] = useScrollIdx(scroll);
 
   const handleActionClick = (id) => {
     setShowModal(true);
     setToggleComparing('fade-in');
     handleComparingToggle(id);
+  };
+
+  const handleResetScroll = () => {
+    setScrollIdx.reset(scroll.current);
   };
 
   useEffect(() => {
@@ -54,6 +59,7 @@ function RelatedItems (props) {
               handleActionClick={handleActionClick}
               dispatch={dispatch}
               render={ () => <FiStar /> }
+              resetScroll={handleResetScroll}
             />);
         })
         }

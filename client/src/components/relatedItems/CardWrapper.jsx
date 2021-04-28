@@ -6,7 +6,7 @@ import changeProduct from '../../../store/actions/changeProduct';
 import findDefaultStyle from '../../helpers/findDefaultStyle';
 import PropTypes from 'prop-types';
 
-function CardWrapper ({ product, handleActionClick, render }) {
+function CardWrapper ({ product, handleActionClick, render, resetScroll }) {
 
   const defaultStyle = findDefaultStyle(product);
   const currentProdId = useSelector(({currentProductId}) => currentProductId);
@@ -16,6 +16,7 @@ function CardWrapper ({ product, handleActionClick, render }) {
     if (id !== currentProdId){
       dispatch(toggleShow(false));
       dispatch(changeProduct(id));
+      resetScroll();
     }
   };
 
@@ -39,7 +40,8 @@ CardWrapper.propTypes = {
     category: PropTypes.string.isRequired
   }).isRequired,
   handleActionClick: PropTypes.func.isRequired,
-  render: PropTypes.func.isRequired
+  render: PropTypes.func.isRequired,
+  resetScroll: PropTypes.func
 };
 
 export default CardWrapper;

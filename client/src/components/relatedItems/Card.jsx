@@ -2,16 +2,25 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Price from '../Price';
 import Carousel from './Carousel';
+import useOpacity from './custom/useOpacity';
 
 function Card ({ product, defaultStyle, handleImageClick, handleActionClick, render }) {
   const [image, setImage] = useState('');
+  const [style, setStyle] = useOpacity({opacity: 0});
 
   useEffect(() => {
     setImage(defaultStyle.photos[0]['thumbnail_url']);
   }, [product]);
 
+  const handleThumbnailClick = ({ target }) => {
+    setImage(target.style['background-image']
+      .replace(/url\("/, '')
+      .replace(/"\)$/, '')
+    );
+  };
+
   return (
-    <div className="card-component">
+    <div className="card-component" onMouseLeave={setStyle.fadeOut} onMouseEnter={setStyle.fadeIn}>
       <div className="card-top">
         <div className="card-button btn-round" onClick={ () => handleActionClick(product.id) }>
           { render() }
@@ -24,7 +33,8 @@ function Card ({ product, defaultStyle, handleImageClick, handleActionClick, ren
         />
         <Carousel
           product={ product }
-          handleThumbnailClick={setImage}
+          handleThumbnailClick={handleThumbnailClick}
+          style={style}
         />
       </div>
       <div className="card-bottom">
@@ -60,7 +70,7 @@ Card.propTypes = {
     'default?': PropTypes.bool.isRequired
   }).isRequired,
   handleImageClick: PropTypes.func.isRequired,
-  render: PropTypes.func.isRequired
+  render: PropTypes.func.isRequired,
 };
 
 export default Card;
