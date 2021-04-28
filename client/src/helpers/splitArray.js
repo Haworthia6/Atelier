@@ -1,7 +1,6 @@
 const splitArray = (array) => {
   var styleRows = [];
   var rows = Math.ceil(array.length / 4);
-  console.log(rows);
   var currentEle = 0;
   // iterate over rows
   // if current row is not last row, add an array of the next 4 elements to split
@@ -21,7 +20,6 @@ const splitArray = (array) => {
       }
     }
     styleRows.push(row);
-    console.log(styleRows);
   }
   return styleRows;
 };
