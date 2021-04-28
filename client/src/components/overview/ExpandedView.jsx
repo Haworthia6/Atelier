@@ -48,7 +48,7 @@ function ExpandedView ({photos, changePhoto, currentPhoto, changeView}) {
       <section className="expandedModal">
         { (currentPhoto && !zoom) && <div className="arrow-icon left-arrow-expanded" onClick={leftArrowClick}> <FiArrowLeft/> </div> }
         {renderIcons()}
-        {currentPhoto !== photos.length - 1 && !zoom &&
+        {(currentPhoto !== photos.length - 1 && !zoom) &&
         <div className="arrow-icon right-arrow-expanded" onClick={rightArrowClick}>
           <FiArrowRight/>
         </div>}
