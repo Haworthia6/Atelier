@@ -66,4 +66,4 @@ jspm_packages/
 .env
 .env.test
 
-/public/dist/bundle.js
+public/dist/
