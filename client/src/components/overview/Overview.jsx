@@ -14,11 +14,10 @@ function Overview () {
   const [currentStyle, setCurrentStyle] = useState(0);
   const [currentPhoto, setCurrentPhoto] = useState(0);
   const onStyleChange = (e) => {
-    if (e.target.id === currentStyle) {
-      return;
+    if (e.target.id !== currentStyle) {
+      setCurrentPhoto(0);
+      setCurrentStyle(e.target.id);
     }
-    setCurrentPhoto(0);
-    setCurrentStyle(e.target.id);
   };
   const toggleExpanded = () => {
     var modal = document.getElementsByClassName('expandedModal')[0];

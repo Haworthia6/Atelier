@@ -6,35 +6,8 @@ import InnerImageZoom from 'react-inner-image-zoom';
 
 function ExpandedView ({photos, changePhoto, currentPhoto, changeView}) {
   const [zoom, setZoom] = useState(false);
-  const toggleZoom = () => {
-    if (zoom === true) {
-      setZoom(false);
-    } else {
-      setZoom(true);
-    }
-  };
-  const renderLeftArrow = () => {
-    if (currentPhoto !== 0 && !zoom) {
-      return (
-        <div className="arrow-icon left-arrow-expanded" onClick={leftArrowClick}>
-          <FiArrowLeft/>
-        </div>
-      );
-    } else {
-      return null;
-    }
-  };
-  const renderRightArrow = () => {
-    if (currentPhoto !== photos.length - 1 && !zoom) {
-      return (
-        <div className="arrow-icon right-arrow-expanded" onClick={rightArrowClick}>
-          <FiArrowRight/>
-        </div>
-      );
-    } else {
-      return null;
-    }
-  };
+  const toggleZoom = () =>  zoom ? setZoom(false) : setZoom(true);
+
   const renderIcons = () => {
     if (!zoom) {
       return (<div className="expandedIconContainer">
@@ -55,9 +28,6 @@ function ExpandedView ({photos, changePhoto, currentPhoto, changeView}) {
     }
   };
   const iconClick = (e) => {
-    console.log(e.target.id);
-    console.log(e.target.parentElement.parentElement.id);
-    console.log(e.target.parentElement.id);
     if (e.target.parentElement.id) {
       changePhoto(parseInt(e.target.parentElement.id));
     } else if (e.target.parentElement.parentElement.id){
@@ -72,15 +42,16 @@ function ExpandedView ({photos, changePhoto, currentPhoto, changeView}) {
   const rightArrowClick = () => {
     changePhoto(currentPhoto + 1);
   };
-  if (photos.length === 0) {
-    return null;
-  } else {
+  if (photos.length) {
     // make an onHover function that changes the mouse to a '+'
     return (
       <section className="expandedModal">
-        {renderLeftArrow()}
+        { (currentPhoto && !zoom) && <div className="arrow-icon left-arrow-expanded" onClick={leftArrowClick}> <FiArrowLeft/> </div> }
         {renderIcons()}
-        {renderRightArrow()}
+        {currentPhoto !== photos.length - 1 && !zoom &&
+        <div className="arrow-icon right-arrow-expanded" onClick={rightArrowClick}>
+          <FiArrowRight/>
+        </div>}
         <div className="expandedCarousel">
           {photos.map((photo, index) => {
             if (index === currentPhoto) {

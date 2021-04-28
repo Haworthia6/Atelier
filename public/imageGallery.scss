@@ -36,6 +36,7 @@ $thumbnail-width-limit: 8em;
   height: 100%;
   overflow: auto;
   background-color: rgba(0,0,0,0.9);
+  z-index: 9999;
 }
 .expandedCarousel {
   margin: auto;
