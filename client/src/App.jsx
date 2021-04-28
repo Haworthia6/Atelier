@@ -29,7 +29,9 @@ function App(props) {
       <BrowserRouter>
         <Switch>
           <Route path='/'>
-            <Overview/>
+            <section className='overview'>
+              <Overview/>
+            </section>
             <section className="col-center">
               <RelatedAndOutfits />
             </section>
