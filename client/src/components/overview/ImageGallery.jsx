@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {FiArrowLeft, FiArrowRight, FiArrowUp, FiArrowDown} from 'react-icons/fi';
 import ImageThumbNails from './ImageThumbNails';
+import PropTypes from 'prop-types';
 
 function ImageGallery ({photos, imageClick, changePhoto, currentPhoto}) {
   const [currentThumbnails, setThumbnails] = useState(7);
@@ -120,5 +121,11 @@ function ImageGallery ({photos, imageClick, changePhoto, currentPhoto}) {
     );
   }
 }
+ImageGallery.propTypes = {
+  photos: PropTypes.array.isRequired,
+  imageClick: PropTypes.func.isRequired,
+  changePhoto: PropTypes.func.isRequired,
+  currentPhoto: PropTypes.number.isRequired
+};
 
 export default ImageGallery;
