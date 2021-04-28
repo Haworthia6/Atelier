@@ -61,7 +61,7 @@ function Overview (props) {
 
         This is where product info goes<br/>
         <ProductInfo
-          rating={currentProduct.avgRating}
+          product={currentProduct}
           category={currentProduct.category}
           name={currentProduct.name}
           price={currentProduct.styleList[currentStyle].original_price}

@@ -4,12 +4,15 @@ import { AiFillTwitterSquare } from 'react-icons/ai';
 import { FaPinterestSquare } from 'react-icons/fa';
 import {FacebookShareButton, TwitterShareButton, PinterestShareButton} from 'react-share';
 import Price from '../Price';
+import Stars from '../Stars';
 import PropTypes from 'prop-types';
-function ProductInfo ({rating, category, name, price, salePrice}) {
+function ProductInfo ({product, category, name, price, salePrice}) {
 
   return (
     <div>This is the product info
-      <p>{rating}</p>
+      <div className="product-info-rating">
+        <Stars product={product}/>
+      </div>
       <p>{category}</p>
       <p>{name}</p>
       <Price price={price} salePrice={salePrice}/>
@@ -42,7 +45,7 @@ function ProductInfo ({rating, category, name, price, salePrice}) {
   );
 }
 ProductInfo.propTypes = {
-  rating: PropTypes.number.isRequired,
+  product: PropTypes.object.isRequired,
   category: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   price: PropTypes.string.isRequired,
