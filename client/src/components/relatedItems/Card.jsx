@@ -4,6 +4,7 @@ import Price from '../Price';
 import Carousel from './Carousel';
 import useOpacity from './custom/useOpacity';
 import getFallbackImage from '../../fallbackImage';
+import Stars from '../Stars';
 
 function Card ({ product, defaultStyle, handleImageClick, handleActionClick, render }) {
   const [image, setImage] = useState('');
@@ -47,7 +48,7 @@ function Card ({ product, defaultStyle, handleImageClick, handleActionClick, ren
             salePrice={defaultStyle['sale_price']}
           />
         </div>
-        <div className="stars-component">STARS</div>
+        <Stars product={product} />
       </div>
     </div>
   );
