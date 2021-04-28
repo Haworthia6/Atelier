@@ -8,7 +8,7 @@
   left: 0;
   z-index: 99;
   height: 100%;
-  width: 3rem;
+  width: 2rem;
   max-width: 8rem;
   background-image: linear-gradient(to right,white, whitesmoke, transparent);
 }
@@ -21,7 +21,7 @@
   right: -5px;
   z-index: 99;
   height: 100%;
-  width: 3rem;
+  width: 2rem;
   background-image: linear-gradient(to left,white, whitesmoke, transparent);
 }
 .arrow-right {
@@ -38,7 +38,7 @@
 
 #related-items-and-outfits-component {
 
-  width: 70vw;
+  width: 80vw;
 
   & h2 {
     padding-bottom: 8px;

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { isNull } from 'lodash';
 import DblLinkedList from './DblLinkedList';
 
 function useFourLimitCarousel (styles) {
@@ -10,7 +11,10 @@ function useFourLimitCarousel (styles) {
       allImages.push(
         fourStyles.reduce(
           (fourImages, style) => {
-            return [...fourImages, style.photos[0]['thumbnail_url']];
+            if (!isNull(style.photos[0]['thumbnail_url'])) {
+              return [...fourImages, style.photos[0]['thumbnail_url']];
+            }
+            return fourImages;
           }, []));
       left = right;
       right = right + 4;

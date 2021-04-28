@@ -19,6 +19,10 @@ function useScrollIdx (ele = 0) {
     handleRightScroll: (ele, scrollSize) => {
       ele.scrollLeft += (scrollSize + 40);
       setState(ele.scrollLeft);
+    },
+    reset: (ele) => {
+      ele.scrollLeft = 0;
+      setState(0);
     }
   };
 

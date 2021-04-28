@@ -85,6 +85,7 @@ $thumbnail-width-limit: 8em;
 .carousel-container {
   display: grid;
   grid-auto-flow: column;
+  grid-template-columns: repeat(4, 1fr);
   align-items: center;
   position: absolute;
   bottom: 0.1px;
@@ -95,14 +96,29 @@ $thumbnail-width-limit: 8em;
   overflow: hidden;
 }
 
-.carousel-card-thumbnail {
-  width: 100%;
+.carousel-card-container {
+  height:100%;
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-position:center;
+  border: 2px solid black;
   transition: 0.2s ease;
   &:hover {
-    transform: scale(1.2);
-    border: 0.1rem
+    transform: scale(1.1);
+
+    border: 0.1rem;
   }
 }
+
+// .carousel-card-thumbnail {
+//   width: 100%;
+//   border: 2px solid black;
+//   transition: 0.2s ease;
+//   &:hover {
+//     transform: scale(1.1);
+//     border: 2px solid white;
+//   }
+// }
 
 .carousel {
   &-right-arrow {

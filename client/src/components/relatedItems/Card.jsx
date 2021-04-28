@@ -12,6 +12,13 @@ function Card ({ product, defaultStyle, handleImageClick, handleActionClick, ren
     setImage(defaultStyle.photos[0]['thumbnail_url']);
   }, [product]);
 
+  const handleThumbnailClick = ({ target }) => {
+    setImage(target.style['background-image']
+      .replace(/url\("/, '')
+      .replace(/"\)$/, '')
+    );
+  };
+
   return (
     <div className="card-component" onMouseLeave={setStyle.fadeOut} onMouseEnter={setStyle.fadeIn}>
       <div className="card-top">
@@ -26,7 +33,7 @@ function Card ({ product, defaultStyle, handleImageClick, handleActionClick, ren
         />
         <Carousel
           product={ product }
-          handleThumbnailClick={setImage}
+          handleThumbnailClick={handleThumbnailClick}
           style={style}
         />
       </div>
@@ -63,7 +70,7 @@ Card.propTypes = {
     'default?': PropTypes.bool.isRequired
   }).isRequired,
   handleImageClick: PropTypes.func.isRequired,
-  render: PropTypes.func.isRequired
+  render: PropTypes.func.isRequired,
 };
 
 export default Card;

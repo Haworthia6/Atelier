@@ -21,13 +21,14 @@ function Carousel ({ product, handleThumbnailClick, style }) {
       {
         images.map((imgUrl, i) => {
           if (!isNull(imgUrl)) {
-            return (<img
-              className="carousel-card-thumbnail"
-              key={i}
-              src={imgUrl}
-              alt="thumbnail style"
-              onClick={() => handleThumbnailClick(imgUrl)}
-            />);
+            return (
+              <div
+                key={i}
+                className="carousel-card-container"
+                style={{ backgroundImage: `url(${imgUrl})`}}
+                onClick={handleThumbnailClick}
+              />
+            );
           }
         })
       }
