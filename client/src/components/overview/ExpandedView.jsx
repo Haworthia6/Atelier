@@ -1,55 +1,40 @@
 import React, {useState} from 'react';
 import {FiArrowLeft, FiArrowRight } from 'react-icons/fi';
 import {HiPhotograph, HiOutlinePhotograph} from 'react-icons/hi';
+import InnerImageZoom from 'react-inner-image-zoom';
+
 
 function ExpandedView ({photos, changePhoto, currentPhoto, changeView}) {
   const [zoom, setZoom] = useState(false);
-  const zoomIn = () => {
-    setZoom(true);
-  };
-  const zoomOut = () => {
-    setZoom(false);
-  };
-  const renderLeftArrow = () => {
-    if (currentPhoto !== 0) {
-      return (
-        <div className="arrow-icon left-arrow-expanded" onClick={leftArrowClick}>
-          <FiArrowLeft/>
-        </div>
-      );
-    } else {
-      return null;
-    }
-  };
-  const renderRightArrow = () => {
-    if (currentPhoto !== photos.length - 1) {
-      return (
-        <div className="arrow-icon right-arrow-expanded" onClick={rightArrowClick}>
-          <FiArrowRight/>
-        </div>
-      );
-    } else {
-      return null;
-    }
-  };
+  const toggleZoom = () =>  zoom ? setZoom(false) : setZoom(true);
+
   const renderIcons = () => {
-    return photos.map((photo, index) => {
-      if (index === currentPhoto) {
-        return (
-          <div alt="icon" className="expanded-icon" id={index} key={index}>
-            <HiOutlinePhotograph/>
-          </div>
-        );
-      }
-      return (
-        <div alt="icon" className="expanded-icon" id={index} key={index} onClick={iconClick}>
-          <HiPhotograph/>
-        </div>
-      );
-    });
+    if (!zoom) {
+      return (<div className="expandedIconContainer">
+        {photos.map((photo, index) => {
+          if (index === currentPhoto) {
+            return (
+              <div alt="icon" className="expandedIcon" id={index} key={index}>
+                <HiOutlinePhotograph/>
+              </div>
+            );
+          }
+          return (
+            <div alt="icon" className="expandedIcon" id={index} key={index} onClick={iconClick}>
+              <HiPhotograph/>
+            </div>
+          );
+        })}</div>);
+    }
   };
   const iconClick = (e) => {
-    changePhoto(parseInt(e.target.id));
+    if (e.target.parentElement.id) {
+      changePhoto(parseInt(e.target.parentElement.id));
+    } else if (e.target.parentElement.parentElement.id){
+      changePhoto(parseInt(e.target.parentElement.parentElement.id));
+    } else {
+      changePhoto(parseInt(e.target.id));
+    }
   };
   const leftArrowClick = () => {
     changePhoto(currentPhoto - 1);
@@ -57,26 +42,31 @@ function ExpandedView ({photos, changePhoto, currentPhoto, changeView}) {
   const rightArrowClick = () => {
     changePhoto(currentPhoto + 1);
   };
-  if (photos.length === 0) {
-    return null;
-  } else if (zoom) {
-    //make the image 2.5x larger and move with the mouse
-    //change mouse cursor to a '-'
-    return (<img src={photos[currentPhoto].url} alt="photo" className="expanded-carousel-photo" onClick={zoomOut}/>);
-  } else {
+  if (photos.length) {
     // make an onHover function that changes the mouse to a '+'
     return (
-      <section className="expanded-carousel">
-        {renderLeftArrow()}
+      <section className="expandedModal">
+        { (currentPhoto && !zoom) && <div className="arrow-icon left-arrow-expanded" onClick={leftArrowClick}> <FiArrowLeft/> </div> }
         {renderIcons()}
-        {renderRightArrow()}
-        <div>
+        {(currentPhoto !== photos.length - 1 && !zoom) &&
+        <div className="arrow-icon right-arrow-expanded" onClick={rightArrowClick}>
+          <FiArrowRight/>
+        </div>}
+        <div className="expandedCarousel">
           {photos.map((photo, index) => {
-            return (
-              <div className={index===currentPhoto ? 'currentSlide' : 'slide'} key={index}>
-                {index === currentPhoto && (<img src={photo.url} alt="photo" className="expanded-carousel-photo" onClick={zoomIn}/>)}
-              </div>
-            );
+            if (index === currentPhoto) {
+              return (
+                <div className={index===currentPhoto ? 'currentSlideExpanded' : 'slideExpanded'} key={index}>
+                  {(<InnerImageZoom src={photo.url} zoomScale={2.5} afterZoomIn={toggleZoom} afterZoomOut={toggleZoom}/>)}
+                </div>
+              );
+            } else {
+              return (
+                <div className='slideExpanded' key={index}>
+                  {index === currentPhoto && (<img src={photo.url} alt="photo" className="expandedCarouselPhoto"/>)}
+                </div>
+              );
+            }
           })}
         </div>
         <button onClick={changeView}>return to default view</button>

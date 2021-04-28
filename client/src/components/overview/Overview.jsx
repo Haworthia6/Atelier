@@ -13,20 +13,27 @@ function Overview () {
   const currentProduct = useSelector(({products}) => products[currentId]);
   const [currentStyle, setCurrentStyle] = useState(0);
   const [currentPhoto, setCurrentPhoto] = useState(0);
-  const [view, setView] = useState('normal');
   const onStyleChange = (e) => {
-    if (e.target.id === currentStyle) {
-      return;
+    if (e.target.id !== currentStyle) {
+      setCurrentPhoto(0);
+      setCurrentStyle(e.target.id);
     }
-    setCurrentPhoto(0);
-    setCurrentStyle(e.target.id);
   };
-  const imageClick = () => {
-    setView('expanded');
+  const toggleExpanded = () => {
+    var modal = document.getElementsByClassName('expandedModal')[0];
+    var currentSlide = document.getElementsByClassName('currentSlide')[0];
+    if (!modal.style.display || modal.style.display === 'none') {
+      modal.style.display = 'block';
+    } else {
+      modal.style.display = 'none';
+    }
+    currentSlide.onclick = () => {
+      if (!modal.style.display) {
+        modal.style.display = 'block';
+      }
+    };
   };
-  const defaultView = () => {
-    setView('default');
-  };
+
   const dis = useDispatch();
 
   // if currentId === null
@@ -37,21 +44,19 @@ function Overview () {
 
   if (currentId === null) {
     return <span>loading product info</span>;
-  } else if (view === 'expanded') {
-    return (
-      <ExpandedView
-        photos={currentProduct.styleList[currentStyle].photos}
-        changePhoto={setCurrentPhoto}
-        currentPhoto={currentPhoto}
-        changeView={defaultView}/>);
   } else {
     return (
       <div>
         <p>current id: {currentId}</p>
+        {<ExpandedView
+          photos={currentProduct.styleList[currentStyle].photos}
+          changePhoto={setCurrentPhoto}
+          currentPhoto={currentPhoto}
+          changeView={toggleExpanded}/>}
 
         <ImageGallery
           photos={currentProduct.styleList[currentStyle].photos}
-          imageClick={imageClick}
+          imageClick={toggleExpanded}
           changePhoto={setCurrentPhoto}
           currentPhoto={currentPhoto}/>
 
