@@ -14,6 +14,7 @@ function App(props) {
     id = id.slice(0, id.length - 1);
   }
   id = parseInt(id);
+  console.log(id);
 
 
   useEffect(() => {

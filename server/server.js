@@ -10,7 +10,7 @@ app.use(express.static(path.join(__dirname, '../public/dist')));
 
 // Set up Routes
 app.use('/api', require('./routes/routes'));
-app.use('/products', express.static(path.join(__dirname, '../public/dist')));
+app.use('/products/:id', express.static(path.join(__dirname, '../public/dist')));
 
 // export
 module.exports = app;
