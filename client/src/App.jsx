@@ -4,18 +4,11 @@ import RelatedAndOutfits from './components/relatedItems/RelatedAndOutfits';
 import { useSelector, useDispatch} from 'react-redux';
 import changeProduct from '../store/actions/changeProduct';
 import { BrowserRouter, Route, Switch, withRouter} from 'react-router-dom';
+import getUrlProductId from './helpers/getUrlProductId';
 function App(props) {
   const currentId = useSelector(({ currentProductId }) => currentProductId);
   const dis = useDispatch();
-
-  var pathName = props.location.pathname;
-  var id = pathName.slice(10);
-  if (id[id.length - 1] === '/') {
-    id = id.slice(0, id.length - 1);
-  }
-  id = parseInt(id);
-  console.log(id);
-
+  const id = getUrlProductId(props.location.pathname);
 
   useEffect(() => {
     if(props.location.pathname.length > 1) {
@@ -41,7 +34,7 @@ function App(props) {
       </BrowserRouter>
     );
   } else {
-    return <span>loading product info</span>;
+    return null;
   }
 }
 
