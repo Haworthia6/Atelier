@@ -1,17 +1,46 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Overview from './components/overview/Overview';
 import RelatedAndOutfits from './components/relatedItems/RelatedAndOutfits';
+import { useSelector, useDispatch} from 'react-redux';
+import changeProduct from '../store/actions/changeProduct';
+import { BrowserRouter, Route, Switch, withRouter} from 'react-router-dom';
+function App(props) {
+  const currentId = useSelector(({ currentProductId }) => currentProductId);
+  const dis = useDispatch();
 
-function App() {
+  var pathName = props.location.pathname;
+  var id = pathName.slice(10);
+  if (id[id.length - 1] === '/') {
+    id = id.slice(0, id.length - 1);
+  }
+  id = parseInt(id);
 
-  return (
-    <>
-      <Overview />
-      <section className="col-center">
-        <RelatedAndOutfits />
-      </section>
-    </>
-  );
+
+  useEffect(() => {
+    if(props.location.pathname.length > 1) {
+      dis(changeProduct(id));
+    } else {
+      dis(changeProduct(11003));
+    }
+  },[]);
+
+  if (currentId) {
+    return (
+      <BrowserRouter>
+        <Switch>
+          <Route path='/'>
+            <Overview/>
+            <section className="col-center">
+              <RelatedAndOutfits />
+            </section>
+          </Route>
+        </Switch>
+      </BrowserRouter>
+    );
+  } else {
+    return <span>loading product info</span>;
+  }
 }
 
-export default App;
+
+export default withRouter(App);

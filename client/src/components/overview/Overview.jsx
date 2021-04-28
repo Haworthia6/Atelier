@@ -1,18 +1,23 @@
 import React, {useState, useEffect} from 'react';
-import { useSelector, useDispatch} from 'react-redux';
-import changeProduct from '../../../store/actions/changeProduct';
+import { useSelector} from 'react-redux';
 import ImageGallery from './ImageGallery';
 import ProductDescription from './ProductDescription';
 import ProductInfo from './ProductInfo';
 import StyleSelector from './StyleSelector';
 import AddToCart from './AddToCart';
 import ExpandedView from './ExpandedView';
+import {withRouter} from 'react-router-dom';
 
-function Overview () {
+function Overview (props) {
+
   const currentId = useSelector(({ currentProductId }) => currentProductId);
   const currentProduct = useSelector(({products}) => products[currentId]);
   const [currentStyle, setCurrentStyle] = useState(0);
   const [currentPhoto, setCurrentPhoto] = useState(0);
+
+  useEffect(() => {
+    props.history.push('/products/' + currentId);
+  },[currentId]);
   const onStyleChange = (e) => {
     if (e.target.id !== currentStyle) {
       setCurrentPhoto(0);
@@ -33,14 +38,6 @@ function Overview () {
       }
     };
   };
-
-  const dis = useDispatch();
-
-  // if currentId === null
-
-  useEffect(() => {
-    dis(changeProduct(11003));
-  },[]);
 
   if (currentId === null) {
     return <span>loading product info</span>;
@@ -91,4 +88,4 @@ function Overview () {
 
 }
 
-export default Overview;
+export default withRouter(Overview);
