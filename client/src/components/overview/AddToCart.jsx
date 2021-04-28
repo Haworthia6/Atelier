@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useRef} from 'react';
-import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 import useLocalStorage from '../relatedItems/custom/useLocalStorage';
 
 function AddToCart ({currentStyle}) {
@@ -112,5 +112,15 @@ function AddToCart ({currentStyle}) {
     </div>
   );
 }
-
+AddToCart.propTypes = {
+  currentStyle: PropTypes.shape({
+    'default?': PropTypes.bool,
+    name: PropTypes.string,
+    'original_price': PropTypes.string,
+    photos: PropTypes.array,
+    'sale_price': PropTypes.any,
+    skus: PropTypes.object.isRequired,
+    'style_id': PropTypes.number
+  })
+};
 export default AddToCart;

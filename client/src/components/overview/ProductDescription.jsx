@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 function ProductDescription ({description, features}) {
   return (
     <div>
@@ -20,5 +20,8 @@ function ProductDescription ({description, features}) {
     </div>
   );
 }
-
+ProductDescription.propTypes = {
+  description: PropTypes.string.isRequired,
+  features: PropTypes.array.isRequired
+};
 export default ProductDescription;
