@@ -5,10 +5,10 @@ const URL = 'http://localhost:3000/';
 function fetchProductRequest (id) {
 
   return Promise.all([
-    axios.post(URL + 'product/', { id }),
-    axios.post(URL + 'styles/', { id }),
-    axios.post(URL + 'meta/', { id }),
-    axios.post(URL + 'related/', { id })
+    axios.post(URL + 'api/product/', { id }),
+    axios.post(URL + 'api/styles/', { id }),
+    axios.post(URL + 'api/meta/', { id }),
+    axios.post(URL + 'api/related/', { id })
   ])
     .then((data) => {
       return data.reduce((accum, { data }, i) => {
