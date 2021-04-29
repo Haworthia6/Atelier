@@ -21,5 +21,8 @@ describe('Rows', () => {
   });
 
   // Handle rendering of comparisonRows
+  it('should create an element with class name compared-row', () => {
+    expect(wrapper.props().children[0].props.className).to.equal('compared-row');
+  });
 
 });

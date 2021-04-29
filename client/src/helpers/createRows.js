@@ -1,5 +1,5 @@
 import React from 'react';
-// TODO: Let this handle checkmarks (when one is value null === checkmark)
+
 export default (combinedInfo) => {
   const rows = [];
   for (let feat in combinedInfo) {

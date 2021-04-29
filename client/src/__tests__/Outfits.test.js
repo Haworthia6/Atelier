@@ -3,6 +3,7 @@ import chaiEnzyme from 'chai-enzyme';
 const expect = chai.expect;
 chai.use(chaiEnzyme());
 import React from 'react';
+import { act } from 'react-dom/test-utils';
 import exampleStore from '../../../exampleData/exampleStore';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
@@ -11,6 +12,7 @@ import { mount } from 'enzyme';
 import Outfits from '../components/relatedItems/Outfits';
 const mockStore = configureMockStore([thunk]);
 import AddOutfit from '../components/relatedItems/AddOutfit';
+import sinon from 'sinon';
 
 describe('Outfits', () => {
   let wrapper, store;
@@ -39,7 +41,11 @@ describe('Outfits', () => {
     expect(wrapper.find(AddOutfit)).to.have.prop('handleOutfitAdd');
   });
 
-  // INTEGRATION //
-  // Rendering of CardWrapper
-
+  it('should be a handleOutfitAdd function', () => {
+    const spy = sinon.spy(wrapper.find(AddOutfit).prop('handleOutfitAdd'));
+    act(() => {
+      spy();
+    });
+    sinon.assert.called(spy);
+  });
 });

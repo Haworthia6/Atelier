@@ -23,8 +23,9 @@ describe('CardWrapper', () => {
       <Provider store={store}>
         <CardWrapper
           product={store.getState().products[11003]}
-          handleActionClick={() => {}}
-          render={() => <div></div>}
+          handleActionClick={jest.fn()}
+          render={jest.fn()}
+          resetScroll={jest.fn()}
         />
       </Provider>
     );
@@ -36,6 +37,10 @@ describe('CardWrapper', () => {
 
   it('should pass props to Card', () => {
     expect(wrapper.find(Card).first()).to.have.props(['product', 'handleImageClick', 'handleActionClick', 'defaultStyle', 'render']);
+  });
+
+  it('should pass handleImageClick to Card', () => {
+    expect(wrapper.find(Card).prop('handleImageClick')).to.be.an.instanceOf(Function);
   });
 
   // Test Card render

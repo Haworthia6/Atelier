@@ -75,7 +75,4 @@ describe('Comparing', () => {
     expect(wrapper.find('.modal-footer').type()).to.equal('div');
   });
 
-  // Test Rows render
-  // Test dynamic text rendering on State change (comparedProducts)
-
 });
