@@ -44,44 +44,46 @@ function Overview (props) {
   } else {
     return (
       <div>
-        <p>current id: {currentId}</p>
         {<ExpandedView
           photos={currentProduct.styleList[currentStyle].photos}
           changePhoto={setCurrentPhoto}
           currentPhoto={currentPhoto}
           changeView={toggleExpanded}/>}
+        <div className="top-row">
+          <div className="image-gallery-box">
+            <ImageGallery
+              photos={currentProduct.styleList[currentStyle].photos}
+              imageClick={toggleExpanded}
+              changePhoto={setCurrentPhoto}
+              currentPhoto={currentPhoto}/>
+          </div>
 
-        <ImageGallery
-          photos={currentProduct.styleList[currentStyle].photos}
-          imageClick={toggleExpanded}
-          changePhoto={setCurrentPhoto}
-          currentPhoto={currentPhoto}/>
+          <div className="product-info-box">Product Info Box here:
 
-        <div>Product Info Box here:
+          This is where product info goes<br/>
+          <ProductInfo
+            product={currentProduct}
+            category={currentProduct.category}
+            name={currentProduct.name}
+            price={currentProduct.styleList[currentStyle].original_price}
+            salePrice={currentProduct.styleList[currentStyle].sale_price}/>
 
-        This is where product info goes<br/>
-        <ProductInfo
-          product={currentProduct}
-          category={currentProduct.category}
-          name={currentProduct.name}
-          price={currentProduct.styleList[currentStyle].original_price}
-          salePrice={currentProduct.styleList[currentStyle].sale_price}/>
+          This is where style selector goes<br/>
+          <StyleSelector
+            styleList={currentProduct.styleList}
+            currentStyle={currentStyle}
+            onStyleChange={onStyleChange}/>
 
-        This is where style selector goes<br/>
-        <StyleSelector
-          styleList={currentProduct.styleList}
-          currentStyle={currentStyle}
-          onStyleChange={onStyleChange}/>
-
-        This is where add to cart goes
-        <AddToCart
-          currentStyle={currentProduct.styleList[currentStyle]}/>
+          This is where add to cart goes
+          <AddToCart
+            currentStyle={currentProduct.styleList[currentStyle]}/>
+          </div>
         </div>
-
-        <p>This is where product description goes</p>
-        <ProductDescription
-          description={currentProduct.description}
-          features={currentProduct.features}/>
+        <div className="bottom-row product-description-box">
+          <ProductDescription
+            description={currentProduct.description}
+            features={currentProduct.features}/>
+        </div>
       </div>
     );
   }
