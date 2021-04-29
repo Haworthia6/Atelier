@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddOutfit should match its snapshot 1`] = `
+<div
+  className="add-outfit-container"
+  onClick={[Function]}
+>
+  <i
+    className="add-outfit-graphic"
+  >
+    <FiPlusSquare />
+  </i>
+  <span
+    className="add-outfit-detail"
+  >
+    Add to Outfit
+  </span>
+</div>
+`;

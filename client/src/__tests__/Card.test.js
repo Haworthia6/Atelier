@@ -1,6 +1,5 @@
 import chai from 'chai';
 import chaiEnzyme from 'chai-enzyme';
-const expect = chai.expect;
 chai.use(chaiEnzyme());
 import React from 'react';
 import exampleStore from '../../../exampleData/exampleStore';
@@ -8,6 +7,7 @@ import configureMockStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
 import sinon from 'sinon';
+import toJSON from 'enzyme-to-json';
 
 import Card from '../components/relatedItems/Card';
 import Stars from '../components/Stars';
@@ -37,33 +37,37 @@ describe('Card', () => {
     );
   });
 
+  it('should match its snapshot', () => {
+    expect(toJSON(wrapper)).toMatchSnapshot();
+  });
+
   it('should render all parts of a card', () => {
-    expect(wrapper.find('.card-component')).to.have.lengthOf(1);
-    expect(wrapper.find('.card-top')).to.have.lengthOf(1);
-    expect(wrapper.find('.card-bottom')).to.have.lengthOf(1);
-    expect(wrapper.find('.card-button')).to.have.lengthOf(1);
-    expect(wrapper.find('.card-image')).to.have.lengthOf(1);
-    expect(wrapper.find('.card-category')).to.have.lengthOf(1);
-    expect(wrapper.find('.card-name')).to.have.lengthOf(1);
-    expect(wrapper.find('.card-price')).to.have.lengthOf(1);
-    expect(wrapper.find(Stars)).to.have.lengthOf(1);
+    chai.expect(wrapper.find('.card-component')).to.have.lengthOf(1);
+    chai.expect(wrapper.find('.card-top')).to.have.lengthOf(1);
+    chai.expect(wrapper.find('.card-bottom')).to.have.lengthOf(1);
+    chai.expect(wrapper.find('.card-button')).to.have.lengthOf(1);
+    chai.expect(wrapper.find('.card-image')).to.have.lengthOf(1);
+    chai.expect(wrapper.find('.card-category')).to.have.lengthOf(1);
+    chai.expect(wrapper.find('.card-name')).to.have.lengthOf(1);
+    chai.expect(wrapper.find('.card-price')).to.have.lengthOf(1);
+    chai.expect(wrapper.find(Stars)).to.have.lengthOf(1);
   });
 
   it('should have necessary attr for img', () => {
-    expect(wrapper.find('img')).to.have.attr('src');
-    expect(wrapper.find('img')).to.have.attr('alt');
+    chai.expect(wrapper.find('img')).to.have.attr('src');
+    chai.expect(wrapper.find('img')).to.have.attr('alt');
   });
 
   it('should render category based on product', () => {
-    expect(wrapper.find('.card-category').text()).to.match(/pants/);
+    chai.expect(wrapper.find('.card-category').text()).to.match(/pants/);
   });
 
   it('should render name based on product', () => {
-    expect(wrapper.find('.card-name').text()).to.match(/Morning Joggers/);
+    chai.expect(wrapper.find('.card-name').text()).to.match(/Morning Joggers/);
   });
 
   it('should render the default price with no sale price', () => {
-    expect(wrapper.find('.card-price')).to.contain(Price);
+    chai.expect(wrapper.find('.card-price')).to.contain(Price);
   });
 
   describe('card-image', () => {
@@ -93,11 +97,11 @@ describe('Card', () => {
 
   describe('card-component', () => {
     it('should trigger a function on mouseEnter', () => {
-      expect(wrapper.find('.card-component').prop('onMouseEnter')).to.be.an.instanceOf(Function);
+      chai.expect(wrapper.find('.card-component').prop('onMouseEnter')).to.be.an.instanceOf(Function);
     });
 
     it('should trigger a function on mouseLeave', () => {
-      expect(wrapper.find('.card-component').prop('onMouseLeave')).to.be.an.instanceOf(Function);
+      chai.expect(wrapper.find('.card-component').prop('onMouseLeave')).to.be.an.instanceOf(Function);
     });
   });
 

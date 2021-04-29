@@ -24,5 +24,6 @@ module.exports = {
       relatedItemsIds: [ 11005, 11009, 11007, 11002, 11001],
       id: 11003
     }
-  }
+  },
+  show: false
 };

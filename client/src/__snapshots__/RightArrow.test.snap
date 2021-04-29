@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RightArrow should match its snapshot 1`] = `
+<div
+  className="arrow-right-container"
+  id="right-arrow"
+  onClick={[Function]}
+>
+  <FiChevronRight
+    className="arrow-right"
+  />
+</div>
+`;
