@@ -6,8 +6,6 @@ chai.use(chaiEnzyme());
 import toJSON from 'enzyme-to-json';
 
 import App from '../App';
-import Overview from '../components/overview/Overview';
-import RelatedAndOutfits from '../components/relatedItems/RelatedAndOutfits';
 
 describe('App', () => {
   let wrapper;
@@ -26,18 +24,6 @@ describe('App', () => {
 
   it('should mount some components', () => {
     chai.expect(wrapper.isEmptyRender()).to.be.false;
-  });
-
-  it('should render an Overview component', () => {
-    chai.expect(wrapper.find(Overview)).to.have.lengthOf(1);
-  });
-
-  it('should render RelatedAndOutfits component', () => {
-    chai.expect(wrapper.find(RelatedAndOutfits)).to.have.lengthOf(1);
-  });
-
-  it('should wrapper RelatedAndOutfits in a positioning div', () => {
-    chai.expect(wrapper.find('.col-center')).to.have.lengthOf(1);
   });
 
 });
