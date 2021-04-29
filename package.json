@@ -79,7 +79,9 @@
       "<rootDir>/node_modules/"
     ],
     "snapshotResolver": "./client/src/__snapshots__/snapshotResolver.js",
-    "snapshotSerializers": ["enzyme-to-json/serializer"]
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
   },
   "babel": {
     "presets": [
