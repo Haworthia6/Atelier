@@ -5,8 +5,8 @@ module.exports = {
     'description': 'Whether you\'re a morning person or not.  Whether you\'re gym bound or not.  Everyone looks good in joggers.',
     'slogan': 'Make yourself a morning person',
     'features': [
-      '{feature: \'Fabric\', value: \'100% Cotton\'}',
-      '{feature: \'Cut\', value: \'Skinny\'}'
+      {feature: 'Fabric', value: '100% Cotton'},
+      {feature: 'Cut', value: 'Skinny'}
     ],
     'name': 'Morning Joggers',
     'styleList': [
@@ -17,7 +17,7 @@ module.exports = {
       '{default?: false, name: \'Chartreuse\', original_pric…}',
       '{default?: false, name: \'White\', original_price: \'4…}'
     ],
-    'avgRating': 4.25,
+    'avgRating': '85%',
     'relatedItemsIds': [
       11005,
       11009,
@@ -28,27 +28,30 @@ module.exports = {
   },
   'related': {
     'category': 'Kicks',
-    'id': 11009,
-    'description': 'Low-top panelled buffed leather and mesh sneakers. Sizing embroidered in black at round toe. Tonal lace-up closure. Pull-loop and rubberized style name at padded tongue. Padded collar. Pull-loop at heel collar. Logo embroidered in black at outer side. Tonal treaded rubber sole. Tonal stitching.',
-    'slogan': 'A risky call in the spring or fall',
+    'id': 11005,
+    'description': 'Now where da boxes where I keep mine? You should peep mine, maybe once or twice but never three times. I\'m just a sneaker pro, I love Pumas and shell toes, but can\'t nothin compare to a fresh crispy white pearl',
+    'slogan': 'A sneaker dynasty',
     'features': [
-      '{feature: \'Sole\', value: \'Rubber\'}',
-      '{feature: \'Material\', value: \'FullControlSkin\'}',
-      '{feature: \'Mid-Sole\', value: \'ControlSupport Arch B…}',
-      '{feature: \'Stitching\', value: \'Double Stitch\'}'
+      {feature: 'Sole', value: 'Rubber'},
+      {feature: 'Material', value: 'FullControlSkin'},
+      {feature: 'Mid-Sole', value: 'ControlSupport Arch B…'},
+      {feature: 'Stitching', value: 'Double Stitch'}
     ],
-    'name': 'Summer Shoes',
+    'name': 'Heir Force Ones',
     'styleList': [
-      '{default?: false, name: \'White\', original_price: \'5…}'
+      '{default?: true, name: \'White & White\', original_pr…}',
+      '{default?: false, name: \'White & Red\', original_pri…}',
+      '{default?: false, name: \'White & Black\', original_p…}',
+      '{default?: false, name: \'White & Blue\', original_pr…}'
     ],
-    'avgRating': 5,
+    'avgRating': '70%',
     'relatedItemsIds': [
-      11001,
-      11002,
       11006,
-      11007,
-      11005,
-      11008
+      11006,
+      11008,
+      11009,
+      11001,
+      11003
     ]
   }
 };
