@@ -1,8 +1,5 @@
 import React from 'react';
-import {GrFacebook} from 'react-icons/gr';
-import { AiFillTwitterSquare } from 'react-icons/ai';
-import { FaPinterestSquare } from 'react-icons/fa';
-import {FacebookShareButton, TwitterShareButton, PinterestShareButton} from 'react-share';
+import {FacebookShareButton, TwitterShareButton, PinterestShareButton, FacebookIcon, PinterestIcon, TwitterIcon} from 'react-share';
 import Price from '../Price';
 import Stars from '../Stars';
 import PropTypes from 'prop-types';
@@ -22,14 +19,14 @@ function ProductInfo ({product, category, name, price, salePrice}) {
           <FacebookShareButton
             url="#"
             quote="Buy this instantly">
-            <GrFacebook size={26}/>
+            <FacebookIcon size={26}/>
           </FacebookShareButton>
         </span>
         <span className="share">
           <TwitterShareButton
             url="#"
             title="Haworthia">
-            <AiFillTwitterSquare size={32}/>
+            <TwitterIcon size={26}/>
           </TwitterShareButton>
         </span>
         <span className="share">
@@ -37,7 +34,7 @@ function ProductInfo ({product, category, name, price, salePrice}) {
             url="#"
             media="#"
             description='This piece is dope'>
-            <FaPinterestSquare size={26}/>
+            <PinterestIcon size={26}/>
           </PinterestShareButton>
         </span>
       </div>

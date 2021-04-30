@@ -21,7 +21,7 @@ function Overview (props) {
   const onStyleChange = (e) => {
     if (e.target.id !== currentStyle) {
       setCurrentPhoto(0);
-      setCurrentStyle(e.target.id);
+      setCurrentStyle(parseInt(e.target.id));
     }
   };
   const toggleExpanded = () => {

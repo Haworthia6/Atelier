@@ -1,3 +1,6 @@
+
+@use 'rootStyles' as color;
+
 .style-selector-container {
   height: 40%;
   display: flex;
@@ -16,7 +19,6 @@
 }
 .overlay {
   position: absolute;
-  color: pink;
   border-left: 0;
   padding-left: 0;
   margin-left: 0;
