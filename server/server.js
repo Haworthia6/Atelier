@@ -1,8 +1,10 @@
 const express = require('express');
 const path = require('path');
 const app = express();
+const compression = require('compression');
 
 // Use middleware
+app.use(compression());
 app.use(require('cors')());
 app.use(require('morgan')('dev'));
 app.use(express.json());
