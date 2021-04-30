@@ -1,4 +1,5 @@
 @use 'reusable' as r;
+@use 'rootStyles' as color;
 
 .arrow-left-container {
   display: flex;
@@ -8,9 +9,9 @@
   left: 0;
   z-index: 99;
   height: 100%;
-  width: 2rem;
+  width: 2.8rem;
   max-width: 8rem;
-  background-image: linear-gradient(to right,white, whitesmoke, transparent);
+  background-image: linear-gradient(to right, color.$lightestCultured, whitesmoke, transparent);
 }
 
 .arrow-right-container {
@@ -21,8 +22,8 @@
   right: -5px;
   z-index: 99;
   height: 100%;
-  width: 2rem;
-  background-image: linear-gradient(to left,white, whitesmoke, transparent);
+  width: 2.8rem;
+  background-image: linear-gradient(to left,color.$lightestCultured, whitesmoke, transparent);
 }
 .arrow-right {
   align-self: flex-end;
@@ -38,7 +39,7 @@
 
 #related-items-and-outfits-component {
 
-  width: 65vw;
+  width: 73vw;
 
   & h2 {
     padding-bottom: 8px;
