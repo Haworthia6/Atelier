@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Comparing should match its snapshot 1`] = `
+<div
+  className="comparing-container fade-in"
+>
+  <main
+    className="modal"
+  >
+    <div
+      className="modal-header"
+    >
+      <h6>
+        Comparing
+      </h6>
+    </div>
+    <table
+      className="modal-content"
+    >
+      <thead>
+        <tr>
+          <th>
+            current-test-name
+          </th>
+          <th />
+          <th>
+            related-test-name
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <Rows
+          comparedProducts={
+            Object {
+              "current": Object {
+                "features": Array [],
+                "name": "current-test-name",
+              },
+              "related": Object {
+                "features": Array [],
+                "name": "related-test-name",
+              },
+            }
+          }
+        />
+      </tbody>
+    </table>
+    <div
+      className="modal-footer"
+    />
+  </main>
+</div>
+`;

@@ -1,0 +1,174 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Related Items and Outfits container should match its snapshot 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <RelatedAndOutfits>
+    <section
+      id="related-items-and-outfits-component"
+    >
+      <h2>
+        RELATED PRODUCTS
+      </h2>
+      <RelatedItems
+        handleComparingToggle={[Function]}
+        products={Object {}}
+        relatedProductsIds={Array []}
+        setShowModal={[Function]}
+        setToggleComparing={[Function]}
+      >
+        <div
+          className="horizontal-container"
+          id="related-items-container"
+        >
+          <RightArrow
+            onClick={[Function]}
+          >
+            <div
+              className="arrow-right-container"
+              id="right-arrow"
+              onClick={[Function]}
+            >
+              <FiChevronRight
+                className="arrow-right"
+              >
+                <IconBase
+                  attr={
+                    Object {
+                      "fill": "none",
+                      "stroke": "currentColor",
+                      "strokeLinecap": "round",
+                      "strokeLinejoin": "round",
+                      "strokeWidth": "2",
+                      "viewBox": "0 0 24 24",
+                    }
+                  }
+                  className="arrow-right"
+                >
+                  <svg
+                    className="arrow-right"
+                    fill="none"
+                    height="1em"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    style={
+                      Object {
+                        "color": undefined,
+                      }
+                    }
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <polyline
+                      key="0"
+                      points="9 18 15 12 9 6"
+                    />
+                  </svg>
+                </IconBase>
+              </FiChevronRight>
+            </div>
+          </RightArrow>
+        </div>
+      </RelatedItems>
+      <h2>
+        YOUR OUTFIT
+      </h2>
+      <Memo(Outfits)
+        currentProdId={null}
+        products={Object {}}
+      >
+        <div
+          className="horizontal-container"
+        >
+          <Memo(AddOutfit)
+            handleOutfitAdd={[Function]}
+          >
+            <div
+              className="add-outfit-container"
+              onClick={[Function]}
+            >
+              <i
+                className="add-outfit-graphic"
+              >
+                <FiPlusSquare>
+                  <IconBase
+                    attr={
+                      Object {
+                        "fill": "none",
+                        "stroke": "currentColor",
+                        "strokeLinecap": "round",
+                        "strokeLinejoin": "round",
+                        "strokeWidth": "2",
+                        "viewBox": "0 0 24 24",
+                      }
+                    }
+                  >
+                    <svg
+                      fill="none"
+                      height="1em"
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      style={
+                        Object {
+                          "color": undefined,
+                        }
+                      }
+                      viewBox="0 0 24 24"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <rect
+                        height="18"
+                        key="0"
+                        rx="2"
+                        ry="2"
+                        width="18"
+                        x="3"
+                        y="3"
+                      />
+                      <line
+                        key="1"
+                        x1="12"
+                        x2="12"
+                        y1="8"
+                        y2="16"
+                      />
+                      <line
+                        key="2"
+                        x1="8"
+                        x2="16"
+                        y1="12"
+                        y2="12"
+                      />
+                    </svg>
+                  </IconBase>
+                </FiPlusSquare>
+              </i>
+              <span
+                className="add-outfit-detail"
+              >
+                Add to Outfit
+              </span>
+            </div>
+          </Memo(AddOutfit)>
+        </div>
+      </Memo(Outfits)>
+    </section>
+  </RelatedAndOutfits>
+</Provider>
+`;
