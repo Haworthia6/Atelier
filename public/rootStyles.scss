@@ -21,11 +21,10 @@ body {
   background-color: $background;
 }
 h1 {
-  font-size: 30px;
+  font-size: 3vw;
   background-color: $lightestCultured;
-  height: 40px;
-  width: 200px;
   text-align: center;
+  border-bottom: 1px solid currentColor;
 }
 .logo {
   display: flex;
