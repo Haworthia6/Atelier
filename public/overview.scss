@@ -6,6 +6,7 @@
   align-items: center;
   flex-direction: column;
   margin-top: 30px;
+  overflow:hidden;
 }
 .overview {
   display: flex;
@@ -23,7 +24,7 @@
   min-height: 70%;
   width: 90%;
   position: relative;
-  grid-template-columns: 66% 34%;
+  grid-template-columns: 60% 40%;
   grid-template-rows: 100%;
 }
 .image-gallery-box {

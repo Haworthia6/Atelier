@@ -1,5 +1,5 @@
 .style-selector-container {
-  height: 35%;
+  height: 40%;
   display: flex;
   flex-direction: column;
   & p {
@@ -27,7 +27,7 @@
 .styleListContainer {
   display: flex;
   flex-direction: column;
-  width: 500px;
+  width: 100%;
 }
 .selectedStyleContainer {
   position: relative;

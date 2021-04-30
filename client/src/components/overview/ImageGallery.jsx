@@ -40,7 +40,7 @@ function ImageGallery ({photos, imageClick, changePhoto, currentPhoto}) {
   const renderDownArrow = () => {
     if (currentThumbnails !== photos.length - 1 && photos.length > 7) {
       return (
-        <div className="arrow-icon right-arrow" onClick={downArrowClick}>
+        <div className="arrow-icon down-arrow" onClick={downArrowClick}>
           <FiArrowDown/>
         </div>);
     } else {
@@ -50,7 +50,7 @@ function ImageGallery ({photos, imageClick, changePhoto, currentPhoto}) {
   const renderThumbNails = () => {
     if (photos.length <= 7) {
       return (
-        <div className="carousel-thumbnails">
+        <div className="carousel-thumbnails-container">
           <ImageThumbNails
             photos={photos}
             currentThumbnailUrl={photos[currentPhoto].thumbnail_url}
@@ -68,7 +68,9 @@ function ImageGallery ({photos, imageClick, changePhoto, currentPhoto}) {
         setThumbnails(newThumbnails);
       }
       return (
-        <div className="carousel-thumbnails">
+        <div className="carousel-thumbnails-container">
+          {renderUpArrow()}
+          {renderDownArrow()}
           <ImageThumbNails
             photos={photos.slice(currentThumbnails - 7, currentThumbnails)}
             currentThumbnailUrl={photos[currentPhoto].thumbnail_url}
@@ -110,9 +112,7 @@ function ImageGallery ({photos, imageClick, changePhoto, currentPhoto}) {
   else {
     return (
       <div className="image-carousel">
-        {renderUpArrow()}
         {renderThumbNails()}
-        {renderDownArrow()}
         {renderLeftArrow()}
         {renderRightArrow()}
         {photos.map((photo, index) => {
