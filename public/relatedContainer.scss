@@ -1,6 +1,14 @@
 @use 'reusable' as r;
 @use 'rootStyles' as color;
 
+.light-arrow-background-left {
+  background-image: linear-gradient(to right, color.$lightestCultured, whitesmoke, transparent);
+}
+
+.light-arrow-background-right {
+  background-image: linear-gradient(to left,color.$lightestCultured, whitesmoke, transparent);
+}
+
 .arrow-left-container {
   display: flex;
   flex-direction: column;
@@ -11,7 +19,6 @@
   height: 100%;
   width: 2.8rem;
   max-width: 8rem;
-  background-image: linear-gradient(to right, color.$lightestCultured, whitesmoke, transparent);
 }
 
 .arrow-right-container {
@@ -23,7 +30,6 @@
   z-index: 99;
   height: 100%;
   width: 2.8rem;
-  background-image: linear-gradient(to left,color.$lightestCultured, whitesmoke, transparent);
 }
 .arrow-right {
   align-self: flex-end;

@@ -24,12 +24,7 @@ $background: $lightestCultured;
   font-size: 18px;
   font-family: 'Barlow Condensed', sans-serif;
   letter-spacing: 0.5px;
-  // color: $darkestRoyalBlue;
 }
-
-// body {
-//   background-color: $background;
-// }
 
 .horizontal-container {
   display: grid;
@@ -52,6 +47,7 @@ $background: $lightestCultured;
   justify-content: center;
   position: relative;
   height: 100vh;
+  margin-top: 55px;
 }
 #root {
   overflow-x: hidden;

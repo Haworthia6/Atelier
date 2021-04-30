@@ -5,7 +5,6 @@ import { useSelector, useDispatch} from 'react-redux';
 import changeProduct from '../store/actions/changeProduct';
 import { BrowserRouter, Route, Switch, withRouter} from 'react-router-dom';
 import getUrlProductId from './helpers/getUrlProductId';
-import ThemeToggle from './components/relatedItems/ThemeToggle';
 
 function App(props) {
   const currentId = useSelector(({ currentProductId }) => currentProductId);
@@ -25,7 +24,6 @@ function App(props) {
       <BrowserRouter>
         <Switch>
           <Route path='/'>
-            <ThemeToggle />
             <div className="overview-container">
               <Overview/>
             </div>
