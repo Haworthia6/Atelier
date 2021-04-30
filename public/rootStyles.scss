@@ -20,6 +20,19 @@ $background: $lightestCultured;
 body {
   background-color: $background;
 }
+h1 {
+  font-size: 30px;
+  background-color: $lightestCultured;
+  height: 40px;
+  width: 200px;
+  text-align: center;
+}
+.logo {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 10px;
+  width: 100%;
+}
 
 .horizontal-container {
   display: grid;
