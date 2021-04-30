@@ -15,7 +15,7 @@ function Carousel ({ product, handleThumbnailClick, style }) {
         <div
           className="carousel-left-arrow"
           onClick={setImages.prev}>
-          <FiChevronsLeft />
+          <FiChevronsLeft stroke="#E6B7B2"/>
         </div>
       }
       {
@@ -36,7 +36,7 @@ function Carousel ({ product, handleThumbnailClick, style }) {
         <div
           className="carousel-right-arrow"
           onClick={setImages.next}>
-          <FiChevronsRight />
+          <FiChevronsRight stroke="#E6B7B2"/>
         </div>
       }
     </div>

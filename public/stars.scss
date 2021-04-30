@@ -1,25 +1,30 @@
+@use 'rootStyles' as color;
 
 .stars {
   &-container {
     height: fit-content;
     width: fit-content;
-    font-size: 0.7rem;
-    color: #d7385e;
     position: relative;
   }
   &-top {
     position: absolute;
-    color: #132743;
     display: block;
     z-index: 1;
     top: 0;
     left: 0;
     padding: 0;
+    & span {
+      font-size: 0.6rem;
+    }
   }
   &-bottom {
     padding: 0;
     display: block;
     z-index: 0;
     overflow: hidden;
+    & span {
+      font-size: 0.6rem;
+      color: color.$mediumSandyBrown;
+    }
   }
 }

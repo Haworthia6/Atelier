@@ -58,7 +58,7 @@ function RelatedItems (props) {
               product={products[id]}
               handleActionClick={handleActionClick}
               dispatch={dispatch}
-              render={ () => <FiStar /> }
+              render={ () => <FiStar  stroke="#11122C"/> }
               resetScroll={handleResetScroll}
             />);
         })
