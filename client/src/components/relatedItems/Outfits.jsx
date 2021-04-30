@@ -61,7 +61,7 @@ function Outfits ({ currentProdId, products }) {
             product={outfits[outfitId]}
             handleActionClick={handleRemoveOutfit}
             dispatch={dispatch}
-            render={() => <FiX />}
+            render={() => <FiX stroke="#11122C"/>}
           />
         ))
       }

@@ -1,17 +1,18 @@
 // https://colorhunt.co/palette/213455
+@use 'rootStyles' as color;
 
 @keyframes addOutfitAnimation {
   0% {
-    background-color: #f8efd4;
-    border: 1px solid transparent;
+    background-color: color.$lightSpanishPink;
+    border: 0.2px solid transparent;
   }
   50% {
     background-color: #ffe799;
-    border: 1px solid #132743;
+    border: 0.2px solid color.$mediumArtichoke;
   }
   0% {
-    background-color: #f8efd4;
-    border: 1px solid transparent;
+    background-color: color.$lightSpanishPink;
+    border: 0.2px solid transparent;
   }
 }
 
@@ -23,11 +24,11 @@
     align-content: center;
     justify-content: center;
     align-items: center;
-    border: 1px solid transparent;
+    border: 0.2px solid transparent;
     max-height: 99%;
     width: 7rem;
-    box-shadow:  -5px 0px 10px 4px #7e7e7e;
-    background-color: #f8efd4;
+    box-shadow: inset -4px -1px 15px 0px color.$lightMistyRose;
+    background-color: color.$lightSpanishPink;
     &:hover {
       animation-name: addOutfitAnimation;
       animation-duration: 1.5s;
