@@ -27,53 +27,53 @@ describe('Atelier API', () => {
 
   xdescribe('Atelier API not stubbed', () => {
     it('POST /api/product/ should return 200 and JSON if valid ID param sent', async (done) => {
-      const res = await request.post('/api/product').send({ id: 11002});
+      const res = await request.get('/api/product').query({ id: 11002});
       expect(res.status).toBe(200);
       chai.expect(res.body).to.eql(product2Info);
       done();
     });
 
-    xit('POST /api/product/ should return 400 if no ID param sent', async (done) => {
-      const res = await request.post('/api/product').send({ id: 'invalid' });
+    xit('get /api/product/ should return 400 if no ID param sent', async (done) => {
+      const res = await request.get('/api/product').query({ id: 'invalid' });
       expect(res.status).toBe(400);
       done();
     });
 
-    it('POST /api/styles/ should return 200 and JSON if valid ID param sent', async (done) => {
-      const res = await request.post('/api/styles').send({ id: 11002});
+    it('GET /api/styles/ should return 200 and JSON if valid ID param sent', async (done) => {
+      const res = await request.get('/api/styles').query({ id: 11002});
       expect(res.status).toBe(200);
       chai.expect(res.body).to.eql(product2Style);
       done();
     });
 
-    xit('POST /api/styles/ should return 400 if invalid ID param sent', async (done) => {
-      const res = await request.post('/api/styles').send({ id: 'invalid' });
+    xit('GET /api/styles/ should return 400 if invalid ID param sent', async (done) => {
+      const res = await request.get('/api/styles').query({ id: 'invalid' });
       expect(res.status).toBe(400);
       done();
     });
 
-    it('POST /api/meta/ should return 200 and JSON if valid ID param sent', async (done) => {
-      const res = await request.post('/api/meta/').send({ id: 11002 });
+    it('GET /api/meta/ should return 200 and JSON if valid ID param sent', async (done) => {
+      const res = await request.get('/api/meta/').query({ id: 11002 });
       expect(res.status).toBe(200);
       chai.expect(res.body).to.eql(product2Meta);
       done();
     });
 
-    xit('POST /api/meta/ should return 400 if invalid ID param sent', async (done) => {
-      const res = await request.post('/api/meta/').send({ id: 'invalid '});
+    xit('Get /api/meta/ should return 400 if invalid ID param sent', async (done) => {
+      const res = await request.get('/api/meta/').query({ id: 'invalid '});
       expect(res.status).toBe(400);
       done();
     });
 
-    it('POST /api/related/ should return 200 and JSON if valid ID param sent', async (done) => {
-      const res = await request.post('/api/related/').send({ id: 11002 });
+    it('Get /api/related/ should return 200 and JSON if valid ID param sent', async (done) => {
+      const res = await request.get('/api/related/').query({ id: 11002 });
       expect(res.status).toBe(200);
       chai.expect(res.body).to.eql(product2Related.prod2);
       done();
     });
 
-    xit('POST /api/related/ should return 400 if invalid ID param sent', async(done) => {
-      const res = await request.post('/api/related/').send({ id : 'invalid '});
+    xit('Get /api/related/ should return 400 if invalid ID param sent', async(done) => {
+      const res = await request.get('/api/related/').query({ id : 'invalid '});
       expect(res.status).toBe(400);
       done();
     });
