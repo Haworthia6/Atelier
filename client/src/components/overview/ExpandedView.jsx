@@ -7,7 +7,7 @@ import InnerImageZoom from 'react-inner-image-zoom';
 
 function ExpandedView ({photos, changePhoto, currentPhoto, changeView}) {
   const [zoom, setZoom] = useState(false);
-  const toggleZoom = () =>  zoom ? setZoom(false) : setZoom(true);
+  const toggleZoom = () =>  setZoom((prevState) => !prevState);
 
   const renderIcons = () => {
     if (!zoom) {
@@ -58,7 +58,12 @@ function ExpandedView ({photos, changePhoto, currentPhoto, changeView}) {
             if (index === currentPhoto) {
               return (
                 <div className={index===currentPhoto ? 'currentSlideExpanded' : 'slideExpanded'} key={index}>
-                  {(<InnerImageZoom src={photo.url} zoomScale={2.5} afterZoomIn={toggleZoom} afterZoomOut={toggleZoom} className="expandedCarouselPhoto"/>)}
+                  {(<InnerImageZoom
+                    src={photo.url}
+                    zoomType="click"
+                    zoomScale={2.5} afterZoomIn={toggleZoom}
+                    afterZoomOut={toggleZoom}
+                    className="expandedCarouselPhoto"/>)}
                 </div>
               );
             } else {
