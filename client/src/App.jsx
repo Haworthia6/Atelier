@@ -5,6 +5,7 @@ import { useSelector, useDispatch} from 'react-redux';
 import changeProduct from '../store/actions/changeProduct';
 import { BrowserRouter, Route, Switch, withRouter} from 'react-router-dom';
 import getUrlProductId from './helpers/getUrlProductId';
+import Logo from './components/Logo';
 
 function App(props) {
   const currentId = useSelector(({ currentProductId }) => currentProductId);
@@ -24,10 +25,7 @@ function App(props) {
       <BrowserRouter>
         <Switch>
           <Route path='/'>
-            <div className="logo">
-              <h1>Haworthia</h1>
-            </div>
-
+            <Logo />
             <div className="overview-container">
               <Overview/>
             </div>

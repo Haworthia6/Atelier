@@ -9,6 +9,14 @@
   background-image: linear-gradient(to left,color.$lightestCultured, whitesmoke, transparent);
 }
 
+.dark-arrow-background-right {
+  background-image: linear-gradient(to right, color.$darkestRoyalBlue, transparent);
+}
+
+.dark-arrow-background-right {
+  background-image: linear-gradient(to left, color.$darkestRoyalBlue, transparent);
+}
+
 .arrow-left-container {
   display: flex;
   flex-direction: column;
