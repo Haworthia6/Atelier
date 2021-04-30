@@ -18,7 +18,7 @@ function Stars ({ product }) {
 // Props Checking -------------------
 Stars.propTypes = {
   product: PropTypes.shape({
-    avgRating: PropTypes.string.isRequired
+    avgRating: PropTypes.string
   })
 };
 

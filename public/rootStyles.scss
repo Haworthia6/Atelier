@@ -1,4 +1,12 @@
-$background: white;
+$darkestRoyalBlue: #11122C;
+$darkChestnutBrown: #835C49;
+$mediumArtichoke: #829376;
+$mediumSandyBrown: #FCA65F;
+$lightSpanishPink: #E6B7B2;
+$lightMistyRose: #FFD9CE;
+$lightestCultured: #F4F6F6;
+
+$background: $lightestCultured;
 
 * {
   box-sizing: border-box;
@@ -6,6 +14,7 @@ $background: white;
   font-size: 18px;
   font-family: 'Barlow Condensed', sans-serif;
   letter-spacing: 0.5px;
+  color: $darkestRoyalBlue;
 }
 
 body {
@@ -23,6 +32,9 @@ body {
   height: 40%;
   max-height: 290px;
   position: relative;
+  &:first-of-type {
+    margin-bottom: 30px;
+  }
 }
 
 .col-center {

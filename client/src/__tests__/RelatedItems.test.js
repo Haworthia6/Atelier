@@ -1,12 +1,12 @@
 import chai from 'chai';
 import chaiEnzyme from 'chai-enzyme';
-const expect = chai.expect;
 chai.use(chaiEnzyme());
 import React from 'react';
 import exampleStore from '../../../exampleData/exampleStore';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
+import toJSON from 'enzyme-to-json';
 
 import { mount } from 'enzyme';
 
@@ -32,10 +32,12 @@ describe('RelatedItems', () => {
     );
   });
 
-  it('should contain one container', () => {
-    expect(wrapper.find('.horizontal-container')).to.have.lengthOf(1);
+  it('should match its snapshot', () => {
+    expect(toJSON(wrapper)).toMatchSnapshot();
   });
 
-  // Test conditional rendering for LeftArrow, RightArrow, and CardWrapper
+  it('should contain one container', () => {
+    chai.expect(wrapper.find('.horizontal-container')).to.have.lengthOf(1);
+  });
 
 });

@@ -20,9 +20,10 @@ module.exports = {
         }
       ],
       styleList: prod3StyleData.results,
-      avgRating: 3,
+      avgRating: '85%',
       relatedItemsIds: [ 11005, 11009, 11007, 11002, 11001],
       id: 11003
     }
-  }
+  },
+  show: false
 };

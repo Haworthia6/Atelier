@@ -1,8 +1,8 @@
 import chai from 'chai';
 import chaiEnzyme from 'chai-enzyme';
-const expect = chai.expect;
 chai.use(chaiEnzyme());
 import React from 'react';
+import { act } from 'react-dom/test-utils';
 import exampleStore from '../../../exampleData/exampleStore';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
@@ -11,6 +11,8 @@ import { mount } from 'enzyme';
 import Outfits from '../components/relatedItems/Outfits';
 const mockStore = configureMockStore([thunk]);
 import AddOutfit from '../components/relatedItems/AddOutfit';
+import sinon from 'sinon';
+import toJSON from 'enzyme-to-json';
 
 describe('Outfits', () => {
   let wrapper, store;
@@ -26,20 +28,28 @@ describe('Outfits', () => {
     );
   });
 
+  it('should match its snapshot', () => {
+    expect(toJSON(wrapper)).toMatchSnapshot();
+  });
+
   it('should render a div container' , () => {
-    expect(wrapper.find('.horizontal-container')).to.have.lengthOf(1);
-    expect(wrapper.find('.horizontal-container').type()).to.equal('div');
+    chai.expect(wrapper.find('.horizontal-container')).to.have.lengthOf(1);
+    chai.expect(wrapper.find('.horizontal-container').type()).to.equal('div');
   });
 
   it('should render AddOutfit component', () => {
-    expect(wrapper.find(AddOutfit)).to.have.lengthOf(1);
+    chai.expect(wrapper.find(AddOutfit)).to.have.lengthOf(1);
   });
 
   it('should pass props to AddOutfit', () => {
-    expect(wrapper.find(AddOutfit)).to.have.prop('handleOutfitAdd');
+    chai.expect(wrapper.find(AddOutfit)).to.have.prop('handleOutfitAdd');
   });
 
-  // INTEGRATION //
-  // Rendering of CardWrapper
-
+  it('should be a handleOutfitAdd function', () => {
+    const spy = sinon.spy(wrapper.find(AddOutfit).prop('handleOutfitAdd'));
+    act(() => {
+      spy();
+    });
+    sinon.assert.called(spy);
+  });
 });

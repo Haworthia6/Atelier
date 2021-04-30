@@ -2,9 +2,9 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import chai from 'chai';
 import chaiEnzyme from 'chai-enzyme';
-const expect = chai.expect;
 chai.use(chaiEnzyme());
 import RightArrow from '../components/relatedItems/RightArrow';
+import toJSON from 'enzyme-to-json';
 
 describe('RightArrow', () => {
   let wrapper;
@@ -15,12 +15,16 @@ describe('RightArrow', () => {
       />);
   });
 
+  it('should match its snapshot', () => {
+    expect(toJSON(wrapper)).toMatchSnapshot();
+  });
+
   it('should render a div container', () => {
-    expect(wrapper.find('.arrow-right-container').type()).to.equal('div');
+    chai.expect(wrapper.find('.arrow-right-container').type()).to.equal('div');
   });
 
   it('should render a right chevron icon', () => {
-    expect(wrapper.find('.arrow-right').name()).to.equal('FiChevronRight');
+    chai.expect(wrapper.find('.arrow-right').name()).to.equal('FiChevronRight');
   });
 
 });
