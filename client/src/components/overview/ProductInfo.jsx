@@ -9,27 +9,27 @@ import PropTypes from 'prop-types';
 function ProductInfo ({product, category, name, price, salePrice}) {
 
   return (
-    <div>This is the product info
+    <div className="product-info-container">
       <div className="product-info-rating">
         <Stars product={product}/>
       </div>
-      <p>{category}</p>
-      <p>{name}</p>
+      <div className="product-info-category">{category}</div>
+      <div className="product-info-name">{name}</div>
       <Price price={price} salePrice={salePrice}/>
-      <div>
+      <div className="share-icon-list">
         {/*NEED TO CHANGE URLS TO THE CORRECT ONE*/}
         <span className="share">
           <FacebookShareButton
             url="#"
             quote="Buy this instantly">
-            <GrFacebook/>
+            <GrFacebook size={26}/>
           </FacebookShareButton>
         </span>
         <span className="share">
           <TwitterShareButton
             url="#"
             title="Haworthia">
-            <AiFillTwitterSquare/>
+            <AiFillTwitterSquare size={32}/>
           </TwitterShareButton>
         </span>
         <span className="share">
@@ -37,7 +37,7 @@ function ProductInfo ({product, category, name, price, salePrice}) {
             url="#"
             media="#"
             description='This piece is dope'>
-            <FaPinterestSquare/>
+            <FaPinterestSquare size={26}/>
           </PinterestShareButton>
         </span>
       </div>

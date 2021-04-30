@@ -2,17 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 function ProductDescription ({description, features}) {
   return (
-    <div>
+    <div className="description-and-features-container">
       <div className="product-description">
         {description}
       </div>
-      <p>THIS SHOULD BE A VERTICAL LINE SEPARATING THE DESCRIPTION FROM THE FEATURES</p>
-      <div>
+      <div className="line-container">
+        <div className="line">
+        </div>
+      </div>
+      <div className="features">
         {features.map((feature, i) => {
           if (feature.value === null) {
-            return <p className="product-description-feature" key={i}>{feature.feature}</p>;
+            return <p className="product-feature" key={i}>{feature.feature}</p>;
           }
-          return <p className="product-description-feature" key={i}>{feature.value} {feature.feature}</p>;
+          return <p className="product-feature" key={i}>{feature.value} {feature.feature}</p>;
         })}
       </div>
       <br/>

@@ -4,12 +4,12 @@ import StyleThumbnail from './StyleThumbnail';
 import PropTypes from 'prop-types';
 function StyleSelector ({styleList, currentStyle, onStyleChange}) {
   return (
-    <div>
+    <div className="style-selector-container">
       <p>Style{'>'} {styleList[currentStyle].name}</p>
       <div className="styleListContainer">
         {splitArray(styleList).map((row, rowIndex) => {
           return (
-            <div key={rowIndex}>
+            <div className="four-thumb"key={rowIndex}>
               {row.map((style, styleIndex) => {
                 return <StyleThumbnail
                   style={style}
