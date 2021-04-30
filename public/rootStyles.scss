@@ -8,18 +8,28 @@ $lightestCultured: #F4F6F6;
 
 $background: $lightestCultured;
 
+.light {
+  color: $darkestRoyalBlue;
+  background-color: $background;
+}
+
+.dark {
+  color: $lightestCultured;
+  background-color: $darkestRoyalBlue;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   font-size: 18px;
   font-family: 'Barlow Condensed', sans-serif;
   letter-spacing: 0.5px;
-  color: $darkestRoyalBlue;
+  // color: $darkestRoyalBlue;
 }
 
-body {
-  background-color: $background;
-}
+// body {
+//   background-color: $background;
+// }
 
 .horizontal-container {
   display: grid;
