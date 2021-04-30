@@ -8,23 +8,32 @@ $lightestCultured: #F4F6F6;
 
 $background: $lightestCultured;
 
+.light {
+  color: $darkestRoyalBlue;
+  background-color: $background;
+}
+
+.dark {
+  color: $lightestCultured;
+  background-color: $darkestRoyalBlue;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   font-size: 18px;
   font-family: 'Barlow Condensed', sans-serif;
   letter-spacing: 0.5px;
-  color: $darkestRoyalBlue;
-}
-
-body {
-  background-color: $background;
 }
 h1 {
   font-size: 3vw;
-  background-color: $lightestCultured;
   text-align: center;
   border-bottom: 1px solid currentColor;
+  cursor: pointer;
+  transition: color 150ms;
+  &:hover {
+    color:$lightSpanishPink;
+  }
 }
 .logo {
   display: flex;
@@ -54,6 +63,7 @@ h1 {
   justify-content: center;
   position: relative;
   height: 100vh;
+  margin-top: 55px;
 }
 #root {
   overflow-x: hidden;

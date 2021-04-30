@@ -6,7 +6,7 @@ function LeftArrow ({ onClick }) {
   return (
     <div
       id="left-arrow" // Rmv?
-      className="arrow-left-container"
+      className="arrow-left-container light-arrow-background-left"
       onClick={onClick}
     >
       <FiChevronLeft  className="arrow-left"/>
