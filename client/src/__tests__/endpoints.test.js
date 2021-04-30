@@ -25,15 +25,15 @@ describe('Express Connection', () => {
 
 describe('Atelier API', () => {
 
-  xdescribe('Atelier API not stubbed', () => {
-    it('POST /api/product/ should return 200 and JSON if valid ID param sent', async (done) => {
+  describe('Atelier API not stubbed', () => {
+    it('GET /api/product/ should return 200 and JSON if valid ID param sent', async (done) => {
       const res = await request.get('/api/product').query({ id: 11002});
       expect(res.status).toBe(200);
       chai.expect(res.body).to.eql(product2Info);
       done();
     });
 
-    xit('get /api/product/ should return 400 if no ID param sent', async (done) => {
+    it('GET /api/product/ should return 400 if no ID param sent', async (done) => {
       const res = await request.get('/api/product').query({ id: 'invalid' });
       expect(res.status).toBe(400);
       done();
@@ -46,7 +46,7 @@ describe('Atelier API', () => {
       done();
     });
 
-    xit('GET /api/styles/ should return 400 if invalid ID param sent', async (done) => {
+    it('GET /api/styles/ should return 400 if invalid ID param sent', async (done) => {
       const res = await request.get('/api/styles').query({ id: 'invalid' });
       expect(res.status).toBe(400);
       done();
@@ -59,7 +59,7 @@ describe('Atelier API', () => {
       done();
     });
 
-    xit('Get /api/meta/ should return 400 if invalid ID param sent', async (done) => {
+    it('Get /api/meta/ should return 400 if invalid ID param sent', async (done) => {
       const res = await request.get('/api/meta/').query({ id: 'invalid '});
       expect(res.status).toBe(400);
       done();
@@ -72,7 +72,7 @@ describe('Atelier API', () => {
       done();
     });
 
-    xit('Get /api/related/ should return 400 if invalid ID param sent', async(done) => {
+    it('Get /api/related/ should return 400 if invalid ID param sent', async(done) => {
       const res = await request.get('/api/related/').query({ id : 'invalid '});
       expect(res.status).toBe(400);
       done();
