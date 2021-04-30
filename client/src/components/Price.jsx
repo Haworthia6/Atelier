@@ -6,8 +6,8 @@ const Price = (({ price, salePrice }) => (
   <div className="price-container">
     { salePrice ?
       (<>
-        <p className="crossed-out-price">${price}</p>
-        <p className="sale-price">${salePrice}</p>
+        <p className="crossed-out-price price">${price}</p>
+        <p className="price">${salePrice}</p>
       </>)
       : <p className="price">${price}</p>
     }

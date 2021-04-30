@@ -9,6 +9,7 @@
 .share-icon-list {
   width: 100%;
   display: flex;
+  gap: 5px;
 }
 .product-info-container {
   height: 40%;
@@ -25,6 +26,10 @@
 }
 .product-info-name {
   font-size: 32px;
+}
+.price-container {
+  display: flex;
+  gap: 10px;
 }
 .price {
   font-size: 22px;;

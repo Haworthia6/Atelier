@@ -15,14 +15,14 @@ function ExpandedView ({photos, changePhoto, currentPhoto, changeView}) {
         {photos.map((photo, index) => {
           if (index === currentPhoto) {
             return (
-              <div alt="icon" className="expandedIcon" id={index} key={index}>
-                <HiOutlinePhotograph size={72}/>
+              <div alt="icon" className="expanded-icon-container" id={index} key={index}>
+                <HiOutlinePhotograph stroke="pink" size={72} className='expanded-icon'/>
               </div>
             );
           }
           return (
-            <div alt="icon" className="expandedIcon" id={index} key={index} onClick={iconClick}>
-              <HiPhotograph size={72}/>
+            <div alt="icon" className="expanded-icon-container" id={index} key={index} onClick={iconClick}>
+              <HiPhotograph stroke="pink" fill="pink" size={72} className='expanded-icon'/>
             </div>
           );
         })}</div>);

@@ -25,6 +25,18 @@ $background: $lightestCultured;
   font-family: 'Barlow Condensed', sans-serif;
   letter-spacing: 0.5px;
 }
+h1 {
+  font-size: 3vw;
+  background-color: $lightestCultured;
+  text-align: center;
+  border-bottom: 1px solid currentColor;
+}
+.logo {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 10px;
+  width: 100%;
+}
 
 .horizontal-container {
   display: grid;

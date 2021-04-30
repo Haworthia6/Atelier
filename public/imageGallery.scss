@@ -1,3 +1,4 @@
+@use 'rootStyles' as color;
 $thumbnail-height-limit: 12em;
 $thumbnail-width-limit: 8em;
 
@@ -91,52 +92,48 @@ $thumbnail-width-limit: 8em;
   flex-direction: row;
   width: 100%;
   position: absolute;
-  top: 10%;
+  top: 5%;
   gap: 10%;
   left: 5%;
 }
-.expandedIcon {
- color: pink;
+.expanded-icon-container {
  left: 20%;
  z-index: 10;
+}
+.expanded-icon {
+  color:color.$lightSpanishPink;
 }
 .left-arrow {
   position: absolute;
   right: 80%;
   top: 40%;
   z-index: 10;
-  color: pink;
 }
 .right-arrow {
   position: absolute;
   left: 80%;
   top: 40%;
   z-index: 10;
-  color: pink;
 }
 .right-arrow-expanded {
-  color: pink;
   position: absolute;
   left: 80%;
   top: 40%;
   z-index: 10;
 }
 .left-arrow-expanded {
-  color: pink;
   position: absolute;
   right: 80%;
   top: 40%;
   z-index: 10;
 }
 .up-arrow {
-  color: pink;
   z-index: 1000000;
   left: 20%;
   position: absolute;
   top: -30px;
 }
 .down-arrow {
-  color: pink;
   z-index: 1000000;
   left: 20%;
   position: absolute;
