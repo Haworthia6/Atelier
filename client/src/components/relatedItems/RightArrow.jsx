@@ -9,7 +9,7 @@ function RightArrow ({ onClick }) {
       className="arrow-right-container"
       onClick={onClick}
     >
-      <FiChevronRight  className="arrow-right" />
+      <FiChevronRight  className="arrow-right"/>
     </div>
   );
 }

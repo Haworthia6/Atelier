@@ -925,7 +925,9 @@ exports[`Card should match its snapshot 1`] = `
               className="carousel-right-arrow"
               onClick={[Function]}
             >
-              <FiChevronsRight>
+              <FiChevronsRight
+                stroke="#E6B7B2"
+              >
                 <IconBase
                   attr={
                     Object {
@@ -937,11 +939,12 @@ exports[`Card should match its snapshot 1`] = `
                       "viewBox": "0 0 24 24",
                     }
                   }
+                  stroke="#E6B7B2"
                 >
                   <svg
                     fill="none"
                     height="1em"
-                    stroke="currentColor"
+                    stroke="#E6B7B2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth="2"

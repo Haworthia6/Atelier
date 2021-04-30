@@ -9,7 +9,7 @@ function LeftArrow ({ onClick }) {
       className="arrow-left-container"
       onClick={onClick}
     >
-      <FiChevronLeft  className="arrow-left" />
+      <FiChevronLeft  className="arrow-left"/>
     </div>
   );
 }
