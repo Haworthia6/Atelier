@@ -62,24 +62,3 @@
 .product-feature {
   font-size: 0.7rem;
 }
-.add-to-cart-container {
-  height: 25%;
-}
-.cart-form {
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  grid-template-columns: repeat(5,1fr);
-  grid-template-areas:
-  'select1 select1 . select2 .'
-  'button button . . .';
-  gap: 5px;
-  & .sizeBar {
-    grid-area: select1;
-  }
-  & .qtyBar {
-    grid-area: select2;
-  }
-  & [type="submit"] {
-    grid-area: button;
-  }
-}
