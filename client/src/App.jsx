@@ -23,6 +23,10 @@ function App(props) {
       <BrowserRouter>
         <Switch>
           <Route path='/'>
+            <div className="logo">
+              <h1>Haworthia</h1>
+            </div>
+
             <div className="overview-container">
               <Overview/>
             </div>
