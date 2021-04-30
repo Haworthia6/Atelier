@@ -23,6 +23,9 @@ body {
   height: 40%;
   max-height: 290px;
   position: relative;
+  &:first-of-type {
+    margin-bottom: 30px;
+  }
 }
 
 .col-center {

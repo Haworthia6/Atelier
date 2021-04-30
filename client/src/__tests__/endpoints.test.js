@@ -53,7 +53,7 @@ describe('Atelier API', () => {
     });
 
     it('POST /api/meta/ should return 200 and JSON if valid ID param sent', async (done) => {
-      const res = await request.post('/api/meta/').send({ id: 11002 })
+      const res = await request.post('/api/meta/').send({ id: 11002 });
       expect(res.status).toBe(200);
       chai.expect(res.body).to.eql(product2Meta);
       done();
