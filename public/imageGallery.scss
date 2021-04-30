@@ -8,10 +8,32 @@ $thumbnail-width-limit: 8em;
 .highlighted {
   opacity: .5;
 }
+.image-carousel {
+  height: 100%;
+  width: 100%;
+}
+
 .carousel-photo {
-  max-width: 400px;
-  max-height: 150px;
   cursor: -webkit-zoom-in;
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
+}
+.carousel-thumbnails {
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  left: 10px;
+  top: 100px;
+  z-index: 100;
+  gap: 10px;
+}
+.carousel-thumbnail {
+  object-fit: cover;
+  max-width: fit-content;
+  height: auto;
+  gap: 10px;
+
 }
 .expandedPhoto {
   width: 100%;
@@ -24,6 +46,8 @@ $thumbnail-width-limit: 8em;
 .currentSlide {
   opacity: 1;
   transition-duration: 1s;
+  height: 100%;
+  width: 100%;
 }
 .expandedModal {
   display: none;
@@ -45,26 +69,47 @@ $thumbnail-width-limit: 8em;
   max-width: 700px;
 }
 .expandedCarouselPhoto {
-  position: relative;
 }
 .zoomed-in {
   transform: scale(2.5);
 }
 .expandedIconContainer {
   display: flex;
-  flex-direction: column;
-  width: 500px;
+  flex-direction: row;
+  width: 100%;
+  position: absolute;
+  top: 10%;
+  gap: 10%;
+  left: 5%;
 }
 .expandedIcon {
  color: pink;
- position: relative;
- display: inline-block;
+ left: 20%;
+ z-index: 10;
+}
+.left-arrow {
+  position: absolute;
+  right: 80%;
+  top: 40%;
+  z-index: 10;
+}
+.right-arrow {
+  position: absolute;
+  left: 80%;
+  top: 40%;
+  z-index: 10;
 }
 .right-arrow-expanded {
-  position: relative;
   color: pink;
+  position: absolute;
+  left: 80%;
+  top: 40%;
+  z-index: 10;
 }
 .left-arrow-expanded {
-  position: relative;
   color: pink;
+  position: absolute;
+  right: 80%;
+  top: 40%;
+  z-index: 10;
 }

@@ -1,3 +1,13 @@
+.style-selector-container {
+  height: 35%;
+  display: flex;
+  flex-direction: column;
+  & p {
+    line-height: 30px;
+    display: block;
+    margin-bottom: 2px;
+  }
+}
 .styleThumbnail {
   width: 60px;
   height: 60px;
@@ -23,4 +33,7 @@
   position: relative;
   display: inline-block;
   width: fit-content;
+}
+.four-thumb {
+  gap:15px;
 }

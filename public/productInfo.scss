@@ -2,3 +2,84 @@
   text-decoration: line-through;
   color: red;
 }
+.product-info-rating {
+  max-height: 20px;
+  max-width: 100px;
+}
+.share-icon-list {
+  width: 100%;
+  display: flex;
+}
+.product-info-container {
+  height: 40%;
+  font-size: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-bottom: 2px solid black;
+}
+.product-info-category {
+  height:fit-content;
+  font-size: 32px;
+
+}
+.product-info-name {
+  font-size: 32px;
+}
+.price {
+  font-size: 22px;;
+}
+.description-and-features-container {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 10px;
+  margin-top: 30px;
+}
+.line-container {
+  width: 50px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.line {
+  background-color: black;
+  height: 100px;
+  width: 5px;
+}
+.product-description {
+  padding-left: 5%;
+  line-height: 30px;
+  width: 63%;
+  font-size: 0.7rem;
+}
+.features {
+  line-height: 1.1rem;
+  width: 37%;
+}
+
+.product-feature {
+  font-size: 0.7rem;
+}
+.add-to-cart-container {
+  height: 25%;
+}
+.cart-form {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: repeat(5,1fr);
+  grid-template-areas:
+  'select1 select1 . select2 .'
+  'button button . . .';
+  gap: 5px;
+  & .sizeBar {
+    grid-area: select1;
+  }
+  & .qtyBar {
+    grid-area: select2;
+  }
+  & [type="submit"] {
+    grid-area: button;
+  }
+}
