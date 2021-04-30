@@ -10,7 +10,7 @@ function ImageGallery ({photos, imageClick, changePhoto, currentPhoto}) {
     if (currentPhoto !== 0) {
       return (
         <div className="arrow-icon left-arrow" onClick={leftArrowClick}>
-          <FiArrowLeft/>
+          <FiArrowLeft size={32}/>
         </div>
       );
     } else {
@@ -21,7 +21,7 @@ function ImageGallery ({photos, imageClick, changePhoto, currentPhoto}) {
     if (currentPhoto !== photos.length - 1) {
       return (
         <div className="arrow-icon right-arrow" onClick={rightArrowClick}>
-          <FiArrowRight/>
+          <FiArrowRight size={32}/>
         </div>);
     } else {
       return null;
@@ -49,10 +49,14 @@ function ImageGallery ({photos, imageClick, changePhoto, currentPhoto}) {
   };
   const renderThumbNails = () => {
     if (photos.length <= 7) {
-      return <ImageThumbNails
-        photos={photos}
-        currentThumbnailUrl={photos[currentPhoto].thumbnail_url}
-        thumbnailClick={thumbnailClick}/>;
+      return (
+        <div className="carousel-thumbnails">
+          <ImageThumbNails
+            photos={photos}
+            currentThumbnailUrl={photos[currentPhoto].thumbnail_url}
+            thumbnailClick={thumbnailClick}/>
+        </div>
+      );
     } else {
       if (currentThumbnails - 7 > currentPhoto || currentThumbnails < currentPhoto) {
         // if currentPhoto is not in range of currentThumbnails
@@ -63,10 +67,13 @@ function ImageGallery ({photos, imageClick, changePhoto, currentPhoto}) {
         }
         setThumbnails(newThumbnails);
       }
-      return <ImageThumbNails
-        photos={photos.slice(currentThumbnails - 7, currentThumbnails)}
-        currentThumbnailUrl={photos[currentPhoto].thumbnail_url}
-        thumbnailClick={thumbnailClick}/>;
+      return (
+        <div className="carousel-thumbnails">
+          <ImageThumbNails
+            photos={photos.slice(currentThumbnails - 7, currentThumbnails)}
+            currentThumbnailUrl={photos[currentPhoto].thumbnail_url}
+            thumbnailClick={thumbnailClick}/>
+        </div>);
     }
   };
   const thumbnailClick = (e) => {
@@ -102,22 +109,20 @@ function ImageGallery ({photos, imageClick, changePhoto, currentPhoto}) {
   }
   else {
     return (
-      <section className="image-carousel">
+      <div className="image-carousel">
         {renderUpArrow()}
         {renderThumbNails()}
         {renderDownArrow()}
         {renderLeftArrow()}
         {renderRightArrow()}
-        <div>
-          {photos.map((photo, index) => {
-            return (
-              <div className={index===currentPhoto ? 'currentSlide' : 'slide'} key={index}>
-                {index === currentPhoto && (<img src={photo.url} alt="photo" className="carousel-photo" onClick={imageClick}/>)}
-              </div>
-            );
-          })}
-        </div>
-      </section>
+        {photos.map((photo, index) => {
+          return (
+            <div className={index===currentPhoto ? 'currentSlide' : 'slide'} key={index}>
+              {index === currentPhoto && (<img src={photo.url} alt="photo" className="carousel-photo" onClick={imageClick}/>)}
+            </div>
+          );
+        })}
+      </div>
     );
   }
 }

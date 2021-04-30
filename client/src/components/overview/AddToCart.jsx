@@ -35,9 +35,11 @@ function AddToCart ({currentStyle}) {
   const renderQtyBar = () => {
     if (currentSize === 'SELECT SIZE') {
       return (
-        <select aria-label="qty selector" disabled>
-          <option value="-">-</option>
-        </select>);
+        <div className="qtyBar">
+          <select aria-label="qty selector" disabled>
+            <option value="-">-</option>
+          </select>
+        </div>);
     } else {
       var range = 0;
       for (var j = 0; j < Object.keys(currentStyle.skus).length; j++) {
@@ -58,17 +60,21 @@ function AddToCart ({currentStyle}) {
       }
       if (currentQty === 0) {
         return (
-          <select aria-label="qty selector" disabled>
-            <option value="OUT OF STOCK">OUT OF STOCK</option>
-          </select>);
+          <div className="qtyBar">
+            <select aria-label="qty selector" disabled>
+              <option value="OUT OF STOCK">OUT OF STOCK</option>
+            </select>
+          </div>);
       }
       else {
         return (
-          <select aria-label="qty selector" value={currentQty} onChange={onQtyChange}>
-            {options.map((num, i) => {
-              return (<option value={num} key={i}>{num}</option>);
-            })}
-          </select>
+          <div className="qtyBar">
+            <select aria-label="qty selector" value={currentQty} onChange={onQtyChange}>
+              {options.map((num, i) => {
+                return (<option value={num} key={i}>{num}</option>);
+              })}
+            </select>
+          </div>
         );
       }
     }
@@ -82,28 +88,32 @@ function AddToCart ({currentStyle}) {
   };
   const renderSizeBar = () => {
     var currentSizeBar = (
-      <select ref={sizeBar} aria-label="size selector" name="size" id="size" value={currentSize} onChange={onSizeChange}>
-        <option value="SELECT SIZE">SELECT SIZE</option>
-        {Object.keys(currentStyle.skus).map((sku, i) => {
-          if (currentStyle.skus[sku].quantity !== 0) {
-            return <option value={currentStyle.skus[sku].size} key={i} id={sku}>{currentStyle.skus[sku].size}</option>;
-          } else {
-            return null;
-          }
-        })}
-      </select>);
+      <div className="sizeBar">
+        <select ref={sizeBar} aria-label="size selector" name="size" id="size" value={currentSize} onChange={onSizeChange}>
+          <option value="SELECT SIZE">SELECT SIZE</option>
+          {Object.keys(currentStyle.skus).map((sku, i) => {
+            if (currentStyle.skus[sku].quantity !== 0) {
+              return <option value={currentStyle.skus[sku].size} key={i} id={sku}>{currentStyle.skus[sku].size}</option>;
+            } else {
+              return null;
+            }
+          })}
+        </select>
+      </div>);
     if (currentSizeBar.length === 1) {
       return (
-        <select disabled>
-          <option id="size" value="OUT OF STOCK">OUT OF STOCK</option>
-        </select>);
+        <div className="sizeBar">
+          <select disabled>
+            <option id="size" value="OUT OF STOCK">OUT OF STOCK</option>
+          </select>
+        </div>);
     }
     return currentSizeBar;
   };
   return (
-    <div>
+    <div className="add-to-cart-container">
       {displayText && <span className="sizeMessage">PLEASE SELECT SIZE</span>}
-      <form onSubmit={addButtonClick}>
+      <form className="cart-form" onSubmit={addButtonClick}>
         {renderSizeBar()}
         {renderQtyBar()}
         { currentQty && <input type="submit" value="ADD TO CART" /> }

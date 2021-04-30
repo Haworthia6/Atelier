@@ -16,13 +16,13 @@ function ExpandedView ({photos, changePhoto, currentPhoto, changeView}) {
           if (index === currentPhoto) {
             return (
               <div alt="icon" className="expandedIcon" id={index} key={index}>
-                <HiOutlinePhotograph/>
+                <HiOutlinePhotograph size={72}/>
               </div>
             );
           }
           return (
             <div alt="icon" className="expandedIcon" id={index} key={index} onClick={iconClick}>
-              <HiPhotograph/>
+              <HiPhotograph size={72}/>
             </div>
           );
         })}</div>);
@@ -47,11 +47,11 @@ function ExpandedView ({photos, changePhoto, currentPhoto, changeView}) {
     // make an onHover function that changes the mouse to a '+'
     return (
       <section className="expandedModal">
-        { (currentPhoto && !zoom) && <div className="arrow-icon left-arrow-expanded" onClick={leftArrowClick}> <FiArrowLeft/> </div> }
+        { (currentPhoto && !zoom) && <div className="arrow-icon left-arrow-expanded" onClick={leftArrowClick}> <FiArrowLeft size={72}/> </div> }
         {renderIcons()}
         {(currentPhoto !== photos.length - 1 && !zoom) &&
         <div className="arrow-icon right-arrow-expanded" onClick={rightArrowClick}>
-          <FiArrowRight/>
+          <FiArrowRight size={72}/>
         </div>}
         <div className="expandedCarousel">
           {photos.map((photo, index) => {
