@@ -2,7 +2,7 @@
 
 exports[`LeftArrow should match its snapshot 1`] = `
 <div
-  className="arrow-left-container"
+  className="arrow-left-container light-arrow-background-left"
   id="left-arrow"
   onClick={[Function]}
 >
