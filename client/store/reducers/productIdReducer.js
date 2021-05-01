@@ -1,4 +1,3 @@
-
 function productIdReducer (state = null, action) {
   switch(action.type) {
   case 'CHANGE_PRODUCT': {

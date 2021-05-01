@@ -1,7 +1,6 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers/mainReducer';
-// import prod3StyleData from '../../exampleData/prodStyles/product3Style';
 
 const initialState = {
   currentProductId: null,

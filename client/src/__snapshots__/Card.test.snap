@@ -75,8 +75,8 @@ exports[`Card should match its snapshot 1`] = `
         "style_id": 51168,
       }
     }
-    handleActionClick={[Function]}
-    handleImageClick={[Function]}
+    handleActionClick={[MockFunction]}
+    handleImageClick={[MockFunction]}
     product={
       Object {
         "avgRating": "85%",
@@ -461,7 +461,24 @@ exports[`Card should match its snapshot 1`] = `
         ],
       }
     }
-    render={[Function]}
+    render={
+      [MockFunction] {
+        "calls": Array [
+          Array [],
+          Array [],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      }
+    }
   >
     <div
       className="card-component"

@@ -1,14 +1,12 @@
 import axios from 'axios';
 import calculateAverage from './calculateAverage';
-const URL = 'http://localhost:3000/';
 
-function fetchProductRequest (id) {
-
+export default (id) => {
   return Promise.all([
-    axios.get(URL + 'api/product/', {params: { id } }),
-    axios.get(URL + 'api/styles/', {params: { id }}),
-    axios.get(URL + 'api/meta/', {params: { id }}),
-    axios.get(URL + 'api/related/', {params: { id }})
+    axios.get('/api/product/', {params: { id } }),
+    axios.get('/api/styles/', {params: { id }}),
+    axios.get('/api/meta/', {params: { id }}),
+    axios.get('/api/related/', {params: { id }})
   ])
     .then((data) => {
       return data.reduce((accum, { data }, i) => {
@@ -32,6 +30,4 @@ function fetchProductRequest (id) {
         }
       }, {});
     });
-}
-
-export default fetchProductRequest;
+};

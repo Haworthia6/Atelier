@@ -1,25 +1,22 @@
-import chai from 'chai';
-import chaiEnzyme from 'chai-enzyme';
-chai.use(chaiEnzyme());
 import React from 'react';
-import exampleStore from '../../../exampleData/exampleStore';
+// Store
 import configureMockStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
-import sinon from 'sinon';
 import toJSON from 'enzyme-to-json';
-
+import exampleStore from '../../../exampleData/exampleStore';
+// Components
 import Card from '../components/relatedItems/Card';
 import Stars from '../components/Stars';
 import Price from '../components/Price';
-
+// Mock Store
 const mockStore = configureMockStore();
 
 describe('Card', () => {
   let wrapper, store;
-  let handleImageClick = sinon.spy();
-  let handleActionClick = sinon.spy();
-  let render = sinon.spy();
+  let handleImageClick = jest.fn();
+  let handleActionClick = jest.fn();
+  let render = jest.fn();
 
   beforeEach(() => {
     store = mockStore(exampleStore);
@@ -42,32 +39,32 @@ describe('Card', () => {
   });
 
   it('should render all parts of a card', () => {
-    chai.expect(wrapper.find('.card-component')).to.have.lengthOf(1);
-    chai.expect(wrapper.find('.card-top')).to.have.lengthOf(1);
-    chai.expect(wrapper.find('.card-bottom')).to.have.lengthOf(1);
-    chai.expect(wrapper.find('.card-button')).to.have.lengthOf(1);
-    chai.expect(wrapper.find('.card-image')).to.have.lengthOf(1);
-    chai.expect(wrapper.find('.card-category')).to.have.lengthOf(1);
-    chai.expect(wrapper.find('.card-name')).to.have.lengthOf(1);
-    chai.expect(wrapper.find('.card-price')).to.have.lengthOf(1);
-    chai.expect(wrapper.find(Stars)).to.have.lengthOf(1);
+    expect(wrapper.find('.card-component')).toHaveLength(1);
+    expect(wrapper.find('.card-top')).toHaveLength(1);
+    expect(wrapper.find('.card-bottom')).toHaveLength(1);
+    expect(wrapper.find('.card-button')).toHaveLength(1);
+    expect(wrapper.find('.card-image')).toHaveLength(1);
+    expect(wrapper.find('.card-category')).toHaveLength(1);
+    expect(wrapper.find('.card-name')).toHaveLength(1);
+    expect(wrapper.find('.card-price')).toHaveLength(1);
+    expect(wrapper.find(Stars)).toHaveLength(1);
   });
 
   it('should have necessary attr for img', () => {
-    chai.expect(wrapper.find('img')).to.have.attr('src');
-    chai.expect(wrapper.find('img')).to.have.attr('alt');
+    expect(wrapper.find('img').props()).toHaveProperty('src');
+    expect(wrapper.find('img').props()).toHaveProperty('alt');
   });
 
   it('should render category based on product', () => {
-    chai.expect(wrapper.find('.card-category').text()).to.match(/pants/);
+    expect(wrapper.find('.card-category').text()).toMatch(/pants/);
   });
 
   it('should render name based on product', () => {
-    chai.expect(wrapper.find('.card-name').text()).to.match(/Morning Joggers/);
+    expect(wrapper.find('.card-name').text()).toMatch(/Morning Joggers/);
   });
 
   it('should render the default price with no sale price', () => {
-    chai.expect(wrapper.find('.card-price')).to.contain(Price);
+    expect(wrapper.find('.card-price').contains(Price)).toBeTruthy();
   });
 
   describe('card-image', () => {
@@ -75,11 +72,11 @@ describe('Card', () => {
       wrapper.find('img').simulate('click');
     });
     it('should trigger handleImageClick on click', () => {
-      sinon.assert.called(handleImageClick);
+      expect(handleImageClick).toHaveBeenCalled();
     });
 
     it('should pass ID to handleImageClick on click', () => {
-      sinon.assert.calledWith(handleImageClick, 11003);
+      expect(handleImageClick).toHaveBeenCalledWith(11003);
     });
   });
 
@@ -88,20 +85,20 @@ describe('Card', () => {
       wrapper.find('.card-button').simulate('click');
     });
     it('should invoke handleActionClick on click', () => {
-      sinon.assert.called(handleActionClick);
+      expect(handleActionClick).toHaveBeenCalled();
     });
     it('should pass the product ID to handleActionClick', () => {
-      sinon.assert.calledWith(handleActionClick, 11003);
+      expect(handleActionClick).toHaveBeenCalledWith(11003);
     });
   });
 
   describe('card-component', () => {
     it('should trigger a function on mouseEnter', () => {
-      chai.expect(wrapper.find('.card-component').prop('onMouseEnter')).to.be.an.instanceOf(Function);
+      expect(wrapper.find('.card-component').prop('onMouseEnter')).toBeInstanceOf(Function);
     });
 
     it('should trigger a function on mouseLeave', () => {
-      chai.expect(wrapper.find('.card-component').prop('onMouseLeave')).to.be.an.instanceOf(Function);
+      expect(wrapper.find('.card-component').prop('onMouseLeave')).toBeInstanceOf(Function);
     });
   });
 

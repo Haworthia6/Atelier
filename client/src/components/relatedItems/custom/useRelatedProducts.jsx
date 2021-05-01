@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
-import fetchProductRequest from '../../../../store/helpers/fetchProductRequest';
-import { isEmpty } from 'lodash';
+// Store
 import addRelatedProduct from '../../../../store/actions/addRelated';
 import { useDispatch } from 'react-redux';
+// Utility
+import { isEmpty } from 'lodash';
+import fetchProductRequest from '../../../../store/helpers/fetchProductRequest';
 
 const useRelatedProducts = (relatedProductsIds, products) => {
   const [relatedProducts, setRelatedProducts] = useState(false);

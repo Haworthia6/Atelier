@@ -1,11 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import chai from 'chai';
-import chaiEnzyme from 'chai-enzyme';
-chai.use(chaiEnzyme());
+import toJSON from 'enzyme-to-json';
+
 import Rows from '../components/relatedItems/Rows';
 import comparedProducts from '../../../exampleData/comparedProducts';
-import toJSON from 'enzyme-to-json';
 
 describe('Rows', () => {
   let wrapper;
@@ -21,12 +19,11 @@ describe('Rows', () => {
   });
 
   it('should render rows', () => {
-    chai.expect(wrapper.isEmptyRender()).to.be.false;
+    expect(wrapper.isEmptyRender()).toBe(false);
   });
 
   // Handle rendering of comparisonRows
   it('should create an element with class name compared-row', () => {
-    chai.expect(wrapper.props().children[0].props.className).to.equal('compared-row');
+    expect(wrapper.props().children[0].props.className).toBe('compared-row');
   });
-
 });

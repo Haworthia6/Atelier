@@ -1,22 +1,17 @@
-import chai from 'chai';
-import chaiEnzyme from 'chai-enzyme';
-chai.use(chaiEnzyme());
 import React from 'react';
-import exampleStore from '../../../exampleData/exampleStore';
-import thunk from 'redux-thunk';
+import toJSON from 'enzyme-to-json';
+import { mount } from 'enzyme';
+// Store
 import configureMockStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
-import toJSON from 'enzyme-to-json';
-
-import { mount } from 'enzyme';
+import exampleStore from '../../../exampleData/exampleStore';
 
 import RelatedItems from '../components/relatedItems/RelatedItems';
 
-const mockStore = configureMockStore([thunk]);
+const mockStore = configureMockStore([]);
 
 describe('RelatedItems', () => {
   let wrapper, store;
-
   beforeEach(() => {
     store = mockStore(exampleStore);
     wrapper = mount(
@@ -37,7 +32,7 @@ describe('RelatedItems', () => {
   });
 
   it('should contain one container', () => {
-    chai.expect(wrapper.find('.horizontal-container')).to.have.lengthOf(1);
+    expect(wrapper.find('.horizontal-container')).toHaveLength(1);
   });
 
 });

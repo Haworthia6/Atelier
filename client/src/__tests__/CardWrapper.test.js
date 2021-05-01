@@ -1,13 +1,11 @@
 import React from 'react';
-import chai from 'chai';
-import chaiEnzyme from 'chai-enzyme';
-chai.use(chaiEnzyme());
-import exampleStore from '../../../exampleData/exampleStore';
+import { mount } from 'enzyme';
+import toJSON from 'enzyme-to-json';
+// Store
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
-import { mount } from 'enzyme';
-import toJSON from 'enzyme-to-json';
+import exampleStore from '../../../exampleData/exampleStore';
 
 import CardWrapper from '../components/relatedItems/CardWrapper';
 import Card from '../components/relatedItems/Card';
@@ -36,15 +34,10 @@ describe('CardWrapper', () => {
   });
 
   it('should render a Card', () => {
-    chai.expect(wrapper.find(Card)).to.have.lengthOf(1);
-  });
-
-  it('should pass props to Card', () => {
-    chai.expect(wrapper.find(Card).first()).to.have.props(['product', 'handleImageClick', 'handleActionClick', 'defaultStyle', 'render']);
+    expect(wrapper.find(Card)).toHaveLength(1);
   });
 
   it('should pass handleImageClick to Card', () => {
-    chai.expect(wrapper.find(Card).prop('handleImageClick')).to.be.an.instanceOf(Function);
+    expect(wrapper.find(Card).prop('handleImageClick')).toBeInstanceOf(Function);
   });
-
 });

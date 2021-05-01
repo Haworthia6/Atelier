@@ -1,11 +1,10 @@
 import React from 'react';
-import { FiChevronRight } from 'react-icons/fi';
 import PropTypes from 'prop-types';
+import { FiChevronRight } from 'react-icons/fi';
 
 function RightArrow ({ onClick }) {
   return (
     <div
-      id="right-arrow" // Rmv?
       className="arrow-right-container light-arrow-background-right"
       onClick={onClick}
     >

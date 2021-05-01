@@ -13,4 +13,3 @@ export default (combinedInfo) => {
   }
   return rows;
 };
-
