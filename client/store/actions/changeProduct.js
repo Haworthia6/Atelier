@@ -1,12 +1,10 @@
 import fetchProductRequest from '../helpers/fetchProductRequest';
 
-function changeProduct(id) {
-
+export default (id) => {
   return (dispatch, getState) => {
     if (getState().products[id]) {
       return dispatch({ type: 'CHANGE_ID', payload: id });
     }
-
     fetchProductRequest(id)
       .then((data) => {
         dispatch({ type: 'CHANGE_PRODUCT', payload: { [id]: data }, id: id });
@@ -16,6 +14,4 @@ function changeProduct(id) {
         dispatch({ type: 'ERROR', payload: getState().currentProductId});
       });
   };
-}
-
-export default changeProduct;
+};

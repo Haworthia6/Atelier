@@ -1,11 +1,9 @@
-import chai from 'chai';
+import React from 'react';
+import toJSON from 'enzyme-to-json';
+
 import createRows from '../helpers/createRows';
 import createComparisons from '../helpers/createComparisons';
 import comparedProducts from '../../../exampleData/comparedProducts';
-import chaiEnzyme from 'chai-enzyme';
-chai.use(chaiEnzyme());
-import toJSON from 'enzyme-to-json';
-import React from 'react';
 
 describe('createComparisons and createRows', () => {
   let comparisons, combinedComparisons, keys;
@@ -21,23 +19,22 @@ describe('createComparisons and createRows', () => {
   });
 
   it('should combine the current and related features into a single object', () => {
-    chai.expect(keys).to.eql(['Fabric', 'Cut', 'Sole', 'Material', 'Mid-Sole', 'Stitching']);
-    chai.expect(comparisons).to.be.an('object');
+    expect(keys).toEqual(['Fabric', 'Cut', 'Sole', 'Material', 'Mid-Sole', 'Stitching']);
+    expect(comparisons).toBeInstanceOf(Object);
   });
 
   it('should return each value of the key as a tuple', () => {
     const keys = Object.keys(comparisons);
-    chai.expect(comparisons[keys[0]]).to.be.an('array');
-    chai.expect(comparisons[keys[0]]).to.eql(['100% Cotton', '']);
-    chai.expect(comparisons[keys[1]]).to.eql(['Skinny', '']);
+    expect(comparisons[keys[0]]).toBeInstanceOf(Array);
+    expect(comparisons[keys[0]]).toEqual(['100% Cotton', '']);
+    expect(comparisons[keys[1]]).toEqual(['Skinny', '']);
   });
 
   it('should should combine current and related features into a row', () => {
-    chai.expect(combinedComparisons).to.have.lengthOf(6);
+    expect(combinedComparisons).toHaveLength(6);
     combinedComparisons.forEach((row) => {
-      chai.expect(row.type).to.equal('tr');
+      expect(row.type).toBe('tr');
     });
   });
-
 });
 

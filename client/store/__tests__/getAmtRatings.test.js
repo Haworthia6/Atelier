@@ -1,5 +1,3 @@
-import chai from 'chai';
-const expect = chai.expect;
 import getAmtRatings from '../helpers/getAmtRatings';
 
 describe('getAmtRatings', () => {
@@ -7,11 +5,12 @@ describe('getAmtRatings', () => {
     expect(getAmtRatings({
       '4': '3',
       '5': '1'
-    })).to.equal(4);
+    })).toBe(4);
 
     expect(getAmtRatings({
       '4': '25',
       '2': '33'
-    })).to.equal(58);
+    })).toBe(58);
   });
 });
+

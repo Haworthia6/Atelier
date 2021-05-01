@@ -36,7 +36,6 @@ exports[`Related Items and Outfits container should match its snapshot 1`] = `
           >
             <div
               className="arrow-right-container light-arrow-background-right"
-              id="right-arrow"
               onClick={[Function]}
             >
               <FiChevronRight

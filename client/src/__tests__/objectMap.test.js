@@ -1,5 +1,3 @@
-import chai from 'chai';
-const expect = chai.expect;
 import obj from '../helpers/objectMap';
 
 describe('objectMap helper', () => {
@@ -9,7 +7,7 @@ describe('objectMap helper', () => {
       1: { key: 'test'},
       2: { key: 'string'}
     };
-    expect(obj.hasOwnMap(test)).to.eql([
+    expect(obj.hasOwnMap(test)).toEqual([
       {key: 'test'},
       {key: 'string'}
     ]);
@@ -19,7 +17,7 @@ describe('objectMap helper', () => {
     const test = Object.create({
       testFunc: () => {}
     });
-    expect(obj.hasOwnMap(test)).to.be.empty;
+    expect(obj.hasOwnMap(test)).toHaveLength(0);
   });
 
 });

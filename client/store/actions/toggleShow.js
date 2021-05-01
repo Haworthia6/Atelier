@@ -1,7 +1,4 @@
-// Toggle Show
-const toggleShow = (status) => ({
+export default (status) => ({
   type: 'TOGGLE_SHOW',
   payload: status
 });
-
-export default toggleShow;

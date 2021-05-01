@@ -1,6 +1,5 @@
 import { has } from 'lodash';
 
-// Takes in an object and returns an array
 export default {
   hasOwnMap: (obj) => {
     const result = [];

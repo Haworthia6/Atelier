@@ -2,10 +2,8 @@ import { map } from 'lodash';
 import getAmtRatings from './getAmtRatings';
 import roundRating from './roundRating';
 
-// Returns the rating as a percentage number
-function getAverage (ratings) {
+export default (ratings) => {
   const total = getAmtRatings(ratings);
-
   return (
     `${(roundRating (
       map(ratings, (amt, rating) => {
@@ -15,6 +13,5 @@ function getAverage (ratings) {
           return sum + num;
         }, 0) / total) * 20)}%`
   );
-}
+};
 
-export default getAverage;

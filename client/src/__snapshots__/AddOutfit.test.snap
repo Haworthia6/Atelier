@@ -3,7 +3,7 @@
 exports[`AddOutfit should match its snapshot 1`] = `
 <div
   className="add-outfit-container"
-  onClick={[Function]}
+  onClick={[MockFunction]}
 >
   <i
     className="add-outfit-graphic"

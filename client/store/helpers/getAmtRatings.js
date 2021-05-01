@@ -1,6 +1,6 @@
 import { has } from 'lodash';
 
-function getAmtRatings (obj) {
+export default (obj) => {
   let amt = 0;
   for (let key in obj) {
     if (has(obj, key)) {
@@ -8,6 +8,4 @@ function getAmtRatings (obj) {
     }
   }
   return amt;
-}
-
-export default getAmtRatings;
+};
