@@ -4,7 +4,7 @@
 
 We are a two person team of developers who created a mock product page for an e-commerce site focusing on the front-end of our application. We used advanced frameworks such as React and Redux to build this application out over 3 weeks using a mock business requirements document. The data that we used was supplied to us from a blackbox API.
 
-> MAYBE GIF OF WHOLE PAGE HERE
+> ![](gifs/FEC.gif)
 
 ## Table of Contents
 
@@ -92,7 +92,7 @@ This compnentMAYBEwidget, following the business requirements, contains:
   - A description of the product
   - A list of features that the product possesses
 
-> MAYBE gif of overview here????
+> ![](gifs/Overview.gif)
 
 ---
 
