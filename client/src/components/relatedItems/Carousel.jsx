@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+// Imported Components
 import { FiChevronsLeft, FiChevronsRight } from 'react-icons/fi';
+// Utility
 import { isNull, isUndefined } from 'lodash';
+// Hooks
 import useFourLimitCarousel from './custom/useFourLimitCarousel';
 import useCarouselImages from './custom/useCarouselImages';
 
@@ -18,21 +21,20 @@ function Carousel ({ product, handleThumbnailClick, style }) {
           <FiChevronsLeft stroke="#E6B7B2"/>
         </div>
       }
-      {
-        images.map((imgUrl, i) => {
-          if (!isNull(imgUrl)) {
-            return (
-              <div
-                key={i}
-                className="carousel-card-container"
-                style={{ backgroundImage: `url(${imgUrl})`}}
-                onClick={handleThumbnailClick}
-              />
-            );
-          }
-        })
+      { images.map((imgUrl, i) => {
+        if (!isNull(imgUrl)) {
+          return (
+            <div
+              key={i}
+              className="carousel-card-container"
+              style={{ backgroundImage: `url(${imgUrl})`}}
+              onClick={handleThumbnailClick}
+            />
+          );
+        }
+      })
       }
-      { (!isNull(next) || isUndefined(next)) &&
+      { (!isNull(next) && !isUndefined(next)) &&
         <div
           className="carousel-right-arrow"
           onClick={setImages.next}>

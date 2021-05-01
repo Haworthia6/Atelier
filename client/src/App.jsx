@@ -1,11 +1,15 @@
 import React, {useEffect} from 'react';
-import Overview from './components/overview/Overview';
-import RelatedAndOutfits from './components/relatedItems/RelatedAndOutfits';
+import PropTypes from 'prop-types';
+import { BrowserRouter, Route, Switch, withRouter} from 'react-router-dom';
+// Store
 import { useSelector, useDispatch} from 'react-redux';
 import changeProduct from '../store/actions/changeProduct';
-import { BrowserRouter, Route, Switch, withRouter} from 'react-router-dom';
-import getUrlProductId from './helpers/getUrlProductId';
+// Components
+import Overview from './components/overview/Overview';
+import RelatedAndOutfits from './components/relatedItems/RelatedAndOutfits';
 import Logo from './components/Logo';
+// Utility
+import getUrlProductId from './helpers/getUrlProductId';
 
 function App(props) {
   const currentId = useSelector(({ currentProductId }) => currentProductId);
@@ -20,8 +24,8 @@ function App(props) {
     }
   },[]);
 
-  if (currentId) {
-    return (
+  return (
+    currentId ?
       <BrowserRouter>
         <Switch>
           <Route path='/'>
@@ -35,11 +39,14 @@ function App(props) {
           </Route>
         </Switch>
       </BrowserRouter>
-    );
-  } else {
-    return null;
-  }
+      : null
+  );
 }
 
+// Prop Checking ----------------
+App.propTypes = {
+  pathname: PropTypes.array.isRequired,
+  location: PropTypes.object.isRequired
+};
 
 export default withRouter(App);

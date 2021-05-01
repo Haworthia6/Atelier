@@ -1,31 +1,37 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+// Reusable Components
+import Stars from '../Stars';
 import Price from '../Price';
 import Carousel from './Carousel';
-import useOpacity from './custom/useOpacity';
+// Utility
 import getFallbackImage from '../../fallbackImage';
-import Stars from '../Stars';
+// Hooks
+import useOpacity from './custom/useOpacity';
+import useImage from './custom/useImage';
 
 function Card ({ product, defaultStyle, handleImageClick, handleActionClick, render }) {
-  const [image, setImage] = useState('');
+  const [image, setImage, handleThumbnailClick] = useImage();
   const [style, setStyle] = useOpacity({opacity: 0});
 
   useEffect(() => {
     setImage(defaultStyle.photos[0]['thumbnail_url'] ?? getFallbackImage());
   }, [product]);
 
-  const handleThumbnailClick = ({ target }) => {
-    setImage(target.style['background-image']
-      .replace(/url\("/, '')
-      .replace(/"\)$/, '')
-    );
-  };
-
   return (
-    <div className="card-component" onMouseLeave={setStyle.fadeOut} onMouseEnter={setStyle.fadeIn}>
+    <div
+      className="card-component"
+      onMouseLeave={setStyle.fadeOut}
+      onMouseEnter={setStyle.fadeIn}
+    >
       <div className="card-top">
-        <div className="card-button btn-round" onClick={ () => handleActionClick(product.id) }>
-          { render() }
+        <div
+          className="card-button btn-round"
+          onClick={ () => handleActionClick(product.id) }
+        >
+          {
+            render()
+          }
         </div>
         <img
           className="card-image"

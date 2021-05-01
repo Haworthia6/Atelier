@@ -1,14 +1,16 @@
 import React, { useEffect, useState, useCallback } from 'react';
+// Store
 import { useSelector, shallowEqual } from 'react-redux';
+// Components
 import RelatedItems from './RelatedItems';
 import Outfits from './Outfits';
 import Comparing from './Comparing';
+// Hooks
 import useRelatedProductsIds from './custom/useRelatedProductsIds';
 
 function RelatedAndOutfits () {
-
-  const currentProdId = useSelector((state) => state.currentProductId);
-  const products = useSelector((state) => state.products, shallowEqual);
+  const currentProdId = useSelector(({currentProductId}) => currentProductId);
+  const products = useSelector(({products}) => products, shallowEqual);
   const relatedProductsIds = useRelatedProductsIds(currentProdId, products);
   // Comparing Modal
   const [toggleComparing, setToggleComparing] = useState('fade-out');

@@ -1,6 +1,7 @@
 import React from 'react';
-import Rows from './Rows';
 import PropTypes from 'prop-types';
+// Component
+import Rows from './Rows';
 
 function Comparing ({ visibility, comparedProducts }) {
   return (

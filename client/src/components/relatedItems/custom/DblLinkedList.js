@@ -11,12 +11,11 @@ class DblLinkedList {
     const node = new Node(val);
     if (!this.head) {
       this.head = node;
-      this.tail = node;
     } else {
       node.prev = this.tail;
       this.tail.next = node;
-      this.tail = node;
     }
+    this.tail = node;
     this.length++;
     return this;
   }
