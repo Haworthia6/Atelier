@@ -27,16 +27,16 @@ Ensure that the following modules are installed before running `yarn install`
 > If yarn is not yet installed on your computer, run:
 - `npm install --global yarn` - to install yarn globally
 
-> Once yarn is installed, just run:
-- `yarn install` - to install the dependencies
+> Once yarn is installed, cd into the project directory then run:
+- `yarn` - to install the dependencies
 
 > Once dependencies have been installed, run:
+- `yarn build` - to compile the application OR `yarn p:build` to compile for production
 - `yarn start` - to start the server
-- `yarn build` - to compile the application
 - `yarn test` - to run jest tests
 
 > To view the webpage:
-* Navigate to http://localhost:3000/
+* Navigate to http://localhost:1128/
 
 ## Technologies-Used
 
