@@ -17,6 +17,7 @@ function Overview (props) {
 
   useEffect(() => {
     props.history.push('/products/' + currentId);
+    setCurrentPhoto(0);
   },[currentId]);
   const onStyleChange = (e) => {
     if (e.target.id !== currentStyle) {

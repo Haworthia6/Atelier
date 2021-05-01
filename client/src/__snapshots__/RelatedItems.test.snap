@@ -421,7 +421,7 @@ exports[`RelatedItems should match its snapshot 1`] = `
         onClick={[Function]}
       >
         <div
-          className="arrow-right-container"
+          className="arrow-right-container light-arrow-background-right"
           id="right-arrow"
           onClick={[Function]}
         >
