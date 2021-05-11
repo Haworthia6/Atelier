@@ -1,8 +1,8 @@
-# catwalk
+# Atelier
 
-## Front End Capstone Project
+## Front End Overhaul
 
-We are a two person team of developers who created a mock product page for an e-commerce site focusing on the front-end of our application. We used advanced frameworks such as React and Redux to build this application out over 3 weeks using a mock business requirements document. The data that we used was supplied to us from a blackbox API.
+We are a two person team of developers who overhauled the product page for an e-commerce site. The core of this project is React with Redux as statemanagement as well as interacting with the company's existing REST API.
 
 > ![](gifs/FEC.gif)
 
@@ -55,7 +55,6 @@ Ensure that the following modules are installed before running `yarn install`
 - [Enzyme](https://enzymejs.github.io/enzyme/)
 - [Jest](https://jestjs.io/docs/en/api)
 
-MAYBE REMOVE THIS SECTION IF OUR PERFORMANCE ISNT GREAT lol
 ## Accessibility-and-Performance
 
 Our application has __MAYBE ACCESSIBILITY PERCENTAGE__ and high performance levels.
@@ -69,10 +68,6 @@ For example
   - MAYBE
   - MAYBE
   - MAYBE
-
-# Components
-
-Each team member was tasked with building out a single componentMAYBEwidget of the app. Eren Serpin built out the Product Overview componentMAYBEwidget, and Kenny Tran built out the Related Products componentMAYBEwidget. All componentsMAYBEwidgets were built out from scratch using React and CSS.
 
 ---
 
