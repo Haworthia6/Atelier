@@ -124,7 +124,7 @@ Both the Cards within the Related Products and the Outfits are built using a reu
 
 - *Features*
     - Built with a doubly-linked-list
-        + 4 image pagination
+        + Pagination with a 4 image max
         + Conditional rendering of left and right scroll arrows
     - Images within divs to proportionally fit images to containers
     - Animations for each image as well as arrows to add a sense of weight and interactivity to Carousel
@@ -136,11 +136,25 @@ Both the Cards within the Related Products and the Outfits are built using a reu
 
 ### Dynamic Scrolling
 
+- *Features*
+    - Built accessing native DOM properties to calculate how far to scroll on each click of an arrow
+        + Each click scrolls one image
+    - Arrow rendering is dynamic as they appear and disappear only if there are more photos to show.
+    - Gradient used to show that more photos are available
+    - Implemented for both Related Products and Outfits  
+
+
 ![Alt Text](http://g.recordit.co/ltVlT0u7ft.gif)
 
 ---
 
 ### Comparing Modal
+
+- *Features*
+    - Each Related Products Card renders its individual product's features and compares it with the main product
+    - To close Modal, click anywhere
+    - Modal UI built using a table  
+
 
 ![Alt Text](http://g.recordit.co/mQ9JxDKvLV.gif)
 
@@ -148,11 +162,23 @@ Both the Cards within the Related Products and the Outfits are built using a reu
 
 ### Adding and Removing Outfits
 
+- *Features*
+    - Action Button for Outfits remove the outfit from state and localStorage
+    - Add to Outfit button adds main product as an outfit and stores it within localStorage
+    - If enough outfits are added, scroll arrows will render for navigation
+    - Add to Outfit includes hover keyframes animation for color
+    - Outfits persist through subsequent visits to site
+
 ![Alt Text](http://g.recordit.co/Mosh8RVrDX.gif)
 
 ---
 
 ### Changing Products
+
+- *Features*
+    - Clicking on the main image of a Card changes the main product and subsequently all Related Products
+    - The process is managed by the Redux store
+    - Loading of Related Products and Outfits is reliant on conditional safeguards once data is received
 
 ![Alt Text](http://g.recordit.co/ROzr9A7ITw.gif)
 
