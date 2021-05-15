@@ -41,7 +41,7 @@ Using **React** and **Redux** as the primary tools, the new Atelier Product Deta
     * [Changing Products](#Changing-Products)
     * [Testing](#Testing)
     * [Custom Hooks](#Custom-Hooks)
-5. [Redux](#Redux)
+<!-- 5. [Redux](#Redux) -->
 
 ---
 
@@ -180,7 +180,7 @@ Both the Cards within the Related Products and the Outfits are built using a reu
     - The process is managed by the Redux store
     - Loading of Related Products and Outfits is reliant on conditional safeguards once data is received
 
-![Alt Text](http://g.recordit.co/ROzr9A7ITw.gif)
+![Alt Text](http://g.recordit.co/LL9edWG37G.gif)
 
 ---
 
