@@ -1,77 +1,68 @@
-# Atelier
+# Atelier - An E-Commerce Platform For East-Coast Millenials
 
-## Front End Overhaul
+Built with a two-person team, Atelier's Product Detail page reqiured a rework in order to attract younger customers with a sleek view while also building with future scalability in mind. The requirement also contained the Atelier's REST API, which was blackboxed.
 
-We are a two person team of developers who overhauled the product page for an e-commerce site. The core of this project is React with Redux as statemanagement as well as interacting with the company's existing REST API.
+# Team
+- Eren Serpin : [Product Overview Component](#Product-Overview-Component)
+- Kenny Tran  : [Related Items Component](#Related-Items-Component)  
 
-> ![](gifs/FEC.gif)
+--- 
+
+## Built With
+> Frontend
+
+<img src="https://img.shields.io/badge/Framework-React-%2362DAFB?logo=react"/> <img src="https://img.shields.io/badge/State%20Management-Redux-blueviolet?logo=redux"/> <img src="https://img.shields.io/badge/Styling-SCSS-ff69b4?logo=sass"/> <img src="https://img.shields.io/badge/Bundler-Webpack-%2375AFCC?logo=webpack"/>
+
+> Testing
+
+<img src="https://img.shields.io/badge/Testing-Jest-yellow?logo=jest"/> <img src="https://img.shields.io/badge/Testing-Enzyme-blueviolet"/> <img src="https://img.shields.io/badge/Testing-SuperTest-red"/> 
+
+> Misc.
+
+<img src="https://img.shields.io/badge/Framework-Express.js-critical?logo=express"/> <img src="https://img.shields.io/badge/HTTP-Axios-purple"/>
+
+
+---
+
+![](gifs/FEC.gif)
 
 ## Table of Contents
 
-1. [Pre-Requisite Modules](#Requirements)
-2. [Project Dependencies](#Project-Dependency-Setup)
-3. [Technologies Used](#Technologies-Used)
-4. [Accessibility and Performance](#Accessibility-and-Performance)
-5. [Components](#Components)
-
-
-## Requirements
-
-Ensure that the following modules are installed before running `yarn install`
-
-- MAYBE LIST REQUIRED VERSIONS OF TECHNOLOGIES HERE OR JUST GET RID OF THIS SECTION
+1. [Project Dependencies](#Project-Dependency-Setup)
+2. [Product Overview Component](#Product-Overview-Component)
+3. [Related Items Component](#Related-Items-Component)
 
 
 ## Project Dependency Setup
 
-> If yarn is not yet installed on your computer, run:
-- `npm install --global yarn` - to install yarn globally
+1. If Yarn is not yet installed on your development environemnt, install Yarn globally:
+```bash
+npm install -g yarn
+```
 
-> Once yarn is installed, just run:
-- `yarn install` - to install the dependencies
+2. Once Yarn is installed, navigate into the root directory of the repository and install the project dependencies using the CLI:
+```bash
+yarn
+```
 
-> Once dependencies have been installed, run:
-- `yarn start` - to start the server
-- `yarn build` - to compile the application
-- `yarn test` - to run jest tests
+3. Once the project dependencies have been installed, run project scripts to get started.
+```json
+    "build": "webpack --mode development -w",
+    "p:build": "webpack --mode production",
+    "start": "nodemon ./server/start.js",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage --colors"
+```
 
-> To view the webpage:
+	yarn build && yarn start
+
+Once the project is compiled and server started, you can view the project:
 * Navigate to http://localhost:3000/
-
-## Technologies-Used
-
-> Front-End: Implemented advanced front-end frameworks.
-
-- [React](https://reactjs.org/)
-- [Redux](https://redux.js.org/)
-
-> Back-End: Implemented a RESTful API server.
-
-- [Node.js](https://nodejs.org/en/)
-- [Express](https://expressjs.com)
-
-> Testing: MAYBE DESCRIBE WHAT YOU IMPLEMENTED AND CHANGE OR ADD TESTING TECHNOLOGIES
-
-- [Enzyme](https://enzymejs.github.io/enzyme/)
-- [Jest](https://jestjs.io/docs/en/api)
-
-## Accessibility-and-Performance
-
-Our application has __MAYBE ACCESSIBILITY PERCENTAGE__ and high performance levels.
-For example
-
-- The business requirements demanded:
-	- Time to First Paint of 0.8 seconds
-  - Time to First Meaningful Paint: 2.0 seconds
-  - Time to Interactive: 2.5 seconds
-- Our application's performance
-  - MAYBE
-  - MAYBE
-  - MAYBE
 
 ---
 
-### Product Overview Synopsis
+# Product Overview Component
 This compnentMAYBEwidget, following the business requirements, contains:
 
 - An image gallery of the photos in the database of the current product. The image gallery contains the following features:
@@ -87,11 +78,12 @@ This compnentMAYBEwidget, following the business requirements, contains:
   - A description of the product
   - A list of features that the product possesses
 
-> ![](gifs/Overview.gif)
+![](gifs/Overview.gif)
 
 ---
+---
 
-### Related Products Synopsis
+# Related Items Component
 This compnentMAYBEwidget, following the business requirements, contains:
 
 -MAYBE YOU DESCRIBE WHATEVER YOU WANT HERE
