@@ -29,15 +29,23 @@ Using **React** and **Redux** as the primary tools, the new Atelier Product Deta
 
 ---
 
-![](gifs/FEC.gif)
-
 ## Table of Contents
 
-1. [Project Dependencies](#Project-Dependency-Setup)
-2. [Product Overview Component](#Product-Overview-Component)
-3. [Related Items Component](#Related-Items-Component)
-4. [Redux](#Redux)
+1. [Project Initialization](#Project-Initialization)
+2. [Product Overview Component: Owned by Eren Serpin](#Product-Overview-Component)
+3. [Related Items Component: Owned by Kenny Tran](#Related-Items-Component)
+    * [Image Carousel](#Image-Carousel)
+    * [Dynamic Scrolling](#Dynamic-Scrolling)
+    * [Comparing Modal](#Comparing-Modal)
+    * [Adding and Removing Outfits](#Adding-and-Removing-Outfits)
+    * [Chaing Products](#Changing-Products)
+    * [Testing](#Testing)
+    * [Custom Hooks](#Custom-Hooks)
+5. [Redux](#Redux)
 
+---
+
+![](gifs/FEC.gif)
 
 ## Project Initialization
 
