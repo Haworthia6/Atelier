@@ -12,7 +12,7 @@ Built with a two-person team, Atelier's Product Detail page reqiured a rework in
 ## Built With
 > Frontend
 
-<img src="https://img.shields.io/badge/Framework-React-%2362DAFB?logo=react"/> <img src="https://img.shields.io/badge/State%20Management-Redux-blueviolet?logo=redux"/> <img src="https://img.shields.io/badge/Styling-SCSS-ff69b4?logo=sass"/> <img src="https://img.shields.io/badge/Bundler-Webpack-%2375AFCC?logo=webpack"/>
+<img src="https://img.shields.io/badge/Framework-React-%2362DAFB?logo=react"/> <img src="https://img.shields.io/badge/State%20Management-Redux-blueviolet?logo=redux"/> <img src="https://img.shields.io/badge/Styling-SCSS-ff69b4?logo=sass"/> <img src="https://img.shields.io/badge/Bundler-Webpack-%2375AFCC?logo=webpack"/> <img src="https://img.shields.io/badge/Routing-React%20Router-%23CA4245?logo=react-router"/>
 
 > Testing
 
