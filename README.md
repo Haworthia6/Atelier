@@ -1,4 +1,5 @@
-# Atelier - An E-Commerce Platform For East-Coast Millenials
+# Atelier 
+ An e-Commerce Platform For East Coast Millenials
 
 Built with a two-person team, Atelier's Product Detail page reqiured a rework in order to attract younger customers with a sleek view while also building with future scalability in mind. The company also required use of their REST API, which was blackboxed.
 
