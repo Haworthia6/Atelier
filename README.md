@@ -8,8 +8,8 @@ Built with a two-person team, Atelier's Product Detail page reqiured a rework in
 Using **React** and **Redux** as the primary tools, the new Atelier Product Detail page offers seamless tied functionality between components that were built modularly. Strong regard was given to reusable components that may be used in other parts of the codebase. For styling, SCSS was used as a preprocessor, again, with reusability kept in mind. Overall, the construction aimed to be both highly operational and eye-catching.
 
 # Team
-- Eren Serpin : [Product Overview Component](#Product-Overview-Component)
-- Kenny Tran  : [Related Items Component](#Related-Items-Component)  
+- Eren Serpin : [Product Overview](#Product-Overview-Component)
+- Kenny Tran  : [Related Items](#Related-Items-And-Outfits-Component)  
 
 --- 
 
@@ -32,13 +32,13 @@ Using **React** and **Redux** as the primary tools, the new Atelier Product Deta
 ## Table of Contents
 
 1. [Project Initialization](#Project-Initialization)
-2. [Product Overview Component: Owned by Eren Serpin](#Product-Overview-Component)
-3. [Related Items Component: Owned by Kenny Tran](#Related-Items-Component)
+2. [Product Overview Component](#Product-Overview-Component) : Owned by Eren Serpin
+3. [Related Items Component](#Related-Items-And-Outfits-Component) : Owned by Kenny Tran
     * [Image Carousel](#Image-Carousel)
     * [Dynamic Scrolling](#Dynamic-Scrolling)
     * [Comparing Modal](#Comparing-Modal)
     * [Adding and Removing Outfits](#Adding-and-Removing-Outfits)
-    * [Chaing Products](#Changing-Products)
+    * [Changing Products](#Changing-Products)
     * [Testing](#Testing)
     * [Custom Hooks](#Custom-Hooks)
 5. [Redux](#Redux)
@@ -97,7 +97,14 @@ This compnentMAYBEwidget, following the business requirements, contains:
 ---
 ---
 
-# Related Items Component
+# Related Items And Outfits Component
+*project owner: Kenny Tran*
+
+Every main product has a series of Related Items. Those Items are to retrieved and displayed.
+
+The Outfits section allows users to add the main product as an item in their Outfit. They cannot store the same item twice and Outfits are stored in localStorage so users can expect previous changes (additions and deletions) to persist between visits.
+
+Both the Cards within the Related Products and the Outfits are built using a reusable component, but their action buttons have different functions.
 
 ![image](https://user-images.githubusercontent.com/74506521/118346234-8969bb00-b4ff-11eb-9c81-0d79444c5c83.png)
 
@@ -114,6 +121,14 @@ This compnentMAYBEwidget, following the business requirements, contains:
 ---
 
 ### Image Carousel
+
+- *Features*
+    - Built with a doubly-linked-list
+        + 4 image pagination
+        + Conditional rendering of left and right scroll arrows
+    - Images within divs to proportionally fit images to containers
+    - Animations for each image as well as arrows to add a sense of weight and interactivity to Carousel
+    - On click the main image of the Card changes to the Carousel Image clicked  
 
 ![Alt Text](http://g.recordit.co/vSVtyFsKG4.gif)
 
