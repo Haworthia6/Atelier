@@ -1,7 +1,11 @@
 # Atelier 
- An e-Commerce Platform For East Coast Millenials
+ An e-Commerce platform for east coast millenials.
+ 
+Atelier is a company best described with the words, *"minimal"*, *"sleek"*, *"aloof"*. The product reflects an east coast minimalist nature that NYC is well known for and the site should reflect that. 
 
-Built with a two-person team, Atelier's Product Detail page reqiured a rework in order to attract younger customers with a sleek view while also building with future scalability in mind. The company also required use of their REST API, which was blackboxed.
+Built with a two-person team, Atelier's Product Detail page reqiured a rework in order to attract younger customers with a sleek view while noting the possibility of future scaling. The company also required use of their REST API, which was blackboxed. 
+
+Using **React** and **Redux** as the primary tools, the new Atelier Product Detail page offers seamless tied functionality between components that were built modularly. Strong regard was given to reusable components that may be used in other parts of the codebase. For styling, SCSS was used as a preprocessor, again, with reusability kept in mind. Overall, the construction aimed to be both highly operational and eye-catching.
 
 # Team
 - Eren Serpin : [Product Overview Component](#Product-Overview-Component)
